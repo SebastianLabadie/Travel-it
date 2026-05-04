@@ -1,9 +1,64 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { ChecklistView } from '../components/checklist/ChecklistView';
+import { getChecklist } from '../lib/trip';
+
+const categories = await getChecklist();
 ---
 
 <BaseLayout title="Patagonia · Checklist" activeTab="checklist">
-  <p style="padding: 24px; font-family: var(--font-mono); font-size: 0.75rem; color: var(--color-stone);">
-    Checklist — próximamente en PR-5.
-  </p>
+  <ChecklistView
+    client:only="preact"
+    categories={categories}
+  />
 </BaseLayout>
+
+<style>
+  /*
+   * Responsive layout switching for ChecklistView.
+   * .chk-mobile  — single-column accordion stack (< 1024px)
+   * .chk-desktop — 2-column grid, all categories open (>= 1024px)
+   *
+   * Both are rendered by the island; CSS controls visibility.
+   * This avoids hydration mismatch.
+   */
+
+  :global(.chk-header) {
+    padding: 14px 20px 14px;
+    border-bottom: 1px solid var(--color-rule);
+  }
+
+  :global(.chk-title) {
+    font-size: 36px;
+  }
+
+  :global(.chk-mobile) {
+    display: block;
+    padding: 0 20px 80px; /* 80px clears mobile TabBar */
+  }
+
+  :global(.chk-desktop) {
+    display: none;
+  }
+
+  @media (min-width: 1024px) {
+    :global(.chk-header) {
+      padding: 24px 32px 16px;
+    }
+
+    :global(.chk-title) {
+      font-size: 38px;
+    }
+
+    :global(.chk-mobile) {
+      display: none;
+    }
+
+    :global(.chk-desktop) {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px 48px;
+      padding: 24px 32px;
+    }
+  }
+</style>

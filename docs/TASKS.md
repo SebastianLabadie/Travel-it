@@ -11,7 +11,7 @@
 | [#3](https://github.com/SebastianLabadie/Travel-it/pull/3) | PR-2 data layer | `feat/pr-2-data-layer` | 🟡 abierto |
 | [#4](https://github.com/SebastianLabadie/Travel-it/pull/4) | PR-3 mapa | `feat/pr-3-map` | 🟡 abierto (size:exception) |
 | [#5](https://github.com/SebastianLabadie/Travel-it/pull/5) | PR-4 itinerario | `feat/pr-4-itinerary` | 🟡 abierto (size:exception) |
-| — | PR-5 checklist | `feat/pr-5-checklist` | ⚪ pendiente |
+| [#6](https://github.com/SebastianLabadie/Travel-it/pull/6) | PR-5 checklist | `feat/pr-5-checklist` | 🟡 abierto (size:exception) |
 | — | PR-6 polish + deploy | `feat/pr-6-polish` | ⚪ pendiente |
 
 > **Cambios sobre PRD v0.1**: el diseño en `design/DESIGN.md` define **Leaflet 1.9.4 + CARTO Voyager** (raster tiles, sin token) en vez de MapLibre. Se adopta Leaflet para no rehacer la animación de trazado ya prototipada en `design/map-real.jsx`.
@@ -191,29 +191,31 @@
 
 ---
 
-## Fase 6 — Pantalla Checklist (`/checklist`)
+## Fase 6 — Pantalla Checklist (`/checklist`) · ✅ PR-5
 
-- [ ] **6.1** Crear `src/pages/checklist.astro`.
-- [ ] **6.2** Crear store Zustand 5 con middleware `persist`:
+- [x] **6.1** Crear `src/pages/checklist.astro`.
+- [x] **6.2** Crear store Zustand 5 con middleware `persist`:
   - `src/stores/checklist.ts`.
   - State: `Record<string, boolean>` (id de item → checked).
   - Key localStorage: `travel-it:checklist:v1`.
   - Actions: `toggle(id)`, `reset()`.
   - Versión schema en clave por si cambia data.
-- [ ] **6.3** Crear `src/components/checklist/ChecklistView.tsx` Preact island:
+- [x] **6.3** Crear `src/components/checklist/ChecklistView.tsx` Preact island:
   - Header: eyebrow mono `03 · CHECKLIST` + título display 36px (mobile) / 38px (desktop) `La preparación.`
   - Progress bar: número grande display 32–42px + `%` + ratio mono `done/total`. Bar height 4px, fill `moss`.
   - Mobile: 7 categorías colapsables apiladas (acordeón).
   - Desktop: grid `repeat(2, 1fr)` gap `24px 48px`, todas las categorías abiertas.
-- [ ] **6.4** Componente `<Category>` con header clickeable (mobile colapsa, desktop fijo):
+- [x] **6.4** Componente `<Category>` con header clickeable (mobile colapsa, desktop fijo):
   - Número mono + nombre italic + ratio `done/total` (mono, color `moss` si completo) + chevron.
   - Animación de chevron con `transform: rotate(180deg)` cuando abierto.
-- [ ] **6.5** Componente `<ChecklistItem>`:
+- [x] **6.5** Componente `<ChecklistItem>`:
   - Checkbox custom 16×16 border 1.5px fg, sin radius. Checked → bg `fg`, ✓ paper.
   - Label body 13px. Checked → line-through + opacity 0.5.
   - Note opcional mono 10px stone.
   - Border-bottom 1px dashed rule.
-- [ ] **6.6** Botón Reset con confirmación nativa (`window.confirm`) que limpia el store + localStorage.
+- [x] **6.6** Botón Reset con confirmación nativa (`window.confirm`) que limpia el store + localStorage.
+
+**PR-5 quality gates: astro check ✅ (0 errors) · build ✅ (1.28s, 3 pages)**
 
 ---
 
