@@ -1,46 +1,94 @@
-# Astro Starter Kit: Basics
+# Travel·it — Patagonia 2026
 
-```sh
-npm create astro@latest -- --template basics
+Sitio de viaje grupal para la Patagonia, noviembre–diciembre 2026.
+Muestra la ruta completa en mapa interactivo, el itinerario de 18 días y el checklist de preparación.
+
+Construido con Astro 6 + Preact 10 + Leaflet 1.9.4. Sin backend. Datos en `src/content/`.
+
+---
+
+## Desarrollo
+
+```bash
+npm install
+npm run dev      # servidor local en http://localhost:4321
+npm run build    # build estático a ./dist/
+npm run preview  # preview del build antes de deployar
 ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+### Verificación de tipos
 
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
-/
-├── public/
-│   └── favicon.svg
-├── src
-│   ├── assets
-│   │   └── astro.svg
-│   ├── components
-│   │   └── Welcome.astro
-│   ├── layouts
-│   │   └── Layout.astro
-│   └── pages
-│       └── index.astro
-└── package.json
+```bash
+npx astro check  # TypeScript + validación de content collections (debe dar 0 errores)
 ```
 
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
+---
 
-## 🧞 Commands
+## Estructura del proyecto
 
-All commands are run from the root of the project, from a terminal:
+```
+src/
+├── content/               # Datos del viaje (Zod-validados en build)
+│   ├── destinations/      # 6 archivos JSON — un destino por archivo
+│   ├── days/              # 18 archivos JSON — un día por archivo (ISO date)
+│   ├── routes/            # 5 archivos JSON — segmentos de ruta
+│   └── checklist-items/   # 7 archivos JSON — categorías con items
+├── components/
+│   ├── map/               # PatagoniaMap (isla Preact + Leaflet)
+│   ├── itinerary/         # ItineraryView (isla Preact, doble vista)
+│   ├── checklist/         # ChecklistView (isla Preact + Zustand)
+│   └── nav/               # TopNav (desktop) + TabBar (mobile)
+├── layouts/
+│   └── BaseLayout.astro   # HTML base, fonts, skip-link, nav
+├── lib/
+│   ├── types.ts           # Tipos inferidos de las collections
+│   └── trip.ts            # Helpers de consulta (getDestinations, getDays, etc.)
+├── stores/
+│   └── checklist.ts       # Zustand store con persist (localStorage)
+└── styles/
+    └── global.css         # @theme tokens + reset + focus rings + reduced-motion
+```
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+---
 
-## 👀 Want to learn more?
+## Editar el contenido del viaje
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+### Destinos
+
+Editá `src/content/destinations/<N>-<slug>.json`. Campos: `slug`, `name`, `country`, `coords`, `startDate`, `endDate`, `nights`, `summary`, `activities`, `stay`, `out`.
+
+### Días del itinerario
+
+Editá `src/content/days/<YYYY-MM-DD>.json`. Campos: `date`, `dest`, `main`, `transfer`, `critical`, `note`.
+
+### Items del checklist
+
+Editá `src/content/checklist-items/<N>-<id>.json`. Cada archivo es una categoría con un array de `items` (id, label, note, link).
+
+### Rutas del mapa
+
+Editá `src/content/routes/<id>.json`. Campos: `id`, `from`, `to`, `mode`, `coords`.
+
+El build valida todos los archivos con Zod y falla ruidosamente si hay datos inválidos.
+
+---
+
+## Deploy
+
+El proyecto usa `@astrojs/vercel` como adaptador SSG. El build genera archivos estáticos en `./dist/`.
+
+```bash
+npm run build   # genera dist/
+# subir dist/ a Vercel, Netlify o Cloudflare Pages
+```
+
+---
+
+## Creditos
+
+- [Astro](https://astro.build) — framework SSG
+- [Preact](https://preactjs.com) — islands de interactividad
+- [Leaflet](https://leafletjs.com) — mapa interactivo
+- [CARTO Voyager](https://carto.com/basemaps/) — tiles del mapa (sin token)
+- [Zustand](https://zustand-demo.pmnd.rs) — estado del checklist
+- [Zod](https://zod.dev) — validación de schemas en build
