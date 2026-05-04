@@ -13,7 +13,7 @@
 | [#5](https://github.com/SebastianLabadie/Travel-it/pull/5) | PR-4 itinerario | `feat/pr-4-itinerary` | ✅ merged (size:exception) |
 | [#6](https://github.com/SebastianLabadie/Travel-it/pull/6) | PR-5 checklist | `feat/pr-5-checklist` | ✅ merged (size:exception) |
 | [#7](https://github.com/SebastianLabadie/Travel-it/pull/7) | PR-6 polish + deploy | `feat/pr-6-polish` | ✅ merged |
-| TBD | PR-7 origin MVD | `feat/mvd-origin` | 🟡 en curso |
+| [#8](https://github.com/SebastianLabadie/Travel-it/pull/8) | PR-7 origin MVD | `feat/mvd-origin` | 🟡 abierto |
 
 > **Cambios sobre PRD v0.1**: el diseño en `design/DESIGN.md` define **Leaflet 1.9.4 + CARTO Voyager** (raster tiles, sin token) en vez de MapLibre. Se adopta Leaflet para no rehacer la animación de trazado ya prototipada en `design/map-real.jsx`.
 
