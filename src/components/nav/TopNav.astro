@@ -1,0 +1,121 @@
+---
+interface Props {
+  active: 'home' | 'itinerario' | 'checklist';
+}
+
+const { active } = Astro.props;
+
+const tabs = [
+  { id: 'home',       label: 'HOME',       num: '01', href: '/'           },
+  { id: 'itinerario', label: 'ITINERARIO', num: '02', href: '/itinerario' },
+  { id: 'checklist',  label: 'CHECKLIST',  num: '03', href: '/checklist'  },
+] as const;
+---
+
+<header>
+  <nav
+    class="top-nav"
+    aria-label="Navegación principal"
+  >
+    <!-- Brand -->
+    <div class="top-nav__brand">
+      <span class="top-nav__brand-title">Travel·it</span>
+      <span class="top-nav__brand-eyebrow">PATAGONIA · 2026</span>
+    </div>
+
+    <!-- Tabs -->
+    <div class="top-nav__tabs" role="tablist" aria-label="Secciones">
+      {tabs.map((tab) => (
+        <a
+          href={tab.href}
+          role="tab"
+          aria-selected={active === tab.id}
+          aria-current={active === tab.id ? 'page' : undefined}
+          class:list={['top-nav__tab', { 'top-nav__tab--active': active === tab.id }]}
+        >
+          {tab.num} · {tab.label}
+        </a>
+      ))}
+    </div>
+
+    <!-- Meta -->
+    <div class="top-nav__meta" aria-label="Fechas del viaje">
+      21·NOV → 08·DIC · 5 PAX
+    </div>
+  </nav>
+</header>
+
+<style>
+  .top-nav {
+    display: none; /* hidden on mobile */
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 32px;
+    border-bottom: 1px solid var(--color-rule);
+    background: var(--color-bg);
+  }
+
+  @media (min-width: 1024px) {
+    .top-nav {
+      display: flex;
+    }
+  }
+
+  .top-nav__brand {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+  }
+
+  .top-nav__brand-title {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: 1.375rem; /* 22px */
+    color: var(--color-fg);
+    line-height: 1;
+  }
+
+  .top-nav__brand-eyebrow {
+    font-family: var(--font-mono);
+    font-size: 0.625rem; /* 10px */
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--color-stone);
+  }
+
+  .top-nav__tabs {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+
+  .top-nav__tab {
+    font-family: var(--font-mono);
+    font-size: 0.6875rem; /* 11px */
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: var(--color-fg);
+    padding: 8px 16px;
+    border-radius: 0;
+    transition: background 0.15s, color 0.15s;
+  }
+
+  .top-nav__tab:focus-visible {
+    outline: 2px solid var(--color-fg);
+    outline-offset: 2px;
+  }
+
+  .top-nav__tab--active {
+    background: var(--color-fg);
+    color: var(--color-paper);
+  }
+
+  .top-nav__meta {
+    font-family: var(--font-mono);
+    font-size: 0.625rem; /* 10px */
+    letter-spacing: 0.14em;
+    color: var(--color-stone);
+    text-transform: uppercase;
+  }
+</style>

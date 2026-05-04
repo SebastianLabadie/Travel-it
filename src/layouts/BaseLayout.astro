@@ -1,0 +1,89 @@
+---
+import TopNav from '../components/nav/TopNav.astro';
+import TabBar from '../components/nav/TabBar.astro';
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description?: string;
+  activeTab: 'home' | 'itinerario' | 'checklist';
+}
+
+const {
+  title,
+  description = 'Viaje grupal a la Patagonia, Nov–Dic 2026.',
+  activeTab,
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+
+    <!-- Google Fonts: preconnect -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <!-- Preload Fraunces 400 italic for display text -->
+    <link
+      rel="preload"
+      as="font"
+      type="font/woff2"
+      href="https://fonts.gstatic.com/s/fraunces/v31/6NUu8FyLNQOQZAnv9ZwNjucMHVn85Ni7emAe9lKqZTnDiw.woff2"
+      crossorigin
+    />
+
+    <!-- Fonts: Fraunces (variable, italic), Inter (300–600), JetBrains Mono (400–600) -->
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..600;1,9..144,400..600&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;600&display=swap"
+    />
+  </head>
+  <body>
+    <!-- Skip link (a11y) -->
+    <a href="#main" class="skip-link">Saltar al contenido</a>
+
+    <TopNav active={activeTab} />
+
+    <main id="main">
+      <slot />
+    </main>
+
+    <TabBar active={activeTab} />
+  </body>
+</html>
+
+<style>
+  /* Skip link: visually hidden until focused */
+  .skip-link {
+    position: absolute;
+    top: -100%;
+    left: 0;
+    background: var(--color-fg);
+    color: var(--color-paper);
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    padding: 8px 16px;
+    text-decoration: none;
+    z-index: 9999;
+  }
+
+  .skip-link:focus {
+    top: 0;
+  }
+
+  /* Add bottom padding on mobile so content clears the TabBar */
+  main {
+    padding-bottom: 64px;
+  }
+
+  @media (min-width: 1024px) {
+    main {
+      padding-bottom: 0;
+    }
+  }
+</style>
