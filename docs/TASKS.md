@@ -10,7 +10,7 @@
 | [#2](https://github.com/SebastianLabadie/Travel-it/pull/2) | PR-1 bootstrap | `feat/pr-1-bootstrap` | 🟡 abierto |
 | [#3](https://github.com/SebastianLabadie/Travel-it/pull/3) | PR-2 data layer | `feat/pr-2-data-layer` | 🟡 abierto |
 | [#4](https://github.com/SebastianLabadie/Travel-it/pull/4) | PR-3 mapa | `feat/pr-3-map` | 🟡 abierto (size:exception) |
-| — | PR-4 itinerario | `feat/pr-4-itinerary` | ⚪ pendiente |
+| — | PR-4 itinerario | `feat/pr-4-itinerary` | 🟡 abierto |
 | — | PR-5 checklist | `feat/pr-5-checklist` | ⚪ pendiente |
 | — | PR-6 polish + deploy | `feat/pr-6-polish` | ⚪ pendiente |
 
@@ -160,32 +160,34 @@
 
 ---
 
-## Fase 5 — Pantalla Itinerario (`/itinerario`)
+## Fase 5 — Pantalla Itinerario (`/itinerario`) · ✅ PR-4
 
-- [ ] **5.1** Crear `src/pages/itinerario.astro`.
-- [ ] **5.2** Crear `src/components/itinerary/ItineraryView.tsx` (Preact island con `client:load` para manejar el toggle):
+- [x] **5.1** Crear `src/pages/itinerario.astro`.
+- [x] **5.2** Crear `src/components/itinerary/ItineraryView.tsx` (Preact island con `client:visible` para manejar el toggle):
   - Toggle "Destinos / Timeline" (segmented control, sin radius, border 1px fg).
-  - Estado local con `useState`. Persistir preferencia en localStorage opcional (`travel-it:itin-view:v1`).
-- [ ] **5.3** Mobile vista Destinos:
+  - Estado local con `useState`. Persistir preferencia en localStorage (`travel-it:itin-view:v1`).
+- [x] **5.3** Mobile vista Destinos:
   - Lista vertical de 6 cards.
   - Cada card: número mono + nombre italic 24px + país mono + placeholder rayado 64×64 + fechas + summary + chips de actividades (mono 9px en border 1px rule).
-- [ ] **5.4** Mobile vista Timeline:
+- [x] **5.4** Mobile vista Timeline:
   - Línea vertical 1px rule.
-  - 19 días con: fecha mono · pin (12×12 fg o warning si crítico) · destino italic + main + transfer (mono "↗ {transfer}") + nota crítica si aplica (paper bg, border-left 2px warning, mono 9px).
-- [ ] **5.5** Desktop:
+  - 18 días con: fecha mono · pin (12×12 fg o warning si crítico) · destino italic + main + transfer (mono "↗ {transfer}") + nota crítica si aplica (paper bg, border-left 2px warning, mono 9px).
+- [x] **5.5** Desktop:
   - Grid `320px 1fr 380px` — sidebar bases / detalle del destino seleccionado / lista de días.
   - Sidebar: lista clickeable de 6 destinos. Item seleccionado: bg `paper` + border-left 3px fg.
   - Detalle: nombre 44px display + summary + tabla de actividades con difficulty badge.
   - Días: timeline vertical igual que mobile pero con más respiro.
-- [ ] **5.6** Componente `<DifficultyBadge>` con 3 variantes:
+- [x] **5.6** Componente `<DifficultyBadge>` con 3 variantes:
   - `easy`: border `rule`, text `stone`.
   - `medium`: border + text `moss`.
   - `hard`: border + text `warning`.
   - Mono 9px uppercase 0.1em, padding 3×8.
-- [ ] **5.7** Día crítico — los 3 signals juntos:
+- [x] **5.7** Día crítico — los 3 signals juntos:
   - 1 elemento color `warning` (border-left, badge, accent).
   - Prefijo `!! CRÍTICO` o `!! INCLUYE DÍA CRÍTICO` mono uppercase.
   - Background sutil `${warning}08` o `${warning}10`.
+
+**PR-4 quality gates: astro check ✅ (0 errors) · build ✅ (1.34s)**
 
 ---
 
