@@ -1,0 +1,18 @@
+{
+  "slug": "ushuaia",
+  "order": 5,
+  "name": "Ushuaia",
+  "country": "AR",
+  "coords": [-68.3030, -54.8019],
+  "startDate": "4 dic",
+  "endDate": "8 dic",
+  "nights": 4,
+  "summary": "Fin del mundo. Beagle, Tierra del Fuego, Laguna Esmeralda. Cierre del viaje.",
+  "activities": [
+    { "title": "Navegación Canal Beagle", "difficulty": "easy", "hours": 4 },
+    { "title": "Laguna Esmeralda", "difficulty": "medium", "hours": 6 },
+    { "title": "Parque Nacional Tierra del Fuego", "difficulty": "medium", "hours": 7 }
+  ],
+  "stay": { "type": "Cabaña con vista al canal", "range": [70, 100] },
+  "out": "Vuelo a BUE · 8 dic"
+}

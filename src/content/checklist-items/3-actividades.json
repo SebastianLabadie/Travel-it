@@ -1,0 +1,12 @@
+{
+  "id": "actividades",
+  "order": 2,
+  "label": "Actividades",
+  "items": [
+    { "id": "ac1", "label": "Big Ice · Perito Moreno" },
+    { "id": "ac2", "label": "Permisos PN Los Glaciares" },
+    { "id": "ac3", "label": "Entrada Torres del Paine (CONAF)" },
+    { "id": "ac4", "label": "Navegación Canal Beagle" },
+    { "id": "ac5", "label": "Permiso PN Tierra del Fuego" }
+  ]
+}

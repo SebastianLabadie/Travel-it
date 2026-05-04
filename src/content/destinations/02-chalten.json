@@ -1,0 +1,18 @@
+{
+  "slug": "chalten",
+  "order": 1,
+  "name": "El Chaltén",
+  "country": "AR",
+  "coords": [-72.8868, -49.3315],
+  "startDate": "24 nov",
+  "endDate": "28 nov",
+  "nights": 4,
+  "summary": "Capital nacional del trekking. Fitz Roy, Cerro Torre, lagunas glaciares.",
+  "activities": [
+    { "title": "Laguna de los Tres (Fitz Roy)", "difficulty": "hard", "hours": 10 },
+    { "title": "Laguna Torre", "difficulty": "medium", "hours": 7 },
+    { "title": "Mirador Los Cóndores", "difficulty": "easy", "hours": 2 }
+  ],
+  "stay": { "type": "Hostel boutique", "range": [45, 70] },
+  "out": "Bus a Puerto Natales · ~9 h, paso Río Don Guillermo"
+}

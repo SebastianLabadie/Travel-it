@@ -1,14 +1,22 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { getDestinations, getDays, getRoutes, getChecklist } from '../lib/trip';
+
+const destinations = await getDestinations();
+const days = await getDays();
+const routes = await getRoutes();
+const checklist = await getChecklist();
 ---
 
 <BaseLayout title="Patagonia · Inicio" activeTab="home">
-  <section style="padding: 24px;">
-    <h1 style="font-family: var(--font-display); font-style: italic; font-size: 2.5rem; margin: 0 0 12px;">
-      Travel·it — Patagonia 2026
-    </h1>
-    <p style="font-family: var(--font-body); color: var(--color-stone);">
-      Página en construcción. Mapa, itinerario y checklist próximamente.
-    </p>
+  <section style="padding: 24px; font-family: var(--font-mono); font-size: 0.75rem; color: var(--color-stone);">
+    <p>data layer — PR-2 smoke test</p>
+    <ul style="margin-top: 8px; list-style: none; padding: 0; line-height: 2;">
+      <li>destinos: {destinations.length}</li>
+      <li>días: {days.length}</li>
+      <li>rutas: {routes.length}</li>
+      <li>categorías checklist: {checklist.length}</li>
+    </ul>
+    <p style="margin-top: 12px; color: var(--color-stone);">Mapa — próximamente en PR-3.</p>
   </section>
 </BaseLayout>
