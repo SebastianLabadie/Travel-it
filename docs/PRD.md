@@ -52,7 +52,9 @@ Una web estática responsive con tres features principales: (1) **mapa interacti
   - Torres del Paine → Puerto Natales → Punta Arenas
   - Punta Arenas → Ushuaia: incluye tramo de ferry en Estrecho de Magallanes (estilizado distinto al asfalto)
 - Zoom y pan funcionan en desktop (mouse + scroll) y mobile (pinch + drag).
-- Estilo de tiles vector gratuito (OpenFreeMap o Protomaps) — sin token pago.
+- Tile layer raster CARTO Voyager — sin token pago.
+- Animación de trazado: markers fade-in 280 ms, polyline interpolada con `requestAnimationFrame` 850 ms, field note del día crítico fade 380 ms al llegar a Ushuaia.
+- Botón replay + step indicator (`Etapa 03 / 06`).
 
 #### F2 — Itinerario
 
@@ -111,11 +113,11 @@ Una web estática responsive con tres features principales: (1) **mapa interacti
 
 ### Architecture Overview
 
-Aplicación Astro estática con islas React para interactividad. Sin servidor, sin DB. Toda la data del viaje vive en **content collections** tipados con Zod. El estado del checklist vive en localStorage gestionado por Zustand 5 con middleware `persist`.
+Aplicación Astro estática con islas Preact para interactividad. Sin servidor, sin DB. Toda la data del viaje vive en **content collections** tipados con Zod. El estado del checklist vive en localStorage gestionado por Zustand 5 con middleware `persist`.
 
 ```
 ┌─────────────────────────────────────────────────────┐
-│  Astro 5 (SSG)                                      │
+│  Astro 6 (SSG)                                      │
 │  ├── src/content/                                   │
 │  │   ├── destinations/  (MDX por destino)           │
 │  │   ├── days/          (JSON o MDX por día)        │
@@ -125,9 +127,9 @@ Aplicación Astro estática con islas React para interactividad. Sin servidor, s
 │  │   ├── itinerario.astro     → itinerario (C/D)   │
 │  │   └── checklist.astro      → checklist          │
 │  └── src/components/                                │
-│      ├── Map.tsx              (React island)       │
-│      ├── Itinerary.tsx        (React island)       │
-│      └── Checklist.tsx        (React island)       │
+│      ├── Map.tsx              (Preact island)       │
+│      ├── Itinerary.tsx        (Preact island)       │
+│      └── Checklist.tsx        (Preact island)       │
 └─────────────────────────────────────────────────────┘
                        │
                        ├── localStorage (checklist state)
@@ -138,16 +140,16 @@ Aplicación Astro estática con islas React para interactividad. Sin servidor, s
 
 | Capa | Tecnología | Versión |
 | :--- | :--- | :--- |
-| Framework | Astro | 5.x |
-| UI islands | React | 19 |
+| Framework | Astro | 6.x |
+| UI islands | Preact (con `@astrojs/preact` y `preact/compat`) | 10.x |
 | Styling | Tailwind CSS | 4.x |
 | Lenguaje | TypeScript | strict mode |
 | State management | Zustand | 5.x (con middleware `persist`) |
-| Mapa | MapLibre GL JS | ^4 |
-| Tiles | OpenFreeMap o Protomaps | gratuito, sin token |
+| Mapa | Leaflet | 1.9.4 |
+| Tiles | CARTO Voyager (raster, sin token) | — |
 | Validación schemas | Zod | 4.x |
 | Content | Astro Content Collections | con loaders + Zod schemas |
-| Build / deploy | TBD (Vercel o Netlify, free tier) | — |
+| Build / deploy | Vercel (free tier) | — |
 
 ### Data Model
 
@@ -213,8 +215,8 @@ const routeSegmentSchema = z.object({
 
 ### Integration Points
 
-- **MapLibre GL**: cargar como island React, lazy-load del bundle (~200 KB gzip).
-- **Tiles**: OpenFreeMap (`https://tiles.openfreemap.org/styles/liberty`) o Protomaps self-hosted PMTiles. Decisión final en design phase.
+- **Leaflet 1.9.4**: importado vía `npm` (no CDN). Lazy-load del bundle como Preact island con `client:visible`.
+- **Tiles**: CARTO Voyager `https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png` (subdomains `abcd`, maxZoom 12, minZoom 4).
 - **localStorage**: clave única `travel-it:checklist:v1`. Schema versionado para migración futura.
 - **Content collections**: `astro:content` API, build-time validation con Zod.
 
@@ -256,7 +258,7 @@ const routeSegmentSchema = z.object({
 
 #### MVP (v1.0)
 
-- [ ] Setup Astro 5 + React 19 + Tailwind 4 + TS strict.
+- [ ] Setup Astro 6 + Preact 10 + Tailwind 4 + TS strict.
 - [ ] Content collections para destinations, days, checklist items, route segments.
 - [ ] Migración del contenido de `docs/Patagonia_2026.md` a content collections.
 - [ ] F1 — Mapa con 6 markers + rutas reales de traslado (GeoJSON).
@@ -283,16 +285,16 @@ const routeSegmentSchema = z.object({
 
 | Riesgo | Probabilidad | Mitigación |
 | :--- | :--- | :--- |
-| Tiles gratuitos (OpenFreeMap) caen o cambian terms | Baja | Fallback a Protomaps self-hosted PMTiles. |
-| Bundle de MapLibre infla LCP | Media | Lazy-load del componente Map; cargar solo en home; preload tiles del bbox de Patagonia. |
+| CARTO Voyager cae o cambia terms | Baja | Fallback a OpenStreetMap raster (`tile.openstreetmap.org`) — un cambio de URL, mismo formato. |
+| Bundle de Leaflet infla LCP | Baja | Leaflet pesa ~42 KB gzip. Lazy-load con `client:visible` mantiene LCP bajo. |
 | Schema de localStorage cambia y pisa estado existente | Media | Versionado de clave (`v1`, `v2`...) + función de migración. |
 | GeoJSON de rutas reales muy pesado | Baja | Simplificar geometrías con `mapshaper` o `simplify-geojson`. |
 | Content collections + Zod no escalan si crece mucho la data | Muy baja | El dataset es finito (1 viaje). Sin riesgo real. |
 
 ### Open Questions
 
-- [ ] Hosting target: Vercel vs Netlify vs Cloudflare Pages — definir en design phase.
-- [ ] Tiles: OpenFreeMap directo vs Protomaps self-hosted — depende de presupuesto de hosting.
+- [x] Hosting target: **Vercel** (free tier).
+- [x] Mapa: **Leaflet 1.9.4 + CARTO Voyager** (decisión propagada del design system).
 - [ ] ¿Imágenes de cada destino se incluyen en MVP o se difieren a v1.1? (afecta scope).
 - [ ] ¿Items concretos del checklist los defino yo desde el doc, o se llenan iterativamente? (no bloquea arquitectura).
 
