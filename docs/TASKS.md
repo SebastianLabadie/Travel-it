@@ -9,7 +9,7 @@
 | [#1](https://github.com/SebastianLabadie/Travel-it/pull/1) | PR-0 docs | `feat/pr-0-docs` | 🟡 abierto |
 | [#2](https://github.com/SebastianLabadie/Travel-it/pull/2) | PR-1 bootstrap | `feat/pr-1-bootstrap` | 🟡 abierto |
 | [#3](https://github.com/SebastianLabadie/Travel-it/pull/3) | PR-2 data layer | `feat/pr-2-data-layer` | 🟡 abierto |
-| TBD | PR-3 mapa | `feat/pr-3-map` | 🟡 abierto (size:exception) |
+| [#4](https://github.com/SebastianLabadie/Travel-it/pull/4) | PR-3 mapa | `feat/pr-3-map` | 🟡 abierto (size:exception) |
 | — | PR-4 itinerario | `feat/pr-4-itinerary` | ⚪ pendiente |
 | — | PR-5 checklist | `feat/pr-5-checklist` | ⚪ pendiente |
 | — | PR-6 polish + deploy | `feat/pr-6-polish` | ⚪ pendiente |
