@@ -26,4 +26,5 @@ pnpm-debug.log*
 # agent teams lite (skill registry cache)
 .atl/
 
+design/
 

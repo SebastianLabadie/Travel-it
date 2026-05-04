@@ -13,6 +13,7 @@
   },
   "dependencies": {
     "@astrojs/preact": "^5.1.2",
+    "@google/design.md": "^0.1.1",
     "astro": "^6.2.1",
     "preact": "^10.29.1"
   }
