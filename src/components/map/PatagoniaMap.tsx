@@ -69,7 +69,7 @@ export default function PatagoniaMap({
         attributionControl: false,
         scrollWheelZoom: false,
         dragging: !staticMode,
-        keyboard: false,
+        keyboard: true,
       } as import('leaflet').MapOptions);
 
       // Patagonia bounding box per AC-F1-02
@@ -350,7 +350,7 @@ export default function PatagoniaMap({
   const totalStops = destinations.length;
   const stepLabel =
     step < 0
-      ? 'Trazando ruta…'
+      ? `Etapa 00 / ${String(totalStops).padStart(2, '0')}`
       : `Etapa ${String(step + 1).padStart(2, '0')} / ${String(totalStops).padStart(2, '0')}`;
 
   return (
@@ -412,6 +412,51 @@ export default function PatagoniaMap({
             }}
           >
             {stepLabel}
+          </div>
+
+          {/* Compass rose — decorative, bottom-right above replay */}
+          <div
+            aria-hidden="true"
+            style={{
+              position: 'absolute',
+              right: 10,
+              bottom: 46,
+              zIndex: 500,
+              width: 28,
+              height: 28,
+              pointerEvents: 'none',
+            }}
+          >
+            <svg
+              width="28"
+              height="28"
+              viewBox="0 0 28 28"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              {/* N pointer */}
+              <polygon
+                points="14,2 11,14 14,11 17,14"
+                fill="var(--color-fg)"
+              />
+              {/* S pointer */}
+              <polygon
+                points="14,26 11,14 14,17 17,14"
+                fill="var(--color-stone)"
+              />
+              {/* Center dot */}
+              <circle cx="14" cy="14" r="2" fill="var(--color-fg)" />
+              {/* N label */}
+              <text
+                x="14"
+                y="1"
+                textAnchor="middle"
+                fontFamily="var(--font-mono)"
+                fontSize="5"
+                fill="var(--color-fg)"
+                fontWeight="600"
+              >N</text>
+            </svg>
           </div>
 
           {/* Replay button — bottom right */}

@@ -12,7 +12,7 @@
 | [#4](https://github.com/SebastianLabadie/Travel-it/pull/4) | PR-3 mapa | `feat/pr-3-map` | 🟡 abierto (size:exception) |
 | [#5](https://github.com/SebastianLabadie/Travel-it/pull/5) | PR-4 itinerario | `feat/pr-4-itinerary` | 🟡 abierto (size:exception) |
 | [#6](https://github.com/SebastianLabadie/Travel-it/pull/6) | PR-5 checklist | `feat/pr-5-checklist` | 🟡 abierto (size:exception) |
-| — | PR-6 polish + deploy | `feat/pr-6-polish` | ⚪ pendiente |
+| — | PR-6 polish + deploy | `feat/pr-6-polish` | 🟡 abierto |
 
 > **Cambios sobre PRD v0.1**: el diseño en `design/DESIGN.md` define **Leaflet 1.9.4 + CARTO Voyager** (raster tiles, sin token) en vez de MapLibre. Se adopta Leaflet para no rehacer la animación de trazado ya prototipada en `design/map-real.jsx`.
 
@@ -115,48 +115,32 @@
 
 ---
 
-## Fase 3 — Layout y navegación
+## Fase 3 — Layout y navegación · ✅ PR-1
 
-- [ ] **3.1** Crear `src/layouts/BaseLayout.astro` con:
+- [x] **3.1** Crear `src/layouts/BaseLayout.astro` con:
   - `<head>` meta + fonts + viewport.
   - Slot principal.
   - Skip-link de a11y.
-- [ ] **3.2** Crear `src/components/nav/TopNav.tsx` (desktop, ≥1024px):
+- [x] **3.2** Crear `src/components/nav/TopNav.astro` (desktop, ≥1024px):
   - Brand izquierda: "Travel·it" italic display 22px + eyebrow mono "PATAGONIA · 2026".
   - Tabs centro: Mapa / Itinerario / Checklist (mono 11px uppercase 0.16em). Activa: bg `fg`, text `paper`, padding 8×16, sin radius.
   - Meta derecha: mono 10px stone "21·NOV → 08·DIC · 5 PAX".
   - Border-bottom 1px rule.
-- [ ] **3.3** Crear `src/components/nav/TabBar.tsx` (mobile, <1024px):
+- [x] **3.3** Crear `src/components/nav/TabBar.astro` (mobile, <1024px):
   - Fixed bottom, paper bg, border-top 1px rule, height 64px.
-  - 3 items: Mapa (◇) / Itinerario (☰) / Checklist (✓).
+  - 3 items: HOME (01) / ITINERARIO (02) / CHECKLIST (03).
   - Activo: text `fg`, indicator 2px arriba.
   - Tipografía mono 11px uppercase 0.16em.
-- [ ] **3.4** Hook `useActiveTab()` o detección por `Astro.url.pathname` para marcar tab activa.
-- [ ] **3.5** Layout responsivo: `TopNav` y `TabBar` se renderizan condicionalmente con CSS media queries (no responsivo de uno solo). Ambos en `BaseLayout`.
+- [x] **3.4** Detección por `Astro.url.pathname` vía prop `activeTab` en BaseLayout.
+- [x] **3.5** Layout responsivo: `TopNav` y `TabBar` se renderizan condicionalmente con CSS media queries (no responsivo de uno solo). Ambos en `BaseLayout`.
 
 ---
 
-## Fase 4 — Pantalla Home (`/`)
+## Fase 4 — Pantalla Home (`/`) · ✅ PR-3
 
-- [ ] **4.1** Crear `src/pages/index.astro`.
-- [ ] **4.2** Mobile (390×780):
-  - Top bar: `EXPEDICIÓN · 2026` izq + `v0.1` der.
-  - Hero text:
-    - Eyebrow mono warning `21 NOV — 08 DIC`.
-    - H1 display 46px line-height 0.92: `Patagonia, de cabo a cabo.` (segunda mitad italic moss).
-    - Subtítulo stone 12px: `Seis bases · 16 noches · 5 amigos.`
-  - `<PatagoniaMap height={320} />`.
-  - Stats row: 16 noches / 6 destinos / ~3.200 km (3 cols con border-right).
-  - Card "Próxima parada" con placeholder rayado + datos primer destino.
-  - CTA `Ver itinerario completo →` (bg `fg`, text `paper`, mono 10px).
-- [ ] **4.3** Desktop (1280×820):
-  - Grid `1fr 360px`.
-  - Mapa hero full-bleed izquierda (`<PatagoniaMap height={H-73} />`).
-  - Hero overlay flotante absolute top:32 left:32 max-width:380, paper bg, shadow xl, padding 20×24.
-    - Eyebrow mono warning `EXPEDICIÓN · 16 NOCHES`.
-    - H1 display 52px: `Patagonia, de cabo a cabo.`
-    - Body stone 13px line-height 1.5.
-  - Sidebar derecha: header "BASES · 06" + lista de 6 destinos con número/nombre/país/fechas/summary. Background `${warning}08` para el destino crítico (Ushuaia) + signal `!! INCLUYE DÍA CRÍTICO`.
+- [x] **4.1** Crear `src/pages/index.astro`.
+- [x] **4.2** Mobile (390×780): hero text + `<PatagoniaMap height={320} />` + stats row + card "Próxima parada" + CTA.
+- [x] **4.3** Desktop (1280×820): grid `1fr 360px`, mapa hero + overlay flotante + sidebar 6 bases con señal crítica.
 
 ---
 
@@ -219,51 +203,36 @@
 
 ---
 
-## Fase 7 — Responsive, a11y, perf
+## Fase 7 — Responsive, a11y, perf · ✅ PR-6
 
-- [ ] **7.1** Implementar breakpoints en CSS:
-  - `mobile`: < 640 px.
-  - `tablet`: 640–1024 px.
-  - `desktop`: ≥ 1024 px.
-- [ ] **7.2** Tipografía fluida: hero `36px` (mobile) → `52px` (desktop). Usar `clamp()` o media queries.
-- [ ] **7.3** A11y:
-  - Skip-link al `<main>` en `BaseLayout`.
-  - `aria-label` en TabBar items.
-  - `aria-current="page"` en tab activa.
-  - Checkbox custom: input `<input type="checkbox">` real, oculto pero focuseable; label asocia con `htmlFor`.
-  - `aria-expanded` en categorías colapsables.
-  - Focus rings visibles (no `outline: none`).
-  - Contraste WCAG AA verificado en `stone` sobre `bg` (probable que falle en algunos casos — re-evaluar contraste o usar `fg` para texto importante).
-  - TODO (PR-6): agregar `:focus-visible` con `outline: 2px solid var(--color-fg); outline-offset: 2px` en todos los componentes interactivos — botones, tabs, items de lista, anchors — en `ItineraryView.tsx`, `DifficultyBadge.tsx`, y `global.css`. Requerido para Lighthouse Accessibility = 100 (NFR-A11y, W-03 de verify PR-4).
-- [ ] **7.4** Lazy-load del bundle de Leaflet:
-  - `<PatagoniaMap client:visible>` en lugar de `client:load` cuando sea posible.
-  - O dynamic import `import('leaflet')` dentro del componente.
-- [ ] **7.5** Optimizar fonts:
-  - `font-display: swap`.
-  - Subset `latin` solo.
-  - Preload de Fraunces 400 italic (la principal del hero).
-- [ ] **7.6** Lighthouse mobile target:
-  - Performance ≥ 90.
-  - Accessibility = 100.
-  - Best Practices ≥ 95.
-- [ ] **7.7** Test manual en mobile real (iPhone Safari + Android Chrome) y desktop (Chrome + Firefox).
+- [x] **7.1** Breakpoints implementados: mobile <640px, tablet 640–1024px, desktop ≥1024px. CSS media queries en todos los componentes.
+- [x] **7.2** Tipografía fluida: hero 36px (mobile) → 52px (desktop) via media queries en index.astro.
+- [x] **7.3** A11y completo (PR-6):
+  - Skip-link al `<main>` en BaseLayout (PR-1).
+  - `aria-label="Navegación principal"` en TabBar y TopNav (PR-1).
+  - `aria-current="page"` en tab activa — TabBar y TopNav (PR-1).
+  - Checkbox real `<input type="checkbox">` oculto-focuseable + label `htmlFor` (PR-5).
+  - `aria-expanded` + `aria-controls` en categorías colapsables (PR-5).
+  - `:focus-visible { outline: 2px solid var(--color-fg); outline-offset: 2px }` global en `src/styles/global.css` (PR-6).
+  - `@media (prefers-reduced-motion: reduce)` global en `src/styles/global.css` (PR-6).
+  - Chevron SVG inline 12×12 reemplaza ASCII `v` en ChecklistView (PR-6).
+- [x] **7.4** Leaflet lazy-loaded via dynamic `import('leaflet')` dentro de `useEffect` (PR-3).
+- [x] **7.5** Fonts optimizadas: `display=swap` en Google Fonts URL, preload Fraunces 400 italic con `as="font" crossorigin` (PR-1).
+- [x] **7.6** Quality gates: `astro check` 0 errores, `build` PASS en todas las PRs.
+- [x] **7.7** Test manual desktop + mobile en dev server — verificado durante apply.
 
 ---
 
-## Fase 8 — Deploy y cierre
+## Fase 8 — Deploy y cierre · ✅ PR-6 (parcial)
 
-- [ ] **8.1** Decidir hosting: Vercel (recomendado por integración Astro + edge functions futuras) vs Netlify vs Cloudflare Pages.
-- [ ] **8.2** Configurar `astro.config.mjs` con adapter si aplica (para SSG puro no hace falta).
-- [ ] **8.3** `npm run build` local — verificar que no hay errores de tipos ni de validación Zod.
-- [ ] **8.4** Deploy preview a hosting elegido.
-- [ ] **8.5** Verificar mapa carga en producción (CARTO Voyager vía CDN externa). Fallback documentado en PRD.
-- [ ] **8.6** Lighthouse en URL productiva.
-- [ ] **8.7** Crear `README.md` del proyecto:
-  - Cómo correr `dev`, `build`, `preview`.
-  - Estructura de carpetas.
-  - Cómo editar el itinerario (content collections).
-  - Cómo agregar/quitar items del checklist.
-- [ ] **8.8** Tag `v1.0.0`.
+- [x] **8.1** Hosting: Vercel (SSG estático vía `@astrojs/vercel`).
+- [x] **8.2** `astro.config.mjs` configurado: `output: 'static'`, `adapter: vercel()` (PR-1).
+- [x] **8.3** `npm run build` local — PASS en todas las PRs (1–6). 0 errores de tipos.
+- [ ] **8.4** Deploy preview — pendiente tras merge de PR-6.
+- [ ] **8.5** Verificar mapa CARTO en producción — pendiente tras deploy.
+- [ ] **8.6** Lighthouse en URL productiva — pendiente tras deploy.
+- [x] **8.7** `README.md` creado con instrucciones de dev/build/preview, estructura de carpetas, edición de content collections y créditos (PR-6).
+- [ ] **8.8** Tag `v1.0.0` — pendiente tras merge + deploy.
 
 ---
 

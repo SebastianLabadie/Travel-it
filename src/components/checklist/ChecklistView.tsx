@@ -211,17 +211,28 @@ function Category({ cat, index, checks, onToggle, isOpen, isDesktop, onToggleOpe
           {!isDesktop && (
             <span
               style={{
-                display: 'inline-block',
-                fontFamily: 'var(--font-display)',
-                fontSize: 14,
-                color: 'var(--color-fg)',
+                display: 'inline-flex',
+                alignItems: 'center',
                 transform: open ? 'rotate(180deg)' : 'rotate(0deg)',
                 transition: 'transform 0.2s',
-                lineHeight: 1,
               }}
               aria-hidden="true"
             >
-              v
+              <svg
+                width="12"
+                height="12"
+                viewBox="0 0 12 12"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M2 4L6 8L10 4"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
             </span>
           )}
         </div>

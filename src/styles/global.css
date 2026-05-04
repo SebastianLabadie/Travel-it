@@ -75,3 +75,20 @@ body {
   color: var(--color-fg);
   font-family: var(--font-body);
 }
+
+/* Global focus rings — WCAG 2.2 AA (NFR-A11y) */
+:focus-visible {
+  outline: 2px solid var(--color-fg);
+  outline-offset: 2px;
+}
+
+/* Reduced motion — suppress all transitions/animations (AC-F1-15, AC-F2-14, NFR-A11y) */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}
