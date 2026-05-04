@@ -6,11 +6,11 @@ const destinationSchema = z.object({
   slug: z.string(),
   order: z.number().int().nonnegative(),
   name: z.string(),
-  country: z.enum(['AR', 'CL']),
+  country: z.enum(['AR', 'CL', 'UY']),
   coords: z.tuple([z.number(), z.number()]),   // [lon, lat]
   startDate: z.string(),                        // human "21 nov" — display only
   endDate: z.string(),
-  nights: z.number().int().positive(),
+  nights: z.number().int().nonnegative(),
   summary: z.string(),
   activities: z.array(
     z.object({

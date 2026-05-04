@@ -1,0 +1,16 @@
+{
+  "slug": "mvd",
+  "order": 0,
+  "name": "Montevideo",
+  "country": "UY",
+  "coords": [-56.1645, -34.9011],
+  "startDate": "21 nov",
+  "endDate": "21 nov",
+  "nights": 0,
+  "summary": "Punto de partida. Vuelo a El Calafate (vía SCL o EZE según conexión).",
+  "activities": [
+    { "title": "Check-in MVD · Carrasco", "difficulty": "easy", "hours": 2 }
+  ],
+  "stay": { "type": "En tránsito", "range": [0, 0] },
+  "out": "Vuelo MVD → FTE · 21 nov (vía conexión)"
+}

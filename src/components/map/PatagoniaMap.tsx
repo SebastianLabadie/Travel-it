@@ -72,10 +72,10 @@ export default function PatagoniaMap({
         keyboard: true,
       } as import('leaflet').MapOptions);
 
-      // Patagonia bounding box per AC-F1-02
+      // Bbox: Montevideo (~-34°S) hasta Cabo de Hornos
       map.fitBounds(
-        [[-55.2, -75], [-49, -67.5]],
-        { padding: [10, 10] }
+        [[-55.2, -76], [-34, -55]],
+        { padding: [12, 12] }
       );
 
       // CARTO Voyager tiles — AC-F1-01
