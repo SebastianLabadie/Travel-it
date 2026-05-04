@@ -283,6 +283,7 @@ export function ChecklistView({ categories }: Props) {
   function handleReset() {
     if (window.confirm('¿Resetear todo el progreso? Esta acción no se puede deshacer.')) {
       reset();
+      useChecklistStore.persist.clearStorage();
     }
   }
 
@@ -322,6 +323,7 @@ export function ChecklistView({ categories }: Props) {
             style={{
               fontFamily: 'var(--font-display)',
               fontSize: 42,
+              fontStyle: 'italic',
               lineHeight: 1,
             }}
           >
