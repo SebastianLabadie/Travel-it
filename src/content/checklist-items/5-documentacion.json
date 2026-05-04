@@ -1,0 +1,11 @@
+{
+  "id": "documentacion",
+  "order": 4,
+  "label": "Documentación",
+  "items": [
+    { "id": "d1", "label": "DNI vigente (cruce CL)" },
+    { "id": "d2", "label": "Seguro de viaje con cobertura outdoor" },
+    { "id": "d3", "label": "Vacuna fiebre amarilla (no requerido pero útil)" },
+    { "id": "d4", "label": "Copia digital de pasajes" }
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "id": "conectividad",
+  "order": 5,
+  "label": "Conectividad",
+  "items": [
+    { "id": "c1", "label": "eSIM regional Chile + Argentina" },
+    { "id": "c2", "label": "Mapas offline (organic maps)" },
+    { "id": "c3", "label": "PowerBank 20.000 mAh" }
+  ]
+}

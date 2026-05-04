@@ -1,0 +1,17 @@
+{
+  "slug": "punta",
+  "order": 4,
+  "name": "Punta Arenas",
+  "country": "CL",
+  "coords": [-70.9171, -53.1638],
+  "startDate": "3 dic",
+  "endDate": "4 dic",
+  "nights": 1,
+  "summary": "Pit-stop logístico antes del salto al fin del mundo. Cementerio + Estrecho.",
+  "activities": [
+    { "title": "Cementerio Municipal", "difficulty": "easy", "hours": 1.5 },
+    { "title": "Mirador Cerro La Cruz", "difficulty": "easy", "hours": 1 }
+  ],
+  "stay": { "type": "Hotel céntrico", "range": [60, 90] },
+  "out": "Vuelo PUQ → USH · LATAM, conectado por SCL (día crítico)"
+}

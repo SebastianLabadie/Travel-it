@@ -1,0 +1,18 @@
+{
+  "slug": "paine",
+  "order": 3,
+  "name": "Torres del Paine",
+  "country": "CL",
+  "coords": [-72.9888, -50.9423],
+  "startDate": "30 nov",
+  "endDate": "3 dic",
+  "nights": 3,
+  "summary": "Sector Las Torres. Trekking emblema: Base de las Torres al amanecer.",
+  "activities": [
+    { "title": "Base Las Torres (Mirador)", "difficulty": "hard", "hours": 9 },
+    { "title": "Valle del Francés (parcial)", "difficulty": "hard", "hours": 8 },
+    { "title": "Lago Grey + glaciar", "difficulty": "medium", "hours": 5 }
+  ],
+  "stay": { "type": "Refugio / camping con servicios", "range": [70, 110] },
+  "out": "Bus a Punta Arenas vía Natales · ~6 h"
+}

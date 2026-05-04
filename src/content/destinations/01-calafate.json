@@ -1,0 +1,18 @@
+{
+  "slug": "calafate",
+  "order": 0,
+  "name": "El Calafate",
+  "country": "AR",
+  "coords": [-72.2648, -50.3379],
+  "startDate": "21 nov",
+  "endDate": "24 nov",
+  "nights": 3,
+  "summary": "Glaciar Perito Moreno, base sobre el Lago Argentino. Aclimatación + un primer impacto glaciar.",
+  "activities": [
+    { "title": "Perito Moreno · pasarelas", "difficulty": "easy", "hours": 5 },
+    { "title": "Big Ice o minitrekking", "difficulty": "medium", "hours": 7 },
+    { "title": "Laguna Nimez", "difficulty": "easy", "hours": 2 }
+  ],
+  "stay": { "type": "Cabaña / Airbnb", "range": [55, 80] },
+  "out": "Bus a El Chaltén · ~3 h por RN40"
+}

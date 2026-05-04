@@ -1,0 +1,13 @@
+{
+  "id": "alojamiento",
+  "order": 1,
+  "label": "Alojamiento",
+  "items": [
+    { "id": "a1", "label": "Calafate · cabaña 3 noches" },
+    { "id": "a2", "label": "Chaltén · hostel 4 noches" },
+    { "id": "a3", "label": "Natales · hostal 2 noches" },
+    { "id": "a4", "label": "Torres del Paine · refugio 3 noches", "note": "Reservar con anticipación" },
+    { "id": "a5", "label": "Punta Arenas · hotel 1 noche" },
+    { "id": "a6", "label": "Ushuaia · cabaña 4 noches" }
+  ]
+}
