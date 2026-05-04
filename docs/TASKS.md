@@ -2,6 +2,18 @@
 
 *Plan de implementación · v0.1 · 2026-05-04*
 
+## Estado de PRs
+
+| PR | Slice | Branch | Estado |
+| :--- | :--- | :--- | :--- |
+| [#1](https://github.com/SebastianLabadie/Travel-it/pull/1) | PR-0 docs | `feat/pr-0-docs` | 🟡 abierto |
+| [#2](https://github.com/SebastianLabadie/Travel-it/pull/2) | PR-1 bootstrap | `feat/pr-1-bootstrap` | 🟡 abierto |
+| [#3](https://github.com/SebastianLabadie/Travel-it/pull/3) | PR-2 data layer | `feat/pr-2-data-layer` | 🟡 abierto |
+| — | PR-3 mapa | `feat/pr-3-map` | ⚪ pendiente |
+| — | PR-4 itinerario | `feat/pr-4-itinerary` | ⚪ pendiente |
+| — | PR-5 checklist | `feat/pr-5-checklist` | ⚪ pendiente |
+| — | PR-6 polish + deploy | `feat/pr-6-polish` | ⚪ pendiente |
+
 > **Cambios sobre PRD v0.1**: el diseño en `design/DESIGN.md` define **Leaflet 1.9.4 + CARTO Voyager** (raster tiles, sin token) en vez de MapLibre. Se adopta Leaflet para no rehacer la animación de trazado ya prototipada en `design/map-real.jsx`.
 
 ## Fuentes de verdad
@@ -17,10 +29,10 @@
 
 ---
 
-## Fase 0 — Bootstrap del proyecto
+## Fase 0 — Bootstrap del proyecto · ✅ PR-1 (#2)
 
-- [ ] **0.1** Verificar Astro 6 + `@astrojs/preact` ya instalados (`package.json`). OK.
-- [ ] **0.2** Instalar deps faltantes:
+- [x] **0.1** Verificar Astro 6 + `@astrojs/preact` ya instalados (`package.json`). OK.
+- [x] **0.2** Instalar deps faltantes:
   - `@tailwindcss/vite@^4`
   - `tailwindcss@^4`
   - `zustand@^5`
@@ -29,29 +41,29 @@
   - `@types/leaflet`
   - `@astrojs/vercel` (adapter para deploy)
   - Eliminar `@google/design.md` (no se usa).
-- [ ] **0.3** Configurar `astro.config.mjs`:
+- [x] **0.3** Configurar `astro.config.mjs`:
   - integrations: `preact({ compat: true })` (habilita `preact/compat` para libs que esperan React, ej. Zustand).
   - vite plugins: `tailwindcss()`.
   - adapter: `vercel()`.
-- [ ] **0.4** Configurar `tsconfig.json` extendiendo `astro/tsconfigs/strict` + `noUncheckedIndexedAccess: true`. Compiler `jsx: "preserve"`, `jsxImportSource: "preact"`.
-- [ ] **0.5** Cargar fonts en `<head>`: Fraunces, Newsreader, Inter, JetBrains Mono (Google Fonts con preconnect + display=swap).
-- [ ] **0.6** Definir tokens del design system como CSS custom properties en `src/styles/global.css`:
+- [x] **0.4** Configurar `tsconfig.json` extendiendo `astro/tsconfigs/strict` + `noUncheckedIndexedAccess: true`. Compiler `jsx: "preserve"`, `jsxImportSource: "preact"`.
+- [x] **0.5** Cargar fonts en `<head>`: Fraunces, Newsreader, Inter, JetBrains Mono (Google Fonts con preconnect + display=swap).
+- [x] **0.6** Definir tokens del design system como CSS custom properties en `src/styles/global.css`:
   - Colores: `--color-bg`, `--color-bg-alt`, `--color-paper`, `--color-fg`, `--color-stone`, `--color-rule`, `--color-glacier`, `--color-moss`, `--color-warning`.
   - Fuentes: `--font-display`, `--font-body`, `--font-mono`.
   - Espaciado, radius, shadow, breakpoints según `DESIGN.md`.
-- [ ] **0.7** Configurar `tailwind.config` (o `@theme` directive en CSS) extendiendo con los tokens. Mantener bordes rectos por default (sin `rounded-*`).
-- [ ] **0.8** Aplicar `box-sizing: border-box` global y reset mínimo.
+- [x] **0.7** Configurar `tailwind.config` (o `@theme` directive en CSS) extendiendo con los tokens. Mantener bordes rectos por default (sin `rounded-*`).
+- [x] **0.8** Aplicar `box-sizing: border-box` global y reset mínimo.
 
 ---
 
-## Fase 1 — Data layer
+## Fase 1 — Data layer · ✅ PR-2 (#3)
 
-- [ ] **1.1** Crear `src/content.config.ts` con collections + loaders:
+- [x] **1.1** Crear `src/content.config.ts` con collections + loaders:
   - `destinations` — collection JSON.
   - `days` — collection JSON.
   - `routes` — collection JSON (incluye `coords` GeoJSON-like).
   - `checklist` — collection JSON con categorías + items.
-- [ ] **1.2** Definir schemas Zod 4 estrictos para cada collection. Ejemplo:
+- [x] **1.2** Definir schemas Zod 4 estrictos para cada collection. Ejemplo:
   ```ts
   const destinationSchema = z.object({
     slug: z.string(),
@@ -74,9 +86,9 @@
     out: z.string(),
   });
   ```
-- [ ] **1.3** Migrar `design/data.js` → archivos JSON dentro de `src/content/{destinations,days,routes,checklist}/*.json`.
-- [ ] **1.4** Crear `src/lib/types.ts` exportando los tipos inferidos de Zod (`z.infer<typeof destinationSchema>`).
-- [ ] **1.5** Crear `src/lib/trip.ts` con helpers de query: `getDestinations()`, `getDays()`, `getRoutes()`, `getChecklist()`, `getCriticalDays()`. Todos devuelven datos tipados validados en build.
+- [x] **1.3** Migrar `design/data.js` → archivos JSON dentro de `src/content/{destinations,days,routes,checklist}/*.json`.
+- [x] **1.4** Crear `src/lib/types.ts` exportando los tipos inferidos de Zod (`z.infer<typeof destinationSchema>`).
+- [x] **1.5** Crear `src/lib/trip.ts` con helpers de query: `getDestinations()`, `getDays()`, `getRoutes()`, `getChecklist()`, `getCriticalDays()`. Todos devuelven datos tipados validados en build.
 
 ---
 
