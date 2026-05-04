@@ -1,11 +1,14 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import BaseLayout from '../layouts/BaseLayout.astro';
 ---
 
-<Layout>
-	<Welcome />
-</Layout>
+<BaseLayout title="Patagonia · Inicio" activeTab="home">
+  <section style="padding: 24px;">
+    <h1 style="font-family: var(--font-display); font-style: italic; font-size: 2.5rem; margin: 0 0 12px;">
+      Travel·it — Patagonia 2026
+    </h1>
+    <p style="font-family: var(--font-body); color: var(--color-stone);">
+      Página en construcción. Mapa, itinerario y checklist próximamente.
+    </p>
+  </section>
+</BaseLayout>

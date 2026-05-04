@@ -1,0 +1,77 @@
+@import "tailwindcss";
+
+@theme {
+  /* Colors */
+  --color-bg:      #F5F1EA;
+  --color-bg-alt:  #EDE7DC;
+  --color-paper:   #FAF7F1;
+  --color-fg:      #1B2A2E;
+  --color-stone:   #8A8378;
+  --color-rule:    rgba(27, 42, 46, 0.18);
+  --color-glacier: #7AB2C9;
+  --color-moss:    #5A7458;
+  --color-warning: #C9601A;
+
+  /* Font stacks */
+  --font-display: 'Fraunces', 'Newsreader', Georgia, serif;
+  --font-body:    'Inter', -apple-system, system-ui, sans-serif;
+  --font-mono:    'JetBrains Mono', 'IBM Plex Mono', ui-monospace, monospace;
+
+  /* Font sizes (px → rem at base 16px) */
+  --font-size-xs:          0.625rem;   /* 10px */
+  --font-size-sm:          0.6875rem;  /* 11px */
+  --font-size-base:        0.8125rem;  /* 13px */
+  --font-size-md:          0.875rem;   /* 14px */
+  --font-size-lg:          1.0625rem;  /* 17px */
+  --font-size-xl:          1.375rem;   /* 22px */
+  --font-size-2xl:         2.375rem;   /* 38px */
+  --font-size-3xl:         2.75rem;    /* 44px */
+  --font-size-4xl:         3.25rem;    /* 52px */
+  --font-size-hero-mobile: 2.25rem;    /* 36px */
+
+  /* Spacing scale (multiples of 4px) */
+  --spacing-1:  4px;
+  --spacing-2:  8px;
+  --spacing-3:  12px;
+  --spacing-4:  16px;
+  --spacing-5:  20px;
+  --spacing-6:  24px;
+  --spacing-8:  32px;
+  --spacing-10: 40px;
+  --spacing-12: 48px;
+
+  /* Border radius */
+  --radius-none: 0;
+  --radius-pin:  9999px;
+  --radius-chip: 2px;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.12);
+  --shadow-md: 0 2px 6px rgba(0, 0, 0, 0.18);
+  --shadow-lg: 0 4px 14px rgba(0, 0, 0, 0.18);
+  --shadow-xl: 0 6px 24px rgba(0, 0, 0, 0.08);
+
+  /* Breakpoints (used as min-width thresholds via @media) */
+  --breakpoint-sm:      640px;
+  --breakpoint-lg:      1024px;
+  --breakpoint-desktop: 1280px;
+}
+
+/* Base reset */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--color-bg);
+  color: var(--color-fg);
+  font-family: var(--font-body);
+}
