@@ -17,7 +17,7 @@
 
 import { useEffect, useRef, useState } from 'preact/hooks';
 import type { Destination, Route } from '../../lib/types';
-import { PIN_CSS, pinHtml, FIELD_NOTE_HTML } from './pin-styles';
+import { PIN_CSS, pinHtml, popupHtml, FIELD_NOTE_HTML } from './pin-styles';
 import 'leaflet/dist/leaflet.css';
 
 // ── Types ────────────────────────────────────────────────────────────────────
@@ -101,10 +101,14 @@ export default function PatagoniaMap({
           iconAnchor: [12, 22],
         });
         // coords is [lon, lat]; Leaflet expects [lat, lon]
-        return L.marker([dest.coords[1], dest.coords[0]], {
+        const m = L.marker([dest.coords[1], dest.coords[0]], {
           icon,
           opacity: staticMode ? 1 : 0,
         });
+        // Popup per AC-F1-04 — name, date range, nights, itinerary link
+        const popupContent = popupHtml(dest.name, dest.startDate, dest.endDate, dest.nights, dest.slug);
+        m.bindPopup(popupContent, { className: 'ptg-popup', closeButton: false });
+        return m;
       }
 
       // ── Fade-in helper ────────────────────────────────────────────────────

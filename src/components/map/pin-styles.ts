@@ -126,6 +126,66 @@ export const PIN_CSS = `
     100% { box-shadow: 0 0 0 14px rgba(201, 96, 26, 0);   }
   }
 
+  /* Pin popup (AC-F1-04) */
+  .ptg-popup .leaflet-popup-content-wrapper {
+    background: var(--color-paper);
+    border: 1px solid var(--color-rule);
+    border-radius: 0;
+    box-shadow: var(--shadow-lg);
+    padding: 0;
+  }
+
+  .ptg-popup .leaflet-popup-content {
+    margin: 0;
+    padding: 12px 16px;
+    max-width: 240px;
+  }
+
+  .ptg-popup .leaflet-popup-tip-container {
+    display: none;
+  }
+
+  .ptg-popup-name {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: 13px;
+    color: var(--color-fg);
+    display: block;
+    margin-bottom: 4px;
+  }
+
+  .ptg-popup-dates {
+    font-family: var(--font-mono);
+    font-size: 9px;
+    color: var(--color-stone);
+    letter-spacing: 0.1em;
+    display: block;
+    margin-bottom: 2px;
+  }
+
+  .ptg-popup-nights {
+    font-family: var(--font-mono);
+    font-size: 9px;
+    color: var(--color-stone);
+    letter-spacing: 0.1em;
+    display: block;
+    margin-bottom: 8px;
+  }
+
+  .ptg-popup-link {
+    font-family: var(--font-mono);
+    font-size: 9px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--color-fg);
+    text-decoration: none;
+    border-bottom: 1px solid var(--color-rule);
+  }
+
+  .ptg-popup-link:hover {
+    border-bottom-color: var(--color-fg);
+  }
+
   /* Reduced motion: disable all transitions and animations */
   @media (prefers-reduced-motion: reduce) {
     .ptg-pin-num,
@@ -136,6 +196,23 @@ export const PIN_CSS = `
     }
   }
 `;
+
+/**
+ * Build the HTML string for a pin popup (AC-F1-04).
+ * All values come from Zod-validated content — no user-controlled input.
+ */
+export function popupHtml(
+  name: string,
+  startDate: string,
+  endDate: string,
+  nights: number,
+  slug: string
+): string {
+  return `<span class="ptg-popup-name">${name}</span>` +
+    `<span class="ptg-popup-dates">${startDate.toUpperCase()} &#8594; ${endDate.toUpperCase()}</span>` +
+    `<span class="ptg-popup-nights">${nights} noches</span>` +
+    `<a class="ptg-popup-link" href="/itinerario#${slug}">Ver itinerario &#8594;</a>`;
+}
 
 /** Build the HTML string for a normal or critical pin divIcon. */
 export function pinHtml(num: number, name: string, isCrit: boolean): string {

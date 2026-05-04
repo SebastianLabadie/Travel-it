@@ -73,6 +73,23 @@ const firstDest = destinations[0];
     </a>
   </div>
 
+  <!-- ─── No-JS fallback (spec Edge Cases: No-JS) ──────────────────────── -->
+  <noscript>
+    <div class="noscript-map-fallback">
+      <div class="noscript-eyebrow">RUTA · PATAGONIA 2026</div>
+      <p class="noscript-intro">El mapa interactivo requiere JavaScript. Estos son los destinos del viaje:</p>
+      <ol class="noscript-list">
+        {destinations.map((dest) => (
+          <li class="noscript-item">
+            <span class="noscript-name">{dest.name}</span>
+            <span class="noscript-dates">{dest.startDate.toUpperCase()} &#8594; {dest.endDate.toUpperCase()} · {dest.nights} noches</span>
+          </li>
+        ))}
+      </ol>
+      <a href="/itinerario" class="noscript-link">Ver itinerario completo &#8594;</a>
+    </div>
+  </noscript>
+
   <!-- ─── Desktop layout (>= 1024px) ───────────────────────────────────── -->
   <div class="home-desktop">
     <!-- Left: full-bleed map with floating overlay -->
@@ -455,6 +472,69 @@ const firstDest = destinations[0];
     color: var(--color-fg);
     line-height: 1.4;
     margin: 6px 0 0;
+  }
+
+  /* No-JS fallback (noscript block) */
+  .noscript-map-fallback {
+    margin: 20px;
+    padding: 16px 20px;
+    background: var(--color-paper);
+    border: 1px solid var(--color-rule);
+  }
+
+  .noscript-eyebrow {
+    font-family: var(--font-mono);
+    font-size: 0.5625rem; /* 9px */
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--color-stone);
+    margin-bottom: 8px;
+  }
+
+  .noscript-intro {
+    font-family: var(--font-body);
+    font-size: 0.8125rem; /* 13px */
+    color: var(--color-fg);
+    margin: 0 0 12px;
+    line-height: 1.5;
+  }
+
+  .noscript-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 16px;
+  }
+
+  .noscript-item {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    padding: 8px 0;
+    border-bottom: 1px dashed var(--color-rule);
+  }
+
+  .noscript-name {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: 1rem; /* 16px */
+    color: var(--color-fg);
+  }
+
+  .noscript-dates {
+    font-family: var(--font-mono);
+    font-size: 0.5625rem; /* 9px */
+    letter-spacing: 0.1em;
+    color: var(--color-stone);
+  }
+
+  .noscript-link {
+    font-family: var(--font-mono);
+    font-size: 0.5625rem; /* 9px */
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--color-fg);
+    text-decoration: none;
+    border-bottom: 1px solid var(--color-fg);
   }
 
   /* Critical day signal — text prefix with warning color */
