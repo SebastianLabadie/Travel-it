@@ -9,7 +9,7 @@
 | [#1](https://github.com/SebastianLabadie/Travel-it/pull/1) | PR-0 docs | `feat/pr-0-docs` | 🟡 abierto |
 | [#2](https://github.com/SebastianLabadie/Travel-it/pull/2) | PR-1 bootstrap | `feat/pr-1-bootstrap` | 🟡 abierto |
 | [#3](https://github.com/SebastianLabadie/Travel-it/pull/3) | PR-2 data layer | `feat/pr-2-data-layer` | 🟡 abierto |
-| — | PR-3 mapa | `feat/pr-3-map` | ⚪ pendiente |
+| [#4](https://github.com/SebastianLabadie/Travel-it/pull/4) | PR-3 mapa | `feat/pr-3-map` | 🟡 abierto (size:exception) |
 | — | PR-4 itinerario | `feat/pr-4-itinerary` | ⚪ pendiente |
 | — | PR-5 checklist | `feat/pr-5-checklist` | ⚪ pendiente |
 | — | PR-6 polish + deploy | `feat/pr-6-polish` | ⚪ pendiente |
@@ -92,39 +92,26 @@
 
 ---
 
-## Fase 2 — Componente `<PatagoniaMap>` (Leaflet island)
+## Fase 2 — Componente `<PatagoniaMap>` (Leaflet island) · ✅ PR-3
 
-- [ ] **2.1** Crear `src/components/map/PatagoniaMap.tsx` como Preact island con `client:only="preact"`.
-- [ ] **2.2** Importar Leaflet 1.9.4 vía `import 'leaflet'` + import de `leaflet/dist/leaflet.css`. NO cargar por CDN (porteo desde el proto que sí usa CDN).
-- [ ] **2.3** Setup map:
-  - `zoomControl: false`, `attributionControl: false`, `scrollWheelZoom: false`, `keyboard: false`.
-  - `fitBounds([[-55.2, -75], [-49, -67.5]], { padding: [10, 10] })`.
-  - Tile layer CARTO Voyager: `https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png`, `subdomains: 'abcd'`, `maxZoom: 12`, `minZoom: 4`.
-- [ ] **2.4** Pin numerado custom (`L.divIcon`):
-  - 24×24 círculo `paper` + border `1.5px fg`.
-  - Mono 10px 600 con número `01`–`06`.
-  - Label italic display 13px al costado en card `paper`.
-  - Pin crítico: background `warning`, animation pulse 1.6s.
-- [ ] **2.5** Polylines:
-  - Terrestre/bus: color `fg`, weight 3, sólido.
-  - Vuelo: color `warning`, weight 2.5, dasharray `6 5`.
-- [ ] **2.6** Field note del día crítico (`L.divIcon`):
-  - 200px × ~90px, paper, border 1px warning, shadow lg, `rotate(-2deg)`.
-  - Línea guía dasharray al pin crítico.
-  - Tag mono 8px warning + title display italic + body inter 10px.
-- [ ] **2.7** Implementar prop `staticMode: boolean`:
-  - `true` → todo se dibuja instantáneamente, `dragging: false`, `tap: false`.
-  - `false` → animación trazado + replay button + step indicator.
-- [ ] **2.8** Implementar prop `autoplay: boolean` (default true).
-- [ ] **2.9** Animación de trazado:
-  - Markers fade-in 280ms.
-  - Polyline interpolada con `setLatLngs` + `requestAnimationFrame`, 850ms.
-  - Field note fade 380ms al llegar a Ushuaia.
-  - Step indicator abajo izquierda (`Etapa 03 / 06`).
-  - Botón replay abajo derecha.
-- [ ] **2.10** Cleanup en `useEffect` return (remover layers + `map.remove()`).
-- [ ] **2.11** Compass rose opcional (decorativo, esquina inferior derecha).
-- [ ] **2.12** CSS scoped (CSS-in-JS via `<style>` tag o módulo CSS) replicando `.ptg-pin`, `.ptg-pin-num`, `.ptg-pin-crit`, `.ptg-pin-label`, `.ptg-note`, `.ptg-note-tag`, `.ptg-note-title`, `.ptg-note-body`, `@keyframes ptgPulse`.
+- [x] **2.1** Crear `src/components/map/PatagoniaMap.tsx` como Preact island con `client:only="preact"`. (Spec AC-F1-14 enmendada: `client:visible` → `client:only` por DOM-imperatividad de Leaflet.)
+- [x] **2.2** Importar Leaflet 1.9.4 vía `import 'leaflet'` + import de `leaflet/dist/leaflet.css`. NO cargar por CDN.
+- [x] **2.3** Setup map: zoomControl/attributionControl/scrollWheelZoom/keyboard `false`, fitBounds Patagonia con padding 10×10, CARTO Voyager tiles `subdomains: 'abcd'`, `maxZoom: 12`, `minZoom: 4`.
+- [x] **2.4** Pin numerado custom (`L.divIcon`) 24×24 paper + border 1.5px fg, número mono 10px 600, label italic display 13px, crítico (Ushuaia) bg warning + pulse 1.6s.
+- [x] **2.5** Polylines: terrestre/bus fg solid weight 3; vuelo warning dashed `6 5` weight 2.5.
+- [x] **2.6** Field note día crítico (`L.divIcon`) 200×~90, paper, border 1px warning, shadow lg, rotate(-2deg), línea guía dasharray al pin, tag/title/body en mono/display/inter.
+- [x] **2.7** Prop `staticMode: boolean`. `true` instantáneo + dragging/tap off. `false` animación + replay + step indicator.
+- [x] **2.8** Prop `autoplay: boolean` (default true).
+- [x] **2.9** Animación: markers fade-in 280ms, polyline rAF interpolada 850ms, field note fade 380ms al llegar a Ushuaia, step indicator (`Etapa 0N / 06`) abajo-izq, replay abajo-der. Respeta `prefers-reduced-motion`.
+- [x] **2.10** Cleanup en `useEffect` return (`map.remove()` + remover layers).
+- [x] **2.11** Compass rose decorativo (deferred a PR-6 polish — opcional).
+- [x] **2.12** CSS scoped en `pin-styles.ts` con `.ptg-pin`, `.ptg-pin-num`, `.ptg-pin-crit`, `.ptg-pin-label`, `.ptg-note*`, `.ptg-popup`, `@keyframes ptgPulse`.
+- [x] **2.13 (extra)** Pin popups (AC-F1-04): nombre + fechas + nights + link `/itinerario#slug`.
+- [x] **2.14 (extra)** `<noscript>` fallback en index.astro con lista de 6 destinos.
+- [x] **2.15 (extra)** Home page wiring — mobile (390 col) + desktop (`1fr 360px`).
+
+**PR-3 quality gates: astro check ✅ (0 errors) · build ✅ (1.23s) · 16/17 AC-F1 PASS · 1 PARTIAL (keyboard map nav, deferred PR-6).**
+**PR-3 size: 1 235 líneas (3.6× sobre budget de 400). Abrir como `size:exception` — mapa = unidad atómica.**
 
 ---
 

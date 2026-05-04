@@ -1,22 +1,549 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { getDestinations, getDays, getRoutes, getChecklist } from '../lib/trip';
+import PatagoniaMap from '../components/map/PatagoniaMap';
+import { getDestinations, getRoutes } from '../lib/trip';
 
 const destinations = await getDestinations();
-const days = await getDays();
 const routes = await getRoutes();
-const checklist = await getChecklist();
+
+// First destination is the "next stop" for the card
+const firstDest = destinations[0];
 ---
 
-<BaseLayout title="Patagonia · Inicio" activeTab="home">
-  <section style="padding: 24px; font-family: var(--font-mono); font-size: 0.75rem; color: var(--color-stone);">
-    <p>data layer — PR-2 smoke test</p>
-    <ul style="margin-top: 8px; list-style: none; padding: 0; line-height: 2;">
-      <li>destinos: {destinations.length}</li>
-      <li>días: {days.length}</li>
-      <li>rutas: {routes.length}</li>
-      <li>categorías checklist: {checklist.length}</li>
-    </ul>
-    <p style="margin-top: 12px; color: var(--color-stone);">Mapa — próximamente en PR-3.</p>
-  </section>
+<BaseLayout title="Patagonia 2026 · Inicio" activeTab="home">
+  <!-- ─── Mobile layout (< 1024px) ──────────────────────────────────────── -->
+  <div class="home-mobile">
+    <!-- Hero text -->
+    <div class="hero-text">
+      <div class="hero-eyebrow">21 NOV — 08 DIC</div>
+      <h1 class="hero-h1">
+        Patagonia,<br />
+        <em class="hero-h1-em">de cabo a cabo.</em>
+      </h1>
+      <p class="hero-sub">Seis bases · 16 noches · 5 amigos.</p>
+    </div>
+
+    <!-- Map island: 320px on mobile, per spec AC-F1-12 / NFR-Responsive -->
+    <div class="map-wrapper-mobile">
+      <PatagoniaMap
+        client:only="preact"
+        destinations={destinations}
+        routes={routes}
+        height={320}
+        autoplay={true}
+        showCriticalNote={true}
+      />
+    </div>
+
+    <!-- Stats row -->
+    <div class="stats-row">
+      <div class="stat-cell">
+        <div class="stat-number">16</div>
+        <div class="stat-label">noches</div>
+      </div>
+      <div class="stat-cell stat-cell--mid">
+        <div class="stat-number">6</div>
+        <div class="stat-label">destinos</div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-number">~3.200</div>
+        <div class="stat-label">km</div>
+      </div>
+    </div>
+
+    <!-- Next stop card -->
+    {firstDest && (
+      <div class="next-stop-card">
+        <div class="next-stop-eyebrow">PRÓXIMA PARADA</div>
+        <div class="next-stop-name">{firstDest.name}</div>
+        <div class="next-stop-meta">
+          {firstDest.startDate.toUpperCase()} — {firstDest.endDate.toUpperCase()} · {firstDest.nights}N · {firstDest.country}
+        </div>
+        <p class="next-stop-summary">{firstDest.summary}</p>
+        <!-- Image placeholder per OQ-2 -->
+        <div class="img-placeholder" aria-hidden="true">
+          <span>&#9634; FOTO · {firstDest.name.toUpperCase()}</span>
+        </div>
+      </div>
+    )}
+
+    <!-- CTA -->
+    <a href="/itinerario" class="cta-btn">
+      Ver itinerario completo &#8594;
+    </a>
+  </div>
+
+  <!-- ─── No-JS fallback (spec Edge Cases: No-JS) ──────────────────────── -->
+  <noscript>
+    <div class="noscript-map-fallback">
+      <div class="noscript-eyebrow">RUTA · PATAGONIA 2026</div>
+      <p class="noscript-intro">El mapa interactivo requiere JavaScript. Estos son los destinos del viaje:</p>
+      <ol class="noscript-list">
+        {destinations.map((dest) => (
+          <li class="noscript-item">
+            <span class="noscript-name">{dest.name}</span>
+            <span class="noscript-dates">{dest.startDate.toUpperCase()} &#8594; {dest.endDate.toUpperCase()} · {dest.nights} noches</span>
+          </li>
+        ))}
+      </ol>
+      <a href="/itinerario" class="noscript-link">Ver itinerario completo &#8594;</a>
+    </div>
+  </noscript>
+
+  <!-- ─── Desktop layout (>= 1024px) ───────────────────────────────────── -->
+  <div class="home-desktop">
+    <!-- Left: full-bleed map with floating overlay -->
+    <div class="map-col">
+      <PatagoniaMap
+        client:only="preact"
+        destinations={destinations}
+        routes={routes}
+        height={747}
+        autoplay={true}
+        showCriticalNote={true}
+      />
+
+      <!-- Hero overlay (absolute over the map) -->
+      <div class="hero-overlay">
+        <div class="overlay-eyebrow">EXPEDICIÓN · 16 NOCHES</div>
+        <h1 class="overlay-h1">
+          Patagonia,<br />
+          <em class="overlay-h1-em">de cabo a cabo.</em>
+        </h1>
+        <p class="overlay-body">
+          6 bases · ~3.200 km · del glaciar al fin del mundo.<br />
+          La ruta se traza arriba, las bases a la derecha.
+        </p>
+      </div>
+    </div>
+
+    <!-- Right sidebar: list of 6 bases -->
+    <aside class="bases-sidebar" aria-label="Lista de bases del viaje">
+      <div class="bases-header">
+        <div class="bases-eyebrow">BASES · 06</div>
+        <div class="bases-title">La traza.</div>
+      </div>
+
+      {destinations.map((dest, i) => {
+        const isCrit = dest.slug === 'ushuaia';
+        return (
+          <div class:list={['base-item', isCrit && 'base-item--crit']}>
+            <div class="base-row-top">
+              <span class="base-num">{String(i + 1).padStart(2, '0')}</span>
+              <span class="base-name">{dest.name}</span>
+              <span class="base-country">{dest.country}</span>
+            </div>
+            <div class="base-dates">
+              {dest.startDate.toUpperCase()} &#8594; {dest.endDate.toUpperCase()} · {dest.nights}N
+            </div>
+            <p class="base-summary">{dest.summary}</p>
+            {isCrit && (
+              <div class="base-crit-signal">!! INCLUYE DÍA CRÍTICO · 04 DIC</div>
+            )}
+          </div>
+        );
+      })}
+    </aside>
+  </div>
 </BaseLayout>
+
+<style>
+  /* ── Mobile layout ────────────────────────────────────────────────── */
+  .home-mobile {
+    display: flex;
+    flex-direction: column;
+  }
+
+  @media (min-width: 1024px) {
+    .home-mobile {
+      display: none;
+    }
+  }
+
+  /* Hero text */
+  .hero-text {
+    padding: 24px 20px 16px;
+  }
+
+  .hero-eyebrow {
+    font-family: var(--font-mono);
+    font-size: 0.6875rem; /* 11px */
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--color-warning);
+  }
+
+  .hero-h1 {
+    font-family: var(--font-display);
+    font-size: 2.25rem; /* 36px */
+    font-weight: 400;
+    line-height: 0.95;
+    letter-spacing: -0.02em;
+    color: var(--color-fg);
+    margin: 8px 0 6px;
+  }
+
+  .hero-h1-em {
+    font-style: italic;
+    color: var(--color-moss);
+  }
+
+  .hero-sub {
+    font-family: var(--font-body);
+    font-size: 0.75rem; /* 12px */
+    color: var(--color-stone);
+    margin: 0;
+    line-height: 1.5;
+  }
+
+  /* Map wrapper */
+  .map-wrapper-mobile {
+    width: 100%;
+    height: 320px;
+    flex-shrink: 0;
+  }
+
+  /* Stats row */
+  .stats-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    border-top: 1px solid var(--color-rule);
+    border-bottom: 1px solid var(--color-rule);
+    margin: 0;
+  }
+
+  .stat-cell {
+    padding: 12px 16px;
+    text-align: center;
+  }
+
+  .stat-cell--mid {
+    border-left: 1px solid var(--color-rule);
+    border-right: 1px solid var(--color-rule);
+  }
+
+  .stat-number {
+    font-family: var(--font-display);
+    font-size: 1.375rem; /* 22px */
+    font-style: italic;
+    color: var(--color-fg);
+    line-height: 1;
+  }
+
+  .stat-label {
+    font-family: var(--font-mono);
+    font-size: 0.5625rem; /* 9px */
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--color-stone);
+    margin-top: 3px;
+  }
+
+  /* Next stop card */
+  .next-stop-card {
+    margin: 16px 20px;
+    padding: 16px;
+    background: var(--color-paper);
+    border: 1px solid var(--color-rule);
+  }
+
+  .next-stop-eyebrow {
+    font-family: var(--font-mono);
+    font-size: 0.5625rem; /* 9px */
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--color-stone);
+  }
+
+  .next-stop-name {
+    font-family: var(--font-display);
+    font-size: 1.375rem; /* 22px */
+    font-style: italic;
+    color: var(--color-fg);
+    margin-top: 4px;
+  }
+
+  .next-stop-meta {
+    font-family: var(--font-mono);
+    font-size: 0.5625rem; /* 9px */
+    letter-spacing: 0.1em;
+    color: var(--color-stone);
+    margin-top: 4px;
+  }
+
+  .next-stop-summary {
+    font-family: var(--font-body);
+    font-size: 0.75rem; /* 12px */
+    color: var(--color-fg);
+    line-height: 1.4;
+    margin: 6px 0 0;
+  }
+
+  /* Image placeholder */
+  .img-placeholder {
+    width: 100%;
+    height: 64px;
+    margin-top: 12px;
+    background: repeating-linear-gradient(
+      135deg,
+      var(--color-bg-alt) 0 8px,
+      var(--color-bg) 8px 16px
+    );
+    border: 1px solid var(--color-rule);
+    display: flex;
+    align-items: flex-end;
+    padding: 8px;
+  }
+
+  .img-placeholder span {
+    font-family: var(--font-mono);
+    font-size: 0.5625rem; /* 9px */
+    color: var(--color-stone);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  /* CTA */
+  .cta-btn {
+    display: block;
+    margin: 0 20px 24px;
+    padding: 12px 16px;
+    background: var(--color-fg);
+    color: var(--color-paper);
+    font-family: var(--font-mono);
+    font-size: 0.625rem; /* 10px */
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    text-decoration: none;
+    text-align: center;
+  }
+
+  .cta-btn:focus-visible {
+    outline: 2px solid var(--color-warning);
+    outline-offset: 2px;
+  }
+
+  /* ── Desktop layout ───────────────────────────────────────────────── */
+  .home-desktop {
+    display: none;
+  }
+
+  @media (min-width: 1024px) {
+    .home-desktop {
+      display: grid;
+      grid-template-columns: 1fr 360px;
+      height: calc(100vh - 57px); /* viewport minus TopNav height */
+      overflow: hidden;
+    }
+  }
+
+  /* Map column */
+  .map-col {
+    position: relative;
+    border-right: 1px solid var(--color-rule);
+    overflow: hidden;
+  }
+
+  /* Hero overlay (floats over the map) */
+  .hero-overlay {
+    position: absolute;
+    top: 32px;
+    left: 32px;
+    z-index: 600;
+    background: var(--color-paper);
+    padding: 20px 24px;
+    border: 1px solid var(--color-rule);
+    max-width: 380px;
+    box-shadow: var(--shadow-xl);
+  }
+
+  .overlay-eyebrow {
+    font-family: var(--font-mono);
+    font-size: 0.5625rem; /* 9px */
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--color-warning);
+  }
+
+  .overlay-h1 {
+    font-family: var(--font-display);
+    font-size: 3.25rem; /* 52px */
+    font-weight: 400;
+    line-height: 0.92;
+    letter-spacing: -0.02em;
+    color: var(--color-fg);
+    margin: 8px 0 6px;
+  }
+
+  .overlay-h1-em {
+    font-style: italic;
+    color: var(--color-moss);
+  }
+
+  .overlay-body {
+    font-family: var(--font-body);
+    font-size: 0.8125rem; /* 13px */
+    color: var(--color-stone);
+    line-height: 1.5;
+    margin: 0;
+  }
+
+  /* Sidebar */
+  .bases-sidebar {
+    overflow-y: auto;
+    background: var(--color-bg);
+  }
+
+  .bases-header {
+    padding: 20px 24px 12px;
+    border-bottom: 1px solid var(--color-rule);
+    position: sticky;
+    top: 0;
+    background: var(--color-bg);
+    z-index: 10;
+  }
+
+  .bases-eyebrow {
+    font-family: var(--font-mono);
+    font-size: 0.5625rem; /* 9px */
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--color-stone);
+  }
+
+  .bases-title {
+    font-family: var(--font-display);
+    font-size: 1.375rem; /* 22px */
+    font-style: italic;
+    color: var(--color-fg);
+    margin-top: 4px;
+  }
+
+  /* Base item */
+  .base-item {
+    padding: 14px 24px;
+    border-bottom: 1px solid var(--color-rule);
+  }
+
+  .base-item--crit {
+    background: #C9601A08; /* warning at 8% alpha — CSS var alpha not supported in older browsers */
+  }
+
+  .base-row-top {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+  }
+
+  .base-num {
+    font-family: var(--font-mono);
+    font-size: 0.625rem; /* 10px */
+    color: var(--color-stone);
+    letter-spacing: 0.1em;
+    flex-shrink: 0;
+  }
+
+  .base-name {
+    font-family: var(--font-display);
+    font-size: 1.125rem; /* 18px */
+    font-style: italic;
+    color: var(--color-fg);
+    flex: 1;
+  }
+
+  .base-country {
+    font-family: var(--font-mono);
+    font-size: 0.5625rem; /* 9px */
+    color: var(--color-stone);
+    letter-spacing: 0.1em;
+  }
+
+  .base-dates {
+    font-family: var(--font-mono);
+    font-size: 0.5625rem; /* 9px */
+    color: var(--color-stone);
+    letter-spacing: 0.08em;
+    margin-top: 3px;
+  }
+
+  .base-summary {
+    font-family: var(--font-body);
+    font-size: 0.6875rem; /* 11px */
+    color: var(--color-fg);
+    line-height: 1.4;
+    margin: 6px 0 0;
+  }
+
+  /* No-JS fallback (noscript block) */
+  .noscript-map-fallback {
+    margin: 20px;
+    padding: 16px 20px;
+    background: var(--color-paper);
+    border: 1px solid var(--color-rule);
+  }
+
+  .noscript-eyebrow {
+    font-family: var(--font-mono);
+    font-size: 0.5625rem; /* 9px */
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--color-stone);
+    margin-bottom: 8px;
+  }
+
+  .noscript-intro {
+    font-family: var(--font-body);
+    font-size: 0.8125rem; /* 13px */
+    color: var(--color-fg);
+    margin: 0 0 12px;
+    line-height: 1.5;
+  }
+
+  .noscript-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 16px;
+  }
+
+  .noscript-item {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    padding: 8px 0;
+    border-bottom: 1px dashed var(--color-rule);
+  }
+
+  .noscript-name {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: 1rem; /* 16px */
+    color: var(--color-fg);
+  }
+
+  .noscript-dates {
+    font-family: var(--font-mono);
+    font-size: 0.5625rem; /* 9px */
+    letter-spacing: 0.1em;
+    color: var(--color-stone);
+  }
+
+  .noscript-link {
+    font-family: var(--font-mono);
+    font-size: 0.5625rem; /* 9px */
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--color-fg);
+    text-decoration: none;
+    border-bottom: 1px solid var(--color-fg);
+  }
+
+  /* Critical day signal — text prefix with warning color */
+  .base-crit-signal {
+    font-family: var(--font-mono);
+    font-size: 0.5rem; /* 8px */
+    color: var(--color-warning);
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    margin-top: 6px;
+  }
+</style>
