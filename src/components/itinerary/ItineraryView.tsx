@@ -191,6 +191,18 @@ function DestinosView({ destinations, days }: DestinosViewProps) {
               </div>
             )}
 
+            {/* Stay line — compact alojamiento + price range (mobile) */}
+            <div
+              style={{
+                marginTop: 8,
+                fontFamily: 'var(--font-mono)',
+                fontSize: 10,
+                color: 'var(--color-stone)',
+              }}
+            >
+              {d.stay.type} · USD {d.stay.range[0] ?? 0}–{d.stay.range[1] ?? 0}
+            </div>
+
             {/* Critical signal */}
             {isCrit && (
               <div

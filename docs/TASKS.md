@@ -232,6 +232,7 @@
   - `aria-expanded` en categorías colapsables.
   - Focus rings visibles (no `outline: none`).
   - Contraste WCAG AA verificado en `stone` sobre `bg` (probable que falle en algunos casos — re-evaluar contraste o usar `fg` para texto importante).
+  - TODO (PR-6): agregar `:focus-visible` con `outline: 2px solid var(--color-fg); outline-offset: 2px` en todos los componentes interactivos — botones, tabs, items de lista, anchors — en `ItineraryView.tsx`, `DifficultyBadge.tsx`, y `global.css`. Requerido para Lighthouse Accessibility = 100 (NFR-A11y, W-03 de verify PR-4).
 - [ ] **7.4** Lazy-load del bundle de Leaflet:
   - `<PatagoniaMap client:visible>` en lugar de `client:load` cuando sea posible.
   - O dynamic import `import('leaflet')` dentro del componente.
