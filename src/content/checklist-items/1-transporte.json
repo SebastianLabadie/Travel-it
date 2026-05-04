@@ -3,12 +3,12 @@
   "order": 0,
   "label": "Transporte",
   "items": [
-    { "id": "t1", "label": "Vuelo BUE → FTE (21 nov)", "note": "Confirmar asientos" },
+    { "id": "t1", "label": "Vuelo MVD → FTE (21 nov)", "note": "Salida desde Carrasco · vía SCL o EZE" },
     { "id": "t2", "label": "Bus Calafate → Chaltén (24 nov)", "note": "Cal-Tur o Chaltén Travel" },
     { "id": "t3", "label": "Bus Chaltén → Natales (28 nov)", "note": "~9h, paso Don Guillermo" },
     { "id": "t4", "label": "Bus Natales → Las Torres (30 nov)" },
     { "id": "t5", "label": "Bus Paine → Punta Arenas (3 dic)" },
     { "id": "t6", "label": "Vuelo PUQ → USH (4 dic)", "note": "!! Día crítico — conexión SCL" },
-    { "id": "t7", "label": "Vuelo USH → BUE (8 dic)" }
+    { "id": "t7", "label": "Vuelo USH → MVD (8 dic)", "note": "Vía conexión · día completo" }
   ]
 }

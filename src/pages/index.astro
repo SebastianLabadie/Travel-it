@@ -6,8 +6,8 @@ import { getDestinations, getRoutes } from '../lib/trip';
 const destinations = await getDestinations();
 const routes = await getRoutes();
 
-// First destination is the "next stop" for the card
-const firstDest = destinations[0];
+// "Próxima parada" salta MVD (0 noches, punto de partida)
+const firstDest = destinations.find((d) => d.nights > 0) ?? destinations[0];
 ---
 
 <BaseLayout title="Patagonia 2026 · Inicio" activeTab="home">
@@ -17,10 +17,10 @@ const firstDest = destinations[0];
     <div class="hero-text">
       <div class="hero-eyebrow">21 NOV — 08 DIC</div>
       <h1 class="hero-h1">
-        Patagonia,<br />
-        <em class="hero-h1-em">de cabo a cabo.</em>
+        De Montevideo,<br />
+        <em class="hero-h1-em">al fin del mundo.</em>
       </h1>
-      <p class="hero-sub">Seis bases · 16 noches · 5 amigos.</p>
+      <p class="hero-sub">Siete bases · 16 noches · 5 amigos.</p>
     </div>
 
     <!-- Map island: 320px on mobile, per spec AC-F1-12 / NFR-Responsive -->
@@ -42,7 +42,7 @@ const firstDest = destinations[0];
         <div class="stat-label">noches</div>
       </div>
       <div class="stat-cell stat-cell--mid">
-        <div class="stat-number">6</div>
+        <div class="stat-number">7</div>
         <div class="stat-label">destinos</div>
       </div>
       <div class="stat-cell">
@@ -107,11 +107,11 @@ const firstDest = destinations[0];
       <div class="hero-overlay">
         <div class="overlay-eyebrow">EXPEDICIÓN · 16 NOCHES</div>
         <h1 class="overlay-h1">
-          Patagonia,<br />
-          <em class="overlay-h1-em">de cabo a cabo.</em>
+          De Montevideo,<br />
+          <em class="overlay-h1-em">al fin del mundo.</em>
         </h1>
         <p class="overlay-body">
-          6 bases · ~3.200 km · del glaciar al fin del mundo.<br />
+          7 bases · ~3.200 km · del glaciar al fin del mundo.<br />
           La ruta se traza arriba, las bases a la derecha.
         </p>
       </div>
@@ -120,7 +120,7 @@ const firstDest = destinations[0];
     <!-- Right sidebar: list of 6 bases -->
     <aside class="bases-sidebar" aria-label="Lista de bases del viaje">
       <div class="bases-header">
-        <div class="bases-eyebrow">BASES · 06</div>
+        <div class="bases-eyebrow">BASES · 07</div>
         <div class="bases-title">La traza.</div>
       </div>
 

@@ -1,6 +1,6 @@
 {
   "slug": "ushuaia",
-  "order": 5,
+  "order": 6,
   "name": "Ushuaia",
   "country": "AR",
   "coords": [-68.3030, -54.8019],
@@ -14,5 +14,5 @@
     { "title": "Parque Nacional Tierra del Fuego", "difficulty": "medium", "hours": 7 }
   ],
   "stay": { "type": "Cabaña con vista al canal", "range": [70, 100] },
-  "out": "Vuelo a BUE · 8 dic"
+  "out": "Vuelo a MVD · 8 dic (vía conexión)"
 }
