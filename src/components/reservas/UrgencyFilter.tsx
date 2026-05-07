@@ -20,6 +20,7 @@ export function UrgencyFilter({ counts, active, onChange }: UrgencyFilterProps) 
       {/* All chip */}
       <button
         onClick={() => onChange(null)}
+        aria-pressed={active === null}
         style={{
           fontFamily: 'var(--font-mono)',
           fontSize: 9,
@@ -47,6 +48,7 @@ export function UrgencyFilter({ counts, active, onChange }: UrgencyFilterProps) 
           <button
             key={key}
             onClick={() => onChange(isActive ? null : key)}
+            aria-pressed={isActive}
             style={{
               fontFamily: 'var(--font-mono)',
               fontSize: 9,

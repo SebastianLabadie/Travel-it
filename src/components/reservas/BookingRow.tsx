@@ -26,10 +26,12 @@ export function BookingRow({
   const deadlineStr = formatDeadline(booking.deadline);
 
   return (
-    <button
-      onClick={onSelect}
-      aria-pressed={selected}
-      style={{
+    <>
+      <button
+        onClick={onSelect}
+        aria-pressed={selected}
+        aria-expanded={showInlineDetails ? selected : undefined}
+        style={{
         width: '100%',
         textAlign: 'left',
         cursor: 'pointer',
@@ -115,19 +117,21 @@ export function BookingRow({
         {isCompact && <UrgencyBadge urgency={booking.urgency} />}
       </div>
 
-      {/* Mobile inline details when selected */}
+      </button>
+
+      {/* Mobile inline details — sibling of button to keep HTML valid */}
       {isCompact && showInlineDetails && selected && (
         <div
           style={{
-            marginTop: 10,
-            paddingTop: 10,
+            padding: '10px 20px 14px',
             borderTop: '1px dashed var(--color-rule)',
+            background: 'var(--color-paper)',
             display: 'flex',
             flexDirection: 'column',
             gap: 8,
           }}
         >
-          <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
+          <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap', alignItems: 'center' }}>
             <StatusBadge status={booking.status} />
             {costStr && (
               <span
@@ -156,7 +160,7 @@ export function BookingRow({
             <a
               href={booking.link}
               target="_blank"
-              rel="noopener"
+              rel="noopener noreferrer"
               style={{
                 fontFamily: 'var(--font-mono)',
                 fontSize: 10,
@@ -165,14 +169,14 @@ export function BookingRow({
                 display: 'inline-flex',
                 alignItems: 'center',
                 gap: 4,
+                alignSelf: 'flex-start',
               }}
-              onClick={(e) => e.stopPropagation()}
             >
               Ver más <span style={{ color: 'var(--color-stone)' }}>↗</span>
             </a>
           )}
         </div>
       )}
-    </button>
+    </>
   );
 }
