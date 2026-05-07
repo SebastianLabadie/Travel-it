@@ -6,14 +6,14 @@
     {
       "id": "F-01",
       "title": "Reservas tracker con urgencia",
-      "status": "pending",
+      "status": "done",
       "priority": "high",
       "source": "docs/Patagonia_2026.md — tabla 'Qué reservar de antemano'",
       "summary": "Nueva content collection 'bookings' con urgency, cost, status, link. Vista dedicada o sección en checklist. Riesgo financiero real si falla.",
       "estimate_lines": 350,
       "depends_on": [],
-      "sdd_change": null,
-      "pr": null,
+      "sdd_change": "f-01",
+      "pr": "main",
       "design": {
         "status": "ready",
         "paths": ["design/reservas.jsx"]

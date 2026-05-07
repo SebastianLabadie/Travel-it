@@ -4,6 +4,36 @@ Bitácora append-only. Cada sesión cerrada se vuelca acá con fecha, feature, r
 
 ---
 
+## 2026-05-07 — F-01 Reservas tracker con urgencia (SDD archive)
+
+**Feature:** F-01 — Reservas tracker con urgencia
+**SDD change:** f-01
+**Resultado:** Implementación completa, verificación PASS WITH WARNINGS, archivado.
+
+**Hecho:**
+- Inicializado SDD para el proyecto (`sdd-init`).
+- Lanzado `/sdd-new f-01` → exploration → proposal → spec → design → tasks.
+- Aplicado PR 1 (data layer: schema, 16 seeds, types, loader, nav) vía `sdd-apply`.
+- Aplicado PR 2 (UI layer: ReservasApp island + 10 componentes + page shell) vía `sdd-apply`.
+- Verificado con `sdd-verify` → PASS WITH WARNINGS.
+- Fixes post-verify aplicados:
+  - `<a>` dentro de `<button>` reestructurado (inline details como sibling del button).
+  - `aria-expanded` agregado a BookingRow para mobile accordion.
+  - `aria-pressed` agregado a UrgencyFilter chips.
+- `astro build` pasa con 0 errores, 4 páginas generadas.
+- Archivado: reporte guardado en engram (`sdd/f-01/archive-report`) y `progress/archive_f-01.md`.
+
+**Decisiones tomadas:**
+- PR 1 + PR 2 implementados en misma branch (`main`), no PR separado.
+- D-02 (5 vs 6 personas) sigue pendiente pero NO bloquea; diseño usa PAX=5 como default.
+- Schema usa English keys (`flight`, `accommodation`, etc.) en vez de Spanish (`vuelos`, `alojamiento`) por consistencia con codebase existente.
+- Cost shape `{amount, currency}` en vez de `{minUSD, maxUSD}` por simplificación; range info se pierde.
+
+**Próximos pasos:**
+- Elegir siguiente feature pendiente (F-02, F-03 o F-04 según prioridad).
+
+---
+
 ## 2026-05-07 — Setup harness organizacional sobre SDD
 
 **Feature:** integración de harness Engineering (betta-tech/ejemplo-harness-subagentes) sobre SDD existente.
