@@ -17,7 +17,8 @@
 
 import { useEffect, useRef, useState } from 'preact/hooks';
 import type { Destination, Route } from '../../lib/types';
-import { PIN_CSS, pinHtml, popupHtml, FIELD_NOTE_HTML } from './pin-styles';
+import { TREKS } from '../../lib/treks';
+import { PIN_CSS, pinHtml, popupHtml, trekPopupHtml, FIELD_NOTE_HTML } from './pin-styles';
 import 'leaflet/dist/leaflet.css';
 
 // ── Types ────────────────────────────────────────────────────────────────────
@@ -51,6 +52,92 @@ export default function PatagoniaMap({
   const [animKey, setAnimKey] = useState(0);
   const [step, setStep] = useState<number>(staticMode ? destinations.length - 1 : -1);
 
+  // Layer toggle state (PR-2)
+  const [showTransfers, setShowTransfers] = useState(true);
+  const [showTreks, setShowTreks] = useState(true);
+  const [showNotas, setShowNotas] = useState(true);
+  const showTransfersRef = useRef(true);
+  const showTreksRef = useRef(true);
+  const showNotasRef = useRef(true);
+
+  // Refs for layer sync across effects
+  const mapRef = useRef<import('leaflet').Map | null>(null);
+  const transferLayersRef = useRef<import('leaflet').Polyline[]>([]);
+  const revealedTransferLayersRef = useRef<Set<import('leaflet').Polyline>>(new Set());
+  const trekLineLayersRef = useRef<import('leaflet').Polyline[]>([]);
+  const trekPinLayersRef = useRef<import('leaflet').Marker[]>([]);
+  const noteLayerRef = useRef<import('leaflet').Marker | null>(null);
+
+  const clickToggle = (key: string) => {
+    if (key === 'transfers') setShowTransfers((v) => {
+      const next = !v;
+      showTransfersRef.current = next;
+      return next;
+    });
+    if (key === 'treks') setShowTreks((v) => {
+      const next = !v;
+      showTreksRef.current = next;
+      return next;
+    });
+    if (key === 'notas') setShowNotas((v) => {
+      const next = !v;
+      showNotasRef.current = next;
+      return next;
+    });
+  };
+
+  // Sync layer visibility when toggles change (does NOT touch animKey)
+  useEffect(() => {
+    showTransfersRef.current = showTransfers;
+    showTreksRef.current = showTreks;
+    showNotasRef.current = showNotas;
+
+    const map = mapRef.current;
+    if (!map) return;
+
+    const transferLayers = staticMode
+      ? transferLayersRef.current
+      : transferLayersRef.current.filter((p) => revealedTransferLayersRef.current.has(p));
+
+    transferLayersRef.current.forEach((p) => {
+      if (!transferLayers.includes(p) && map.hasLayer(p)) {
+        map.removeLayer(p);
+      }
+    });
+
+    transferLayers.forEach((p) => {
+      if (showTransfers) {
+        if (!map.hasLayer(p)) p.addTo(map);
+      } else {
+        if (map.hasLayer(p)) map.removeLayer(p);
+      }
+    });
+
+    trekLineLayersRef.current.forEach((p) => {
+      if (showTreks) {
+        if (!map.hasLayer(p)) p.addTo(map);
+      } else {
+        if (map.hasLayer(p)) map.removeLayer(p);
+      }
+    });
+
+    trekPinLayersRef.current.forEach((m) => {
+      if (showTreks) {
+        if (!map.hasLayer(m)) m.addTo(map);
+      } else {
+        if (map.hasLayer(m)) map.removeLayer(m);
+      }
+    });
+
+    if (noteLayerRef.current) {
+      if (showNotas) {
+        if (!map.hasLayer(noteLayerRef.current)) noteLayerRef.current.addTo(map);
+      } else {
+        if (map.hasLayer(noteLayerRef.current)) map.removeLayer(noteLayerRef.current);
+      }
+    }
+  }, [showTransfers, showTreks, showNotas]);
+
   useEffect(() => {
     if (!containerRef.current) return;
 
@@ -72,6 +159,8 @@ export default function PatagoniaMap({
         keyboard: true,
       } as import('leaflet').MapOptions);
 
+      mapRef.current = map;
+
       // Bbox: Montevideo (~-34°S) hasta Cabo de Hornos
       map.fitBounds(
         [[-55.2, -76], [-34, -55]],
@@ -84,10 +173,97 @@ export default function PatagoniaMap({
         { subdomains: 'abcd', maxZoom: 12, minZoom: 4 }
       ).addTo(map);
 
+      // Reset layer refs
+      transferLayersRef.current = [];
+      revealedTransferLayersRef.current = new Set();
+      trekLineLayersRef.current = [];
+      trekPinLayersRef.current = [];
+      noteLayerRef.current = null;
+
       // Track all layers for cleanup
       const markerLayers: import('leaflet').Marker[] = [];
       const lineLayers: import('leaflet').Polyline[] = [];
       let noteLayer: import('leaflet').Marker | null = null;
+
+      // ── Pre-create transfer polylines (toggle-controlled) ─────────────────
+
+      const transferMap = new Map<string, import('leaflet').Polyline>();
+      for (const route of routes) {
+        const latlngs = route.coords.map((c): [number, number] => [c[1], c[0]]);
+        const opts: import('leaflet').PolylineOptions =
+          route.mode === 'plane'
+            ? { color: 'var(--color-warning)', weight: 2.5, opacity: 0.95, dashArray: '6 5', lineCap: 'round' }
+            : { color: 'var(--color-fg)', weight: 3, opacity: 0.9, lineCap: 'round' };
+        const poly = L.polyline(latlngs, opts);
+        transferMap.set(route.from, poly);
+        transferLayersRef.current.push(poly);
+      }
+
+      // ── Pre-create trek layers (toggle-controlled, not added yet) ─────────
+
+      TREKS.forEach((trek) => {
+        const poly = L.polyline(trek.path, {
+          color: 'var(--color-moss)',
+          weight: 2,
+          opacity: 0.85,
+          dashArray: '1 4',
+          lineCap: 'round',
+          className: 'ptg-trek-line',
+        });
+
+        poly.on('mouseover', () => poly.setStyle({ weight: 3, opacity: 1 }));
+        poly.on('mouseout', () => poly.setStyle({ weight: 2, opacity: 0.85 }));
+
+        const mid = trek.path[Math.floor(trek.path.length / 2)];
+        poly.bindPopup(trekPopupHtml(trek), {
+          className: 'ptg-trek-popup',
+          closeButton: false,
+          offset: [0, -4],
+        });
+        poly.on('click', () => {
+          if (mid) poly.openPopup(mid);
+        });
+
+        trekLineLayersRef.current.push(poly);
+
+        const startIcon = L.divIcon({
+          html: `<div class="ptg-trekpin start"><div class="ptg-trekpin-tip">${trek.name} · inicio</div></div>`,
+          className: 'ptg-divicon',
+          iconSize: [24, 24],
+          iconAnchor: [12, 12],
+        });
+        const ms = L.marker(trek.start, { icon: startIcon });
+        trekPinLayersRef.current.push(ms);
+
+        const endIcon = L.divIcon({
+          html: `<div class="ptg-trekpin end"><div class="ptg-trekpin-tip">${trek.name} · fin</div></div>`,
+          className: 'ptg-divicon',
+          iconSize: [24, 24],
+          iconAnchor: [12, 12],
+        });
+        const me = L.marker(trek.end, { icon: endIcon });
+        trekPinLayersRef.current.push(me);
+      });
+
+      // ── Pre-create note layer (toggle-controlled) ─────────────────────────
+
+      if (showCriticalNote) {
+        const ush = destinations.find((d) => d.slug === 'ushuaia');
+        if (ush) {
+          const noteIcon = L.divIcon({
+            html: FIELD_NOTE_HTML,
+            className: 'ptg-divicon',
+            iconSize: [200, 90],
+            iconAnchor: [-12, 90],
+          });
+          noteLayer = L.marker([ush.coords[1], ush.coords[0]], {
+            icon: noteIcon,
+            interactive: false,
+            opacity: 0,
+          });
+          noteLayerRef.current = noteLayer;
+        }
+      }
 
       // ── Build markers ──────────────────────────────────────────────────────
 
@@ -130,10 +306,18 @@ export default function PatagoniaMap({
       function animatePolyline(
         latlngs: [number, number][],
         opts: import('leaflet').PolylineOptions,
-        durationMs: number
-      ): Promise<void> {
-        const poly = L.polyline([latlngs[0] as [number, number]], opts).addTo(map);
-        lineLayers.push(poly);
+        durationMs: number,
+        existingPoly?: import('leaflet').Polyline
+      ): Promise<import('leaflet').Polyline> {
+        const poly = existingPoly || L.polyline([latlngs[0] as [number, number]], opts);
+        if (!existingPoly) {
+          if (showTransfersRef.current) poly.addTo(map);
+          lineLayers.push(poly);
+        } else {
+          poly.setLatLngs([latlngs[0] as [number, number]]);
+          poly.setStyle(opts);
+          if (showTransfersRef.current) poly.addTo(map);
+        }
 
         // Pre-compute segment lengths
         let totalDist = 0;
@@ -151,7 +335,7 @@ export default function PatagoniaMap({
           const start = performance.now();
 
           function tick(now: number) {
-            if (cancelled) return res();
+            if (cancelled) return res(poly);
             const progress = Math.min(1, (now - start) / durationMs);
             const target = totalDist * progress;
             let acc = 0;
@@ -179,12 +363,59 @@ export default function PatagoniaMap({
             if (progress < 1) {
               requestAnimationFrame(tick);
             } else {
-              res();
+              revealedTransferLayersRef.current.add(poly);
+              if (showTransfersRef.current && !map.hasLayer(poly)) poly.addTo(map);
+              res(poly);
             }
           }
 
           requestAnimationFrame(tick);
         });
+      }
+
+      // ── Helper: sync layer visibility based on current toggle state ───────
+
+      function syncLayers(m: import('leaflet').Map, includeTransfers = true) {
+        if (includeTransfers) {
+          const transferLayers = staticMode
+            ? transferLayersRef.current
+            : transferLayersRef.current.filter((p) => revealedTransferLayersRef.current.has(p));
+
+          transferLayersRef.current.forEach((p) => {
+            if (!transferLayers.includes(p) && m.hasLayer(p)) {
+              m.removeLayer(p);
+            }
+          });
+
+          transferLayers.forEach((p) => {
+            if (showTransfersRef.current) {
+              if (!m.hasLayer(p)) p.addTo(m);
+            } else {
+              if (m.hasLayer(p)) m.removeLayer(p);
+            }
+          });
+        }
+        trekLineLayersRef.current.forEach((p) => {
+          if (showTreksRef.current) {
+            if (!m.hasLayer(p)) p.addTo(m);
+          } else {
+            if (m.hasLayer(p)) m.removeLayer(p);
+          }
+        });
+        trekPinLayersRef.current.forEach((mk) => {
+          if (showTreksRef.current) {
+            if (!m.hasLayer(mk)) mk.addTo(m);
+          } else {
+            if (m.hasLayer(mk)) m.removeLayer(mk);
+          }
+        });
+        if (noteLayerRef.current) {
+          if (showNotasRef.current) {
+            if (!m.hasLayer(noteLayerRef.current)) noteLayerRef.current.addTo(m);
+          } else {
+            if (m.hasLayer(noteLayerRef.current)) m.removeLayer(noteLayerRef.current);
+          }
+        }
       }
 
       // ── Static mode: render everything instantly ──────────────────────────
@@ -198,39 +429,25 @@ export default function PatagoniaMap({
           markerLayers.push(m);
         }
 
-        for (const route of routes) {
-          const latlngs = route.coords.map((c): [number, number] => [c[1], c[0]]);
-          const opts: import('leaflet').PolylineOptions =
-            route.mode === 'plane'
-              ? { color: 'var(--color-warning)', weight: 2.5, opacity: 0.95, dashArray: '6 5', lineCap: 'round' }
-              : { color: 'var(--color-fg)', weight: 3, opacity: 0.9, lineCap: 'round' };
-          const poly = L.polyline(latlngs, opts).addTo(map);
-          lineLayers.push(poly);
-        }
+        transferLayersRef.current.forEach((p) => revealedTransferLayersRef.current.add(p));
+        syncLayers(map);
 
-        if (showCriticalNote) {
-          const ush = destinations.find((d) => d.slug === 'ushuaia');
-          if (ush) {
-            const noteIcon = L.divIcon({
-              html: FIELD_NOTE_HTML,
-              className: 'ptg-divicon',
-              iconSize: [200, 90],
-              iconAnchor: [-12, 90],
-            });
-            noteLayer = L.marker([ush.coords[1], ush.coords[0]], {
-              icon: noteIcon,
-              interactive: false,
-            }).addTo(map);
-          }
+        // Make note visible in static mode (it was created with opacity: 0)
+        if (noteLayerRef.current && showNotas) {
+          noteLayerRef.current.setOpacity(1);
         }
 
         // cleanup and return early
         return () => {
           cancelled = true;
-          markerLayers.forEach((m) => map.removeLayer(m));
-          lineLayers.forEach((l) => map.removeLayer(l));
-          if (noteLayer) map.removeLayer(noteLayer);
+          markerLayers.forEach((m) => map.hasLayer(m) && map.removeLayer(m));
+          lineLayers.forEach((l) => map.hasLayer(l) && map.removeLayer(l));
+          transferLayersRef.current.forEach((p) => map.hasLayer(p) && map.removeLayer(p));
+          trekLineLayersRef.current.forEach((p) => map.hasLayer(p) && map.removeLayer(p));
+          trekPinLayersRef.current.forEach((m) => map.hasLayer(m) && map.removeLayer(m));
+          if (noteLayerRef.current && map.hasLayer(noteLayerRef.current)) map.removeLayer(noteLayerRef.current);
           map.remove();
+          mapRef.current = null;
         };
       }
 
@@ -244,6 +461,9 @@ export default function PatagoniaMap({
         m.addTo(map);
         markerLayers.push(m);
       }
+
+      // Sync only non-transfer layers; transfer reveal stays controlled by animation.
+      syncLayers(map, false);
 
       // Check reduced-motion preference
       const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -261,8 +481,17 @@ export default function PatagoniaMap({
               route.mode === 'plane'
                 ? { color: 'var(--color-warning)', weight: 2.5, dashArray: '6 5', lineCap: 'round' }
                 : { color: 'var(--color-fg)', weight: 3, lineCap: 'round' };
-            const poly = L.polyline(latlngs, opts).addTo(map);
-            lineLayers.push(poly);
+            const prePoly = transferMap.get(route.from);
+            if (prePoly) {
+              prePoly.setStyle(opts);
+              revealedTransferLayersRef.current.add(prePoly);
+              if (showTransfersRef.current) prePoly.addTo(map);
+            } else {
+              const poly = L.polyline(latlngs, opts);
+              revealedTransferLayersRef.current.add(poly);
+              if (showTransfersRef.current) poly.addTo(map);
+              lineLayers.push(poly);
+            }
           }
           return;
         }
@@ -282,24 +511,15 @@ export default function PatagoniaMap({
 
           // Field note appears when Ushuaia is revealed
           if (showCriticalNote && dest.slug === 'ushuaia') {
-            const noteIcon = L.divIcon({
-              html: FIELD_NOTE_HTML,
-              className: 'ptg-divicon',
-              iconSize: [200, 90],
-              iconAnchor: [-12, 90],
-            });
-            const note = L.marker([dest.coords[1], dest.coords[0]], {
-              icon: noteIcon,
-              opacity: 0,
-              interactive: false,
-            }).addTo(map);
-            noteLayer = note;
-
-            if (!reducedMotion) {
-              await wait(50);
-              await fadeIn(note, 380);
-            } else {
-              note.setOpacity(1);
+            const note = noteLayerRef.current;
+            if (note) {
+              if (showNotasRef.current) note.addTo(map);
+              if (!reducedMotion) {
+                await wait(50);
+                await fadeIn(note, 380);
+              } else {
+                note.setOpacity(1);
+              }
             }
           }
 
@@ -313,11 +533,20 @@ export default function PatagoniaMap({
                   ? { color: 'var(--color-warning)', weight: 2.5, opacity: 0.95, dashArray: '6 5', lineCap: 'round' }
                   : { color: 'var(--color-fg)', weight: 3, opacity: 0.9, lineCap: 'round' };
 
+              const prePoly = transferMap.get(route.from);
+
               if (reducedMotion) {
-                const poly = L.polyline(latlngs, opts).addTo(map);
-                lineLayers.push(poly);
+                if (prePoly) {
+                  prePoly.setStyle(opts);
+                  revealedTransferLayersRef.current.add(prePoly);
+                  if (showTransfersRef.current) prePoly.addTo(map);
+                }
               } else {
-                await animatePolyline(latlngs, opts, 850);
+                if (prePoly) {
+                  await animatePolyline(latlngs, opts, 850, prePoly);
+                } else {
+                  await animatePolyline(latlngs, opts, 850);
+                }
               }
             }
           }
@@ -328,10 +557,14 @@ export default function PatagoniaMap({
 
       return () => {
         cancelled = true;
-        markerLayers.forEach((m) => map.removeLayer(m));
-        lineLayers.forEach((l) => map.removeLayer(l));
-        if (noteLayer) map.removeLayer(noteLayer);
+        markerLayers.forEach((m) => map.hasLayer(m) && map.removeLayer(m));
+        lineLayers.forEach((l) => map.hasLayer(l) && map.removeLayer(l));
+        transferLayersRef.current.forEach((p) => map.hasLayer(p) && map.removeLayer(p));
+        trekLineLayersRef.current.forEach((p) => map.hasLayer(p) && map.removeLayer(p));
+        trekPinLayersRef.current.forEach((m) => map.hasLayer(m) && map.removeLayer(m));
+        if (noteLayerRef.current && map.hasLayer(noteLayerRef.current)) map.removeLayer(noteLayerRef.current);
         map.remove();
+        mapRef.current = null;
       };
     }
 
@@ -387,6 +620,40 @@ export default function PatagoniaMap({
           </li>
         ))}
       </ul>
+
+      {/* Layer toggles — top right */}
+      <div className="ptg-toggles">
+        <button
+          type="button"
+          onClick={() => clickToggle('transfers')}
+          className={`ptg-toggle${showTransfers ? ' active' : ''}`}
+          aria-pressed={showTransfers}
+          aria-label="Mostrar transfers"
+        >
+          <span className="ptg-toggle-dot transfers" />
+          Transfers
+        </button>
+        <button
+          type="button"
+          onClick={() => clickToggle('treks')}
+          className={`ptg-toggle${showTreks ? ' active' : ''}`}
+          aria-pressed={showTreks}
+          aria-label="Mostrar treks"
+        >
+          <span className="ptg-toggle-dot treks" />
+          Treks
+        </button>
+        <button
+          type="button"
+          onClick={() => clickToggle('notas')}
+          className={`ptg-toggle${showNotas ? ' active' : ''}`}
+          aria-pressed={showNotas}
+          aria-label="Mostrar notas"
+        >
+          <span className="ptg-toggle-dot notas" />
+          Notas
+        </button>
+      </div>
 
       {/* Map chrome: only shown in animated mode */}
       {!staticMode && (
