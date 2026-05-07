@@ -1,5 +1,5 @@
 import { getCollection } from 'astro:content';
-import type { Destination, Day, Route, ChecklistCategory } from './types';
+import type { Destination, Day, Route, ChecklistCategory, Booking } from './types';
 
 /**
  * Returns all destinations sorted by their `order` field (0..5).
@@ -54,4 +54,23 @@ export async function getCriticalDays(): Promise<Day[]> {
 export async function getDestinationBySlug(slug: string): Promise<Destination | undefined> {
   const destinations = await getDestinations();
   return destinations.find((d) => d.slug === slug);
+}
+
+/**
+ * Returns all bookings sorted by urgency (alta-ya → alta-3-6m → media → baja)
+ * and then by deadline ascending.
+ */
+export async function getBookings(): Promise<Booking[]> {
+  const entries = await getCollection('bookings');
+  const urgencyOrder = ['alta-ya', 'alta-3-6m', 'media', 'baja'] as const;
+  return entries
+    .map((e) => e.data)
+    .sort((a, b) => {
+      const urgencyDiff = urgencyOrder.indexOf(a.urgency) - urgencyOrder.indexOf(b.urgency);
+      if (urgencyDiff !== 0) return urgencyDiff;
+      if (a.deadline && b.deadline) return a.deadline.localeCompare(b.deadline);
+      if (a.deadline) return -1;
+      if (b.deadline) return 1;
+      return 0;
+    });
 }

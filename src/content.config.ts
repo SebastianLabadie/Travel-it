@@ -69,6 +69,26 @@ const checklistCategorySchema = z.object({
   ),
 });
 
+// ── Booking ──────────────────────────────────────────────────────────────────
+const bookingSchema = z.object({
+  id: z.string(),
+  category: z.enum(['flight', 'accommodation', 'transfer', 'activity', 'rental']),
+  title: z.string(),
+  urgency: z.enum(['alta-ya', 'alta-3-6m', 'media', 'baja']),
+  status: z.enum(['pendiente', 'reservado', 'pagado']),
+  cost: z
+    .object({
+      amount: z.number().positive(),
+      currency: z.enum(['USD', 'ARS', 'CLP', 'UYU']),
+      perPerson: z.boolean().default(false),
+    })
+    .optional(),
+  deadline: z.string().date().optional(),
+  link: z.string().url().optional(),
+  notes: z.string().optional(),
+  destination: z.string().optional(),
+});
+
 export const collections = {
   destinations: defineCollection({
     loader: glob({ pattern: '**/*.json', base: './src/content/destinations' }),
@@ -85,5 +105,9 @@ export const collections = {
   'checklist-items': defineCollection({
     loader: glob({ pattern: '**/*.json', base: './src/content/checklist-items' }),
     schema: checklistCategorySchema,
+  }),
+  bookings: defineCollection({
+    loader: glob({ pattern: '**/*.json', base: './src/content/bookings' }),
+    schema: bookingSchema,
   }),
 };
