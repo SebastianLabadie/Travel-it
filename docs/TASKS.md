@@ -2,6 +2,11 @@
 
 *Plan de implementación · v0.1 · 2026-05-04*
 
+> **NOTA (2026-05-07):** Este archivo es **histórico read-only** de los PRs PR-0..PR-7 del MVP.
+> El backlog post-MVP vive ahora en [`feature_list.json`](../feature_list.json) (gestionado por el harness).
+> Las decisiones pendientes viven en [`decisions.json`](../decisions.json).
+> Ver [`AGENTS.md`](../AGENTS.md) para flujo de trabajo integrado harness + SDD.
+
 ## Estado de PRs
 
 | PR | Slice | Branch | Estado |
@@ -237,15 +242,9 @@
 
 ---
 
-## Backlog post-MVP (v1.1+)
+## Backlog post-MVP
 
-- [ ] Tracks GPX de treks (Fitz Roy, Base Las Torres, Laguna Esmeralda) como capa toggleable.
-- [ ] Vista de presupuesto agregando rangos USD por destino.
-- [ ] Imágenes optimizadas reales por destino con `<Image />` de Astro.
-- [ ] Print stylesheet del itinerario.
-- [ ] Mode offline / PWA con cache de tiles + service worker.
-- [ ] Compartir checklist con grupo (requiere backend — re-evaluar).
-- [ ] Anotaciones / diario durante el viaje (localStorage o Supabase).
+> Migrado a [`feature_list.json`](../feature_list.json) el 2026-05-07. Ver F-01..F-10.
 
 ---
 

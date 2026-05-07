@@ -1,0 +1,32 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Travel-it Feature List",
+  "type": "object",
+  "required": ["version", "features"],
+  "properties": {
+    "$schema": { "type": "string" },
+    "version": { "type": "integer", "const": 1 },
+    "notes": { "type": "string" },
+    "features": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "title", "status", "priority", "source", "summary"],
+        "properties": {
+          "id": { "type": "string", "pattern": "^F-[0-9]{2,3}$" },
+          "title": { "type": "string", "minLength": 3 },
+          "status": { "enum": ["pending", "in_progress", "done", "blocked"] },
+          "priority": { "enum": ["high", "medium", "low"] },
+          "source": { "type": "string" },
+          "summary": { "type": "string" },
+          "estimate_lines": { "type": ["integer", "null"] },
+          "depends_on": { "type": "array", "items": { "type": "string" } },
+          "sdd_change": { "type": ["string", "null"] },
+          "pr": { "type": ["integer", "null"] },
+          "blocker": { "type": "string" }
+        },
+        "additionalProperties": false
+      }
+    }
+  }
+}
