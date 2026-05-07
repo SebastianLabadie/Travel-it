@@ -55,16 +55,21 @@ Este proyecto integra **harness organizacional** (este archivo, `feature_list.js
 feature_list.json (pending)
   ↓ elegís
 status: in_progress + progress/current.md actualizado
+  ↓
+git checkout -b feature/<slug>
   ↓ feature compleja (>200 líneas estimadas)
 /sdd-new <slug> → exploration → proposal → spec → design → tasks
   ↓ feature simple
 implementación directa con sub-agente Implementer
+  ↓ (commits atómicos durante la implementación)
+git push -u origin feature/<slug>
+gh pr create --title "feat(<slug>): ..." --body "..."
   ↓ verificación
 /sdd-verify  o  reviewer recorre CHECKPOINTS.md
   ↓ todo OK
 PR mergeado → /sdd-archive
   ↓
-feature_list.json: status: done, pr: <num>, sdd_change: <name>
+feature_list.json: status: done, pr: "<num>", sdd_change: <name>
 progress/current.md → progress/history.md
 ```
 
@@ -89,7 +94,47 @@ Cuando lances sub-agentes (sdd-explore, sdd-apply, general-purpose), instruí qu
 | `progress/review_<feature>.md` | sdd-verify / reviewer | Checklist contra CHECKPOINTS.md |
 | `progress/history.md` | Leader | Append-only, resumen de sesión cerrada |
 
-## 8. Si te bloqueás
+## 8. Git Workflow — commits y PRs obligatorios
+
+El código que no está en un PR **no existe**. Los sub-agentes deben crear branches, commits y PRs; nunca dejar cambios solo en el working directory.
+
+### 8.1 Antes de tocar código
+
+```
+git checkout -b feature/<slug>
+```
+
+- `<slug>` = el feature ID en minúscula (ej: `feature/f-05-tracks`)
+- Nunca commitear directo a `main`
+
+### 8.2 Durante la implementación
+
+- **Hacé commits atomics** por unidad de trabajo:
+  - `feat(treks): add Trek data model...`
+  - `feat(map): add trek layer with toggles...`
+  - `fix(a11y): add focus-visible to toggle buttons...`
+- **No acumules** 500 líneas sin commitear. Si un sub-agente aplica cambios, el orchestrator debe commitear antes de seguir.
+
+### 8.3 Al finalizar
+
+```
+git push -u origin feature/<slug>
+gh pr create --title "..." --body "..."
+```
+
+- El PR debe linkear al feature (mencionar `F-XX` en el título o body)
+- Actualizar `feature_list.json`: `pr: "<num>"`
+- Correr `./init.sh` una última vez antes del push
+
+### 8.4 Reglas para sub-agentes
+
+Cuando lances `sdd-apply` o cualquier agente que escriba código:
+
+1. **Instruí explícitamente**: "Creá un branch, hacé commits atómicos, pusheá y creá un PR. No dejes cambios sin commitear."
+2. **Verificá** antes de cerrar la sesión: `git status` debe estar limpio (todo commiteado en el branch del feature).
+3. **Si el sub-agente no creó el PR**, el orchestrador lo crea antes de dar por terminada la feature.
+
+## 9. Si te bloqueás
 
 - Releé el doc relevante (`docs/`, `design/DESIGN.md`).
 - Si la herramienta no hace lo esperado, **no inventes workaround**: documentá el bloqueo en `progress/current.md`, cambiá feature a `blocked` con `blocker`, y parás.
