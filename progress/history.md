@@ -62,6 +62,39 @@ Bitácora append-only. Cada sesión cerrada se vuelca acá con fecha, feature, r
 
 ---
 
+## 2026-05-07 — F-05 Tracks GPX de treks (SDD archive)
+
+**Feature:** F-05 — Tracks GPX de treks
+**SDD change:** f-05
+**Resultado:** Implementación completa, verificación PASS WITH WARNINGS, archivado.
+
+**Hecho:**
+- Inicializado SDD para el proyecto (`sdd-init`) — stack: Astro 6.2 + Preact + Tailwind 4 + TS.
+- Lanzado `/sdd-new f-05` → exploration → proposal → spec → design → tasks.
+- Aplicados 3 PRs encadenados (feature-branch-chain):
+  - PR-1: Infra — `src/lib/treks.ts` (Trek interface + 3 tracks), base map rendering, pin-styles CSS
+  - PR-2: UI — toggle buttons, layer sync, hover effects, popups
+  - PR-3: Polish — accessibility (aria-pressed, aria-label), prefers-reduced-motion
+- Verificado con `sdd-verify` → PASS WITH WARNINGS.
+- Fixes post-verify aplicados:
+  - `:focus-visible` outline en toggle buttons (CHECKPOINTS.md C4).
+  - Note layer visibility en `staticMode`.
+- `astro check` pasa con 0 errores, 0 warnings.
+- Archivado: reporte guardado en engram (`sdd/f-05/archive-report`).
+- `feature_list.json`: F-05 marcada como `done`.
+
+**Decisiones tomadas:**
+- Chained PRs con estrategia `feature-branch-chain` (PRs apuntan a tracker branch).
+- Trek data inline en `src/lib/treks.ts` (solo 3 tracks estáticos, no amerita content collection).
+- No se creó página `/mapa` dedicada; se extendió el mapa existente en home.
+- 3 toggles (transfers, treks, notas) por consistencia con diseño.
+- Ref-based layer sync para no interferir con animación existente.
+
+**Próximos pasos:**
+- Elegir siguiente feature pendiente (F-02, F-03 o F-04 según prioridad).
+
+---
+
 ## 2026-05-07 — Campo design + F-11 + schema v2
 
 **Feature:** harness iteración. Tracking de estado de diseño por feature.

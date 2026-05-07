@@ -70,14 +70,14 @@
     {
       "id": "F-05",
       "title": "Tracks GPX de treks",
-      "status": "pending",
+      "status": "done",
       "priority": "medium",
       "source": "PRD §4 — v1.1 backlog",
       "summary": "Capa toggleable en mapa: Fitz Roy, Base Las Torres, Laguna Esmeralda. GPX desde Wikiloc/AllTrails. Aporta densidad real al mapa.",
       "estimate_lines": 300,
       "depends_on": [],
-      "sdd_change": null,
-      "pr": null,
+      "sdd_change": "f-05",
+      "pr": "11",
       "design": {
         "status": "ready",
         "paths": ["design/f05-mocks.jsx", "design/f05-tracks.jsx"]
