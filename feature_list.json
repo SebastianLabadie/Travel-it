@@ -1,7 +1,7 @@
 {
   "$schema": "./scripts/feature-list.schema.json",
-  "version": 1,
-  "notes": "Backlog post-MVP. Histórico de PRs mergeados (PR-0..PR-7) vive en docs/TASKS.md. Solo una feature en in_progress a la vez (enforzado por init.sh).",
+  "version": 2,
+  "notes": "Backlog post-MVP. Histórico de PRs mergeados (PR-0..PR-7) vive en docs/TASKS.md. Solo una feature en in_progress a la vez (enforzado por init.sh). Campo 'design' indica si el diseño está listo, pendiente o no aplica.",
   "features": [
     {
       "id": "F-01",
@@ -13,7 +13,11 @@
       "estimate_lines": 350,
       "depends_on": [],
       "sdd_change": null,
-      "pr": null
+      "pr": null,
+      "design": {
+        "status": "ready",
+        "paths": ["design/reservas.jsx"]
+      }
     },
     {
       "id": "F-02",
@@ -25,7 +29,11 @@
       "estimate_lines": 200,
       "depends_on": [],
       "sdd_change": null,
-      "pr": null
+      "pr": null,
+      "design": {
+        "status": "ready",
+        "paths": ["design/presupuesto.jsx"]
+      }
     },
     {
       "id": "F-03",
@@ -37,7 +45,11 @@
       "estimate_lines": 250,
       "depends_on": [],
       "sdd_change": null,
-      "pr": null
+      "pr": null,
+      "design": {
+        "status": "n/a",
+        "paths": []
+      }
     },
     {
       "id": "F-04",
@@ -49,7 +61,11 @@
       "estimate_lines": 150,
       "depends_on": [],
       "sdd_change": null,
-      "pr": null
+      "pr": null,
+      "design": {
+        "status": "ready",
+        "paths": ["design/f04-countdown.jsx", "design/f04-sheets.jsx"]
+      }
     },
     {
       "id": "F-05",
@@ -61,7 +77,11 @@
       "estimate_lines": 300,
       "depends_on": [],
       "sdd_change": null,
-      "pr": null
+      "pr": null,
+      "design": {
+        "status": "ready",
+        "paths": ["design/f05-mocks.jsx", "design/f05-tracks.jsx"]
+      }
     },
     {
       "id": "F-06",
@@ -73,7 +93,11 @@
       "estimate_lines": 120,
       "depends_on": [],
       "sdd_change": null,
-      "pr": null
+      "pr": null,
+      "design": {
+        "status": "pending",
+        "paths": []
+      }
     },
     {
       "id": "F-07",
@@ -85,7 +109,11 @@
       "estimate_lines": 80,
       "depends_on": [],
       "sdd_change": null,
-      "pr": null
+      "pr": null,
+      "design": {
+        "status": "pending",
+        "paths": []
+      }
     },
     {
       "id": "F-08",
@@ -97,7 +125,11 @@
       "estimate_lines": 100,
       "depends_on": [],
       "sdd_change": null,
-      "pr": null
+      "pr": null,
+      "design": {
+        "status": "n/a",
+        "paths": []
+      }
     },
     {
       "id": "F-09",
@@ -109,7 +141,11 @@
       "estimate_lines": 200,
       "depends_on": [],
       "sdd_change": null,
-      "pr": null
+      "pr": null,
+      "design": {
+        "status": "pending",
+        "paths": []
+      }
     },
     {
       "id": "F-10",
@@ -122,7 +158,27 @@
       "depends_on": [],
       "sdd_change": null,
       "pr": null,
-      "blocker": "PRD non-goal MVP. Requiere decisión de scope (backend yes/no) — ver decisions.json D-01."
+      "blocker": "PRD non-goal MVP. Requiere decisión de scope (backend yes/no) — ver decisions.json D-01.",
+      "design": {
+        "status": "pending",
+        "paths": []
+      }
+    },
+    {
+      "id": "F-11",
+      "title": "UI decisiones pendientes",
+      "status": "pending",
+      "priority": "medium",
+      "source": "Discusión 2026-05-07 — gap identificado al migrar decisions.json",
+      "summary": "Panel en home + pantalla /decisiones. Render de decisions.json con status, options, owner, deadline. Action 'resolver' que actualiza el JSON. Urgent state si deadline < 14 días.",
+      "estimate_lines": 220,
+      "depends_on": [],
+      "sdd_change": null,
+      "pr": null,
+      "design": {
+        "status": "pending",
+        "paths": []
+      }
     }
   ]
 }
