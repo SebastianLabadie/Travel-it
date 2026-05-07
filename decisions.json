@@ -1,0 +1,70 @@
+{
+  "version": 1,
+  "notes": "Decisiones pendientes que afectan scope, arquitectura o logística del viaje. Migrado de PRD §4 'Open Questions' y docs/Patagonia_2026.md sección 'Decisiones pendientes'.",
+  "decisions": [
+    {
+      "id": "D-01",
+      "title": "¿Backend para sync entre integrantes del grupo?",
+      "status": "pending",
+      "context": "PRD MVP non-goal. Pero F-10 (checklist compartido) y F-09 (diario) lo requerirían. Decisión gatekeeper.",
+      "options": [
+        "Mantener single-user (sin backend) — simple, gratis, sin login",
+        "Supabase free tier — auth + Postgres, ~5min setup",
+        "Cloudflare D1 + Workers — más control, mismo orden de complejidad"
+      ],
+      "owner": "Sebastian",
+      "deadline": null,
+      "resolution": null
+    },
+    {
+      "id": "D-02",
+      "title": "¿Vamos 5 o 6 personas?",
+      "status": "pending",
+      "context": "Afecta auto (SUV vs 2 autos / Hilux), Airbnbs, refugios Torres del Paine. Bloquea reservas de F-01.",
+      "options": ["5 personas", "6 personas"],
+      "owner": "Sebastian",
+      "deadline": "2026-06-01",
+      "resolution": null
+    },
+    {
+      "id": "D-03",
+      "title": "Horario bus PUQ → USH del 4 dic (día crítico)",
+      "status": "pending",
+      "context": "Idealmente bus tarde (~14:00) Bus Sur o Pacheco, después de Magdalena. Si solo nocturno (~22:00) también sirve. Determina Plan A vs B de F-06.",
+      "options": ["Bus tarde (Plan A)", "Bus nocturno (Plan B)", "Sumar noche PUQ + bus mañana 5 dic (Plan C)"],
+      "owner": "Sebastian",
+      "deadline": "2026-09-01",
+      "resolution": null
+    },
+    {
+      "id": "D-04",
+      "title": "Reservar Magdalena con Comapa para 4 dic",
+      "status": "pending",
+      "context": "Solo Express, salida ~8 AM. Cupos limitados, alta temporada se agota. USD 80-110 p.p.",
+      "options": ["Reservar ya", "Esperar a tener fechas confirmadas"],
+      "owner": "Sebastian",
+      "deadline": "2026-08-01",
+      "resolution": null
+    },
+    {
+      "id": "D-05",
+      "title": "Distribución día por día en Calafate y Puerto Natales",
+      "status": "pending",
+      "context": "Hoy hay actividades sugeridas pero no asignadas a días concretos. Afecta UI del itinerario y reservas de actividades.",
+      "options": ["Mantener flexible (actividades sin día fijo)", "Asignar actividades a días concretos"],
+      "owner": "Sebastian",
+      "deadline": null,
+      "resolution": null
+    },
+    {
+      "id": "D-06",
+      "title": "Presupuesto vuelos MVD-FTE / USH-MVD",
+      "status": "pending",
+      "context": "Impacta total del viaje. Afecta vista de presupuesto F-02. Aerolíneas Argentinas o LATAM.",
+      "options": ["Confirmar precios actuales", "Usar rango estimado en UI"],
+      "owner": "Sebastian",
+      "deadline": "2026-06-01",
+      "resolution": null
+    }
+  ]
+}

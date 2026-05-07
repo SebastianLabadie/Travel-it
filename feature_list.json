@@ -1,0 +1,128 @@
+{
+  "$schema": "./scripts/feature-list.schema.json",
+  "version": 1,
+  "notes": "Backlog post-MVP. Histórico de PRs mergeados (PR-0..PR-7) vive en docs/TASKS.md. Solo una feature en in_progress a la vez (enforzado por init.sh).",
+  "features": [
+    {
+      "id": "F-01",
+      "title": "Reservas tracker con urgencia",
+      "status": "pending",
+      "priority": "high",
+      "source": "docs/Patagonia_2026.md — tabla 'Qué reservar de antemano'",
+      "summary": "Nueva content collection 'bookings' con urgency, cost, status, link. Vista dedicada o sección en checklist. Riesgo financiero real si falla.",
+      "estimate_lines": 350,
+      "depends_on": [],
+      "sdd_change": null,
+      "pr": null
+    },
+    {
+      "id": "F-02",
+      "title": "Vista presupuesto",
+      "status": "pending",
+      "priority": "high",
+      "source": "PRD §4 — v1.1 backlog",
+      "summary": "Suma USD/persona × noches + actividades estimadas. Total + breakdown por destino. Datos ya existen en destinations[].stay.range.",
+      "estimate_lines": 200,
+      "depends_on": [],
+      "sdd_change": null,
+      "pr": null
+    },
+    {
+      "id": "F-03",
+      "title": "PWA offline",
+      "status": "pending",
+      "priority": "high",
+      "source": "PRD §4 — v2.0 backlog (subido a v1.1 por valor real durante viaje)",
+      "summary": "Service worker via @vite-pwa/astro. Cache tiles CARTO + JSON content collections. Crítico para Patagonia (conectividad rota).",
+      "estimate_lines": 250,
+      "depends_on": [],
+      "sdd_change": null,
+      "pr": null
+    },
+    {
+      "id": "F-04",
+      "title": "Día actual + countdown",
+      "status": "pending",
+      "priority": "medium",
+      "source": "Discusión 2026-05-07",
+      "summary": "Countdown a salida (21 nov 2026). Durante viaje: highlight día actual en timeline + 'mañana transfer a Y'. Convierte sitio estático en compañero diario.",
+      "estimate_lines": 150,
+      "depends_on": [],
+      "sdd_change": null,
+      "pr": null
+    },
+    {
+      "id": "F-05",
+      "title": "Tracks GPX de treks",
+      "status": "pending",
+      "priority": "medium",
+      "source": "PRD §4 — v1.1 backlog",
+      "summary": "Capa toggleable en mapa: Fitz Roy, Base Las Torres, Laguna Esmeralda. GPX desde Wikiloc/AllTrails. Aporta densidad real al mapa.",
+      "estimate_lines": 300,
+      "depends_on": [],
+      "sdd_change": null,
+      "pr": null
+    },
+    {
+      "id": "F-06",
+      "title": "Plan A/B/C del día crítico PUQ→USH",
+      "status": "pending",
+      "priority": "medium",
+      "source": "docs/Patagonia_2026.md — sección Logística",
+      "summary": "Renderizar 3 planes alternativos en el día crítico (4 dic). Hoy info enterrada en md, app solo muestra critical:true.",
+      "estimate_lines": 120,
+      "depends_on": [],
+      "sdd_change": null,
+      "pr": null
+    },
+    {
+      "id": "F-07",
+      "title": "Print stylesheet del itinerario",
+      "status": "pending",
+      "priority": "low",
+      "source": "PRD §4 — v1.1 backlog",
+      "summary": "@media print del timeline. Backup papel para el viaje cuando muere batería o no hay señal.",
+      "estimate_lines": 80,
+      "depends_on": [],
+      "sdd_change": null,
+      "pr": null
+    },
+    {
+      "id": "F-08",
+      "title": "Imágenes optimizadas por destino",
+      "status": "pending",
+      "priority": "low",
+      "source": "PRD §4 — v1.1 backlog",
+      "summary": "Astro <Image /> por destino. Reemplaza placeholders rayados 64×64 actuales.",
+      "estimate_lines": 100,
+      "depends_on": [],
+      "sdd_change": null,
+      "pr": null
+    },
+    {
+      "id": "F-09",
+      "title": "Diario / anotaciones por día",
+      "status": "pending",
+      "priority": "low",
+      "source": "PRD §4 — v2.0 backlog",
+      "summary": "Notas por día durante el viaje. localStorage primero, backend si se decide compartir.",
+      "estimate_lines": 200,
+      "depends_on": [],
+      "sdd_change": null,
+      "pr": null
+    },
+    {
+      "id": "F-10",
+      "title": "Checklist compartido con grupo",
+      "status": "blocked",
+      "priority": "low",
+      "source": "PRD §4 — v2.0 backlog",
+      "summary": "Sync entre integrantes del grupo. Requiere backend (Supabase/Cloudflare D1).",
+      "estimate_lines": 600,
+      "depends_on": [],
+      "sdd_change": null,
+      "pr": null,
+      "blocker": "PRD non-goal MVP. Requiere decisión de scope (backend yes/no) — ver decisions.json D-01."
+    }
+  ]
+}
