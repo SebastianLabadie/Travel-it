@@ -1,0 +1,75 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { ReservasApp } from '../components/reservas/ReservasApp';
+import { getBookings, getDestinations } from '../lib/trip';
+
+const bookings = await getBookings();
+const destinations = await getDestinations();
+---
+
+<BaseLayout title="Patagonia · Reservas" activeTab="reservas">
+  <ReservasApp
+    client:only="preact"
+    bookings={bookings}
+    destinations={destinations}
+  />
+</BaseLayout>
+
+<style>
+  /*
+   * Responsive layout switching for ReservasApp.
+   * .rsv-mobile  — single column, compact (< 1024px)
+   * .rsv-desktop — grid 1fr 480px, comfortable (>= 1024px)
+   *
+   * The island renders both; CSS controls visibility.
+   * This avoids hydration mismatch.
+   */
+
+  :global(.rsv-header) {
+    padding: 14px 20px 0;
+    border-bottom: 1px solid var(--color-rule);
+  }
+
+  :global(.rsv-title) {
+    font-size: 36px;
+  }
+
+  :global(.rsv-mobile) {
+    display: block;
+    padding: 0 20px 80px; /* 80px clears mobile TabBar */
+  }
+
+  :global(.rsv-desktop) {
+    display: none;
+  }
+
+  @media (min-width: 1024px) {
+    :global(.rsv-header) {
+      padding: 24px 32px 16px;
+    }
+
+    :global(.rsv-title) {
+      font-size: 38px;
+    }
+
+    :global(.rsv-mobile) {
+      display: none;
+    }
+
+    :global(.rsv-desktop) {
+      display: grid;
+      grid-template-columns: 1fr 480px;
+      height: calc(100vh - 73px); /* viewport - topnav */
+      overflow: hidden;
+    }
+
+    :global(.rsv-list) {
+      overflow-y: auto;
+      padding: 0 32px 32px;
+    }
+
+    :global(.rsv-panel) {
+      overflow-y: auto;
+    }
+  }
+</style>
