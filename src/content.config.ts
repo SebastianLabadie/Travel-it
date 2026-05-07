@@ -47,6 +47,15 @@ const routeSchema = z.object({
 });
 
 // ── Checklist Category ───────────────────────────────────────────────────────
+const safeUrl = z.string().url().refine((val) => {
+  try {
+    const url = new URL(val);
+    return url.protocol === 'http:' || url.protocol === 'https:';
+  } catch {
+    return false;
+  }
+}, { message: 'URL must use http or https protocol' });
+
 const checklistCategorySchema = z.object({
   id: z.enum([
     'transporte',
@@ -64,7 +73,7 @@ const checklistCategorySchema = z.object({
       id: z.string(),
       label: z.string(),
       note: z.string().optional(),
-      link: z.string().url().optional(),
+      link: safeUrl.optional(),
     })
   ),
 });
@@ -84,7 +93,7 @@ const bookingSchema = z.object({
     })
     .optional(),
   deadline: z.string().date().optional(),
-  link: z.string().url().optional(),
+  link: safeUrl.optional(),
   notes: z.string().optional(),
   destination: z.string().optional(),
 });
