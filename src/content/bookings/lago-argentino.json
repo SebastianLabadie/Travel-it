@@ -1,0 +1,11 @@
+{
+  "id": "lago-argentino",
+  "category": "activity",
+  "title": "Navegación Lago Argentino (Calafate)",
+  "urgency": "media",
+  "status": "pendiente",
+  "deadline": "2026-10-15",
+  "cost": { "amount": 120, "currency": "USD", "perPerson": true },
+  "destination": "calafate",
+  "notes": "Solo Patagonia o Upsala Explorer."
+}

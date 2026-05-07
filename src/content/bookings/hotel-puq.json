@@ -1,0 +1,11 @@
+{
+  "id": "hotel-puq",
+  "category": "accommodation",
+  "title": "Hotel Punta Arenas",
+  "urgency": "alta-3-6m",
+  "status": "pendiente",
+  "deadline": "2026-09-15",
+  "cost": { "amount": 38, "currency": "USD", "perPerson": true },
+  "destination": "punta",
+  "notes": "1 noche. Cerca del centro."
+}

@@ -1,0 +1,11 @@
+{
+  "id": "canal-beagle",
+  "category": "activity",
+  "title": "Navegación Canal Beagle (Ushuaia)",
+  "urgency": "media",
+  "status": "pendiente",
+  "deadline": "2026-10-15",
+  "cost": { "amount": 70, "currency": "USD", "perPerson": true },
+  "destination": "ushuaia",
+  "notes": "Tres Marías o Patagonia Adventure Explorer."
+}

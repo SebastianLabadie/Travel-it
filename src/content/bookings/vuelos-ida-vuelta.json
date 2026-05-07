@@ -1,0 +1,9 @@
+{
+  "id": "vuelos-ida-vuelta",
+  "category": "flight",
+  "title": "Vuelos ida y vuelta (MVD→EZE→FTE / USH→EZE→MVD)",
+  "urgency": "alta-ya",
+  "status": "pendiente",
+  "deadline": "2026-07-15",
+  "notes": "Aerolíneas Argentinas o LATAM. Salida 21 nov noche, regreso 8 dic mediodía."
+}
