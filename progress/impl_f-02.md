@@ -71,3 +71,51 @@ Slice PR-2 (Shell & Hero) de F-02 "Vista presupuesto" implementado y pusheado a 
 
 - 12/20 tasks completados (Phase 1 + Phase 2 done)
 - Próximo: PR-3 Detail UI (StackedBar, PercentTable, DestinationBreakdown, LineItemsSection)
+
+---
+
+# Implementación F-02 — PR-3 Detail UI
+
+## Resumen
+
+Slice PR-3 (Detail UI) de F-02 "Vista presupuesto" implementado y pusheado a `feature/f-02`. Completa la vista de presupuesto con visualizaciones (barra apilada y tabla de porcentajes), desglose de alojamiento por destino con badges de ranking, y listas de conceptos fijos y variables.
+
+## Commits
+
+1. `feat(budget): add StackedBar and PercentTable visualization components`
+2. `feat(budget): add DestinationBreakdown and LineItemsSection components`
+3. `feat(budget): wire all detail UI into BudgetView with viz toggle`
+
+## Archivos creados
+
+- `src/components/budget/StackedBar.tsx` — barra apilada horizontal con proporciones por punto medio de cada categoría. 5 segmentos con colores del proyecto (glacier, stone, moss, fg, warning). Leyenda con porcentajes
+- `src/components/budget/PercentTable.tsx` — tabla mono con barras de % por categoría. Grid `120px 1fr 50px` en desktop, `100px 1fr 40px` en mobile
+- `src/components/budget/DestinationBreakdown.tsx` — desglose de alojamiento por destino con noches, rango por persona, total grupo, mini barra proporcional. Badges `!! MÁS CARO` (warning bg 6%) y `↓ MÁS BARATO` (moss bg 6%)
+- `src/components/budget/LineItemsSection.tsx` — lista genérica de ítems con soporte para placeholders (`— · pendiente confirmar`), badges `GRATIS` (con `—` en costos), y `!! CRÍTICO` (color warning). Muestra costo por persona y grupo en desktop
+
+## Archivos modificados
+
+- `src/components/budget/BudgetView.tsx` — 
+  - Agregado `VizToggle` interno con `aria-pressed` para alternar entre `bar` y `table`
+  - Integrados `StackedBar`, `PercentTable`, `DestinationBreakdown`, `LineItemsSection`
+  - Layout desktop usa grid de 2 columnas para `DestinationBreakdown` + conceptos fijos
+  - Filtrado de ítems fijos (`flight`/`transfer`/`insurance`) y variables (`activity`)
+
+## Decisiones técnicas
+
+- `VizToggle` se definió como componente local dentro de `BudgetView.tsx` (no archivo separado) porque es pequeño y no se reutiliza
+- Los colores de categoría para la barra apilada se asignaron semánticamente: Vuelos=glacier, Traslados=stone, Seguro=moss, Alojamiento=fg, Actividades=warning
+- El ranking de destinos (más caro / más barato) se calcula por punto medio del rango de alojamiento por persona
+- En mobile los `LineItemsSection` usan grid `1fr auto` (solo label + por persona); en desktop `1fr 110px 130px 130px` (label + por persona + grupo + scope)
+
+## Build Verification
+
+- `astro build` pasa sin errores ✅
+- Se genera `/presupuesto/index.html` ✅
+- `git status` limpio en `feature/f-02` ✅
+- Branch pusheado a origin ✅
+
+## Estado
+
+- 17/20 tasks completados (Phase 1 + Phase 2 + Phase 3 done)
+- Próximo: Phase 4 Verification (build, pax toggle, placeholders, tab active state, focus-visible)
