@@ -92,3 +92,18 @@ body {
     animation-iteration-count: 1 !important;
   }
 }
+
+/* F-04 · Countdown pulse animations */
+@keyframes f04-pulse-num {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.78; }
+}
+
+@keyframes f04-pulse-ring {
+  0%   { box-shadow: 0 0 0 0 rgba(201, 96, 26, 0.55); }
+  70%  { box-shadow: 0 0 0 14px rgba(201, 96, 26, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(201, 96, 26, 0); }
+}
+
+.f04-pulse-num  { animation: f04-pulse-num  1.6s ease-in-out infinite; }
+.f04-pulse-ring { animation: f04-pulse-ring 1.8s ease-out    infinite; }
