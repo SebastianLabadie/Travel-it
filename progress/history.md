@@ -87,6 +87,32 @@ Bitácora append-only. Cada sesión cerrada se vuelca acá con fecha, feature, r
 
 ---
 
+## 2026-05-07 — F-04 Día actual + countdown
+
+**Feature:** F-04 — Día actual + countdown
+**SDD change:** f-04 (implementación directa, <200 líneas)
+**Resultado:** Implementación completa, 0 errores, mergeado.
+**PR:** #15
+
+**Hecho:**
+- `src/lib/tripState.ts` — `computeTripState()` pura, 3 fases (pre/inflight/post).
+- `DayWithDate`, `TripDaySlim` en `types.ts`. `getDaysWithDate()`, `getTripDaysSlim()` en `trip.ts`.
+- `TripStatus` island Preact (`client:only`) — countdown + tomorrow callout combinados, auto-refresh a medianoche.
+- Keyframes `f04-pulse-num` / `f04-pulse-ring` en `global.css`.
+- Home: TripStatus integrado en mobile y desktop sidebar.
+- ItineraryView: acepta `DayWithDate[]`, badge "HOY" con pin glacier en timeline mobile + columna días desktop.
+
+**Decisiones tomadas:**
+- `client:only` para TripStatus (Date.now() no disponible en build time).
+- `useEffect` para `todayISO` en ItineraryView (`client:visible` → evitar hydration mismatch).
+- `isoDate` extraído del ID del collection entry, no del campo `date` display-only.
+- Un solo island para countdown + tomorrow callout (un computeTripState compartido).
+
+**Próximos pasos:**
+- Elegir siguiente feature pendiente (F-03 PWA offline tiene prioridad high).
+
+---
+
 ## 2026-05-07 — F-02 Vista presupuesto (SDD archive)
 
 **Feature:** F-02 — Vista presupuesto

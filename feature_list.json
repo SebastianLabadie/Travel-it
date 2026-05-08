@@ -54,14 +54,14 @@
     {
       "id": "F-04",
       "title": "Día actual + countdown",
-      "status": "in_progress",
+      "status": "done",
       "priority": "medium",
       "source": "Discusión 2026-05-07",
       "summary": "Countdown a salida (21 nov 2026). Durante viaje: highlight día actual en timeline + 'mañana transfer a Y'. Convierte sitio estático en compañero diario.",
       "estimate_lines": 150,
       "depends_on": [],
       "sdd_change": "f-04",
-      "pr": null,
+      "pr": "15",
       "design": {
         "status": "ready",
         "paths": ["design/f04-countdown.jsx", "design/f04-sheets.jsx"]
