@@ -16,11 +16,11 @@ export function DestinationBreakdown({
   const isStacked = layout === 'stacked';
 
   const dests = destinations
-    .filter((d) => d.nights > 0)
+    .filter((d) => d.nights > 0 && d.stay.range)
     .map((d) => {
       const perPerson: [number, number] = [
-        d.stay.range[0] * d.nights,
-        d.stay.range[1] * d.nights,
+        d.stay.range![0] * d.nights,
+        d.stay.range![1] * d.nights,
       ];
       const group: [number, number] = [
         perPerson[0] * pax,

@@ -43,11 +43,11 @@ export function categoryTotals(
   const activities = sumItems(items.filter((i) => i.cat === 'activity'), pax);
 
   const lodgingMin = destinations
-    .filter((d) => d.nights > 0)
-    .reduce((sum, d) => sum + d.stay.range[0] * d.nights, 0);
+    .filter((d) => d.nights > 0 && d.stay.range)
+    .reduce((sum, d) => sum + d.stay.range![0] * d.nights, 0);
   const lodgingMax = destinations
-    .filter((d) => d.nights > 0)
-    .reduce((sum, d) => sum + d.stay.range[1] * d.nights, 0);
+    .filter((d) => d.nights > 0 && d.stay.range)
+    .reduce((sum, d) => sum + d.stay.range![1] * d.nights, 0);
 
   const lodging: [number, number] = [lodgingMin, lodgingMax];
 

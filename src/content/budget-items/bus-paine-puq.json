@@ -1,10 +1,10 @@
 {
   "id": "bus-paine-puq",
   "cat": "transfer",
-  "label": "Bus Torres del Paine → Punta Arenas",
+  "label": "Bus Puerto Natales → Punta Arenas",
   "date": "3 dic",
   "perPerson": true,
-  "range": [30, 50],
+  "range": [15, 15],
   "critical": false,
   "free": false,
   "destSlug": null

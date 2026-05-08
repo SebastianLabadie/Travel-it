@@ -1,10 +1,10 @@
 {
   "id": "bus-natales-paine",
   "cat": "transfer",
-  "label": "Bus Puerto Natales → Torres del Paine",
-  "date": "28 nov",
+  "label": "Bus Puerto Natales → Torres del Paine (ida y vuelta)",
+  "date": "29 nov / 3 dic",
   "perPerson": true,
-  "range": [15, 25],
+  "range": [40, 40],
   "critical": false,
   "free": false,
   "destSlug": null

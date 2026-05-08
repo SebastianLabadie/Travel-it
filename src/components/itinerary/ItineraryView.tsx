@@ -200,7 +200,7 @@ function DestinosView({ destinations, days }: DestinosViewProps) {
                 color: 'var(--color-stone)',
               }}
             >
-              {d.stay.type} · USD {d.stay.range[0] ?? 0}–{d.stay.range[1] ?? 0}
+              {d.stay.type} · {d.stay.range ? `USD ${d.stay.range[0]}–${d.stay.range[1]}` : 'A confirmar'}
             </div>
 
             {/* Critical signal */}
@@ -659,7 +659,7 @@ function DesktopView({ destinations, days }: DesktopViewProps) {
                     marginTop: 4,
                   }}
                 >
-                  USD {dest.stay.range[0]}–{dest.stay.range[1]}{' '}
+                  {dest.stay.range ? `USD ${dest.stay.range[0]}–${dest.stay.range[1]}` : 'A confirmar'}{' '}
                   <span style={{ color: 'var(--color-stone)' }}>/ persona / noche</span>
                 </div>
               </div>

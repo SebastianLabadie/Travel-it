@@ -13,6 +13,6 @@
     { "title": "Laguna Esmeralda", "difficulty": "medium", "hours": 6 },
     { "title": "Parque Nacional Tierra del Fuego", "difficulty": "medium", "hours": 7 }
   ],
-  "stay": { "type": "Cabaña con vista al canal", "range": [70, 100] },
+  "stay": { "type": "Cabaña con vista al canal", "range": [20, 20] },
   "out": "Vuelo a MVD · 8 dic (vía conexión)"
 }

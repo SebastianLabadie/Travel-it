@@ -4,7 +4,7 @@
   "label": "Vuelos ida y vuelta",
   "date": "21 nov / 8 dic",
   "perPerson": true,
-  "range": [650, 950],
+  "range": [500, 500],
   "critical": true,
   "free": false,
   "destSlug": null

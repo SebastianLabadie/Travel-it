@@ -2,9 +2,9 @@
   "id": "bus-calafate-natales",
   "cat": "transfer",
   "label": "Bus El Calafate → Puerto Natales",
-  "date": "24 nov",
+  "date": "27 nov",
   "perPerson": true,
-  "range": [40, 60],
+  "range": [40, 40],
   "critical": false,
   "free": false,
   "destSlug": null

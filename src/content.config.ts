@@ -21,7 +21,7 @@ const destinationSchema = z.object({
   ),
   stay: z.object({
     type: z.string(),
-    range: z.tuple([z.number(), z.number()]),  // [minUSD, maxUSD]
+    range: z.tuple([z.number(), z.number()]).nullable(),  // [minUSD, maxUSD] — null = a confirmar
   }),
   out: z.string(),
 });
