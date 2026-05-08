@@ -1,9 +1,10 @@
 {
   "id": "vuelos-ida-vuelta",
   "category": "flight",
-  "title": "Vuelos ida y vuelta (MVD→EZE→FTE / USH→EZE→MVD)",
+  "title": "Vuelos ida y vuelta (MVD→FTE / USH→MVD)",
   "urgency": "alta-ya",
   "status": "pendiente",
   "deadline": "2026-07-15",
-  "notes": "Aerolíneas Argentinas o LATAM. Salida 21 nov noche, regreso 8 dic mediodía."
+  "cost": { "amount": 500, "currency": "USD", "perPerson": true },
+  "notes": "Aerolíneas Argentinas o LATAM. Vuelo directo o 1 escala (no EZE). Salida 21 nov noche, regreso 8 dic mediodía."
 }

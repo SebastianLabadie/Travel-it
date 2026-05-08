@@ -1,11 +1,11 @@
 {
   "id": "airbnb-chalten",
   "category": "accommodation",
-  "title": "Cabaña/Hostería El Chaltén",
+  "title": "Cabaña/Hostería El Chaltén (25–28 nov)",
   "urgency": "alta-3-6m",
   "status": "pendiente",
   "deadline": "2026-09-01",
-  "cost": { "amount": 33, "currency": "USD", "perPerson": true },
+  "cost": { "amount": 76, "currency": "USD", "perPerson": true },
   "destination": "chalten",
-  "notes": "Habitación privada. 2 noches."
+  "notes": "4 noches. ~USD 19/noche por persona. Habitación privada."
 }
