@@ -1,10 +1,10 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { ItineraryView } from '../components/itinerary/ItineraryView';
-import { getDestinations, getDays } from '../lib/trip';
+import { getDestinations, getDaysWithDate } from '../lib/trip';
 
 const destinations = await getDestinations();
-const days = await getDays();
+const days = await getDaysWithDate();
 ---
 
 <BaseLayout title="Patagonia · Itinerario" activeTab="itinerario">
