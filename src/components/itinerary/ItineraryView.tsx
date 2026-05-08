@@ -2,6 +2,7 @@ import { useState, useEffect } from 'preact/hooks';
 import type { Destination, DayWithDate } from '../../lib/types';
 import { localISODate } from '../../lib/tripState';
 import { DifficultyBadge } from './DifficultyBadge';
+import { DestinationImage } from '../DestinationImage';
 
 // ── Types ────────────────────────────────────────────────────────────────────
 
@@ -32,48 +33,6 @@ function saveView(v: ViewMode): void {
   } catch {
     /* localStorage unavailable */
   }
-}
-
-// ── Striped image placeholder ─────────────────────────────────────────────────
-
-interface StripedPlaceholderProps {
-  label: string;
-  w: number;
-  h: number;
-}
-
-function StripedPlaceholder({ label, w, h }: StripedPlaceholderProps) {
-  return (
-    <div
-      style={{
-        width: w,
-        height: h,
-        flexShrink: 0,
-        position: 'relative',
-        overflow: 'hidden',
-        background:
-          'repeating-linear-gradient(135deg, var(--color-bg-alt) 0 8px, var(--color-bg) 8px 16px)',
-        border: '1px solid var(--color-rule)',
-      }}
-    >
-      <div
-        style={{
-          position: 'absolute',
-          inset: 0,
-          display: 'flex',
-          alignItems: 'flex-end',
-          padding: 8,
-          fontFamily: 'var(--font-mono)',
-          fontSize: 9,
-          color: 'var(--color-stone)',
-          letterSpacing: '0.08em',
-          textTransform: 'uppercase' as const,
-        }}
-      >
-        ▢ FOTO · {label}
-      </div>
-    </div>
-  );
 }
 
 // ── Vista Destinos ────────────────────────────────────────────────────────────
@@ -139,7 +98,7 @@ function DestinosView({ destinations, days }: DestinosViewProps) {
 
             {/* Image + meta */}
             <div style={{ display: 'flex', gap: 12, marginTop: 10 }}>
-              <StripedPlaceholder label={d.name.toUpperCase()} w={64} h={64} />
+              <DestinationImage slug={d.slug} name={d.name} width={64} height={64} />
               <div style={{ flex: 1 }}>
                 <div
                   style={{
@@ -589,7 +548,7 @@ function DesktopView({ destinations, days }: DesktopViewProps) {
 
             {/* Image + summary */}
             <div style={{ display: 'flex', gap: 16, marginTop: 18 }}>
-              <StripedPlaceholder label={dest.name.toUpperCase()} w={200} h={130} />
+              <DestinationImage slug={dest.slug} name={dest.name} width={200} height={130} />
               <div
                 style={{
                   flex: 1,
