@@ -54,13 +54,13 @@
     {
       "id": "F-04",
       "title": "Día actual + countdown",
-      "status": "pending",
+      "status": "in_progress",
       "priority": "medium",
       "source": "Discusión 2026-05-07",
       "summary": "Countdown a salida (21 nov 2026). Durante viaje: highlight día actual en timeline + 'mañana transfer a Y'. Convierte sitio estático en compañero diario.",
       "estimate_lines": 150,
       "depends_on": [],
-      "sdd_change": null,
+      "sdd_change": "f-04",
       "pr": null,
       "design": {
         "status": "ready",
