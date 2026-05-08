@@ -16,3 +16,15 @@ export type ChecklistItem = ChecklistCategory['items'][number];
 export type RouteMode = Route['mode'];
 export type Difficulty = Destination['activities'][number]['difficulty'];
 export type Country = Destination['country'];
+
+// ── F-04: trip state ─────────────────────────────────────────────────────────
+export type DayWithDate = Day & { isoDate: string };
+
+export type TripDaySlim = {
+  isoDate: string;
+  dest: string;
+  destName: string;
+  main: string;
+  transfer: string | null;
+  critical: boolean;
+};

@@ -1,10 +1,12 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import PatagoniaMap from '../components/map/PatagoniaMap';
-import { getDestinations, getRoutes } from '../lib/trip';
+import { TripStatus } from '../components/countdown/TripStatus';
+import { getDestinations, getRoutes, getTripDaysSlim } from '../lib/trip';
 
 const destinations = await getDestinations();
 const routes = await getRoutes();
+const tripDays = await getTripDaysSlim();
 
 // "Próxima parada" salta MVD (0 noches, punto de partida)
 const firstDest = destinations.find((d) => d.nights > 0) ?? destinations[0];
@@ -50,6 +52,9 @@ const firstDest = destinations.find((d) => d.nights > 0) ?? destinations[0];
         <div class="stat-label">km</div>
       </div>
     </div>
+
+    <!-- Countdown + tomorrow callout -->
+    <TripStatus client:only="preact" days={tripDays} variant="mobile" />
 
     <!-- Next stop card -->
     {firstDest && (
@@ -117,8 +122,10 @@ const firstDest = destinations.find((d) => d.nights > 0) ?? destinations[0];
       </div>
     </div>
 
-    <!-- Right sidebar: list of 6 bases -->
+    <!-- Right sidebar: countdown + list of bases -->
     <aside class="bases-sidebar" aria-label="Lista de bases del viaje">
+      <TripStatus client:only="preact" days={tripDays} variant="desktop" />
+
       <div class="bases-header">
         <div class="bases-eyebrow">BASES · 07</div>
         <div class="bases-title">La traza.</div>

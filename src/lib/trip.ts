@@ -1,5 +1,5 @@
 import { getCollection } from 'astro:content';
-import type { Destination, Day, Route, ChecklistCategory, Booking, BudgetItem } from './types';
+import type { Destination, Day, DayWithDate, TripDaySlim, Route, ChecklistCategory, Booking, BudgetItem } from './types';
 
 /**
  * Returns all destinations sorted by their `order` field (0..5).
@@ -70,6 +70,39 @@ export async function getBudgetItems(): Promise<BudgetItem[]> {
       if (catDiff !== 0) return catDiff;
       return a.id.localeCompare(b.id);
     });
+}
+
+/**
+ * Returns all days with their ISO date extracted from the collection entry id.
+ * Used by ItineraryView to highlight the current day.
+ */
+export async function getDaysWithDate(): Promise<DayWithDate[]> {
+  const entries = await getCollection('days');
+  return entries
+    .sort((a, b) => a.id.localeCompare(b.id))
+    .map((e) => ({ ...e.data, isoDate: e.id.slice(0, 10) }));
+}
+
+/**
+ * Returns a slim representation of days with resolved destination names.
+ * Used by the TripStatus island to compute and display the trip state.
+ */
+export async function getTripDaysSlim(): Promise<TripDaySlim[]> {
+  const [dayEntries, destEntries] = await Promise.all([
+    getCollection('days'),
+    getCollection('destinations'),
+  ]);
+  const destNameMap = new Map(destEntries.map((e) => [e.data.slug, e.data.name]));
+  return dayEntries
+    .sort((a, b) => a.id.localeCompare(b.id))
+    .map((e) => ({
+      isoDate: e.id.slice(0, 10),
+      dest: e.data.dest,
+      destName: destNameMap.get(e.data.dest) ?? e.data.dest,
+      main: e.data.main,
+      transfer: e.data.transfer,
+      critical: e.data.critical,
+    }));
 }
 
 /**
