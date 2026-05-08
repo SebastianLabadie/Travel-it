@@ -1,0 +1,11 @@
+{
+  "id": "entrada-perito-moreno",
+  "cat": "activity",
+  "label": "Entrada Parque Nacional Los Glaciares (Perito Moreno)",
+  "date": "22 nov",
+  "perPerson": true,
+  "range": [25, 35],
+  "critical": false,
+  "free": false,
+  "destSlug": "calafate"
+}

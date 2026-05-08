@@ -1,0 +1,11 @@
+{
+  "id": "bus-interno-paine",
+  "cat": "transfer",
+  "label": "Bus interno Torres del Paine (JB)",
+  "date": "29 nov – 2 dic",
+  "perPerson": true,
+  "range": [10, 15],
+  "critical": false,
+  "free": false,
+  "destSlug": "paine"
+}

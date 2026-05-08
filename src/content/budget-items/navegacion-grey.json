@@ -1,0 +1,11 @@
+{
+  "id": "navegacion-grey",
+  "cat": "activity",
+  "label": "Navegación Glaciar Grey",
+  "date": "2 dic",
+  "perPerson": true,
+  "range": [80, 120],
+  "critical": false,
+  "free": false,
+  "destSlug": "paine"
+}

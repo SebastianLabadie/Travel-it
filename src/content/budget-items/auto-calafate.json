@@ -1,0 +1,11 @@
+{
+  "id": "auto-calafate",
+  "cat": "transfer",
+  "label": "Auto alquiler El Chaltén (2 días · SUV)",
+  "date": "25–27 nov",
+  "perPerson": true,
+  "range": [50, 50],
+  "critical": false,
+  "free": false,
+  "destSlug": "chalten"
+}

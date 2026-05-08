@@ -12,6 +12,6 @@
     { "title": "Cementerio Municipal", "difficulty": "easy", "hours": 1.5 },
     { "title": "Mirador Cerro La Cruz", "difficulty": "easy", "hours": 1 }
   ],
-  "stay": { "type": "Hotel céntrico", "range": [60, 90] },
+  "stay": { "type": "Hotel céntrico", "range": [20, 20] },
   "out": "Vuelo PUQ → USH · LATAM, conectado por SCL (día crítico)"
 }

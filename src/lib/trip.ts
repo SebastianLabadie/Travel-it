@@ -1,5 +1,5 @@
 import { getCollection } from 'astro:content';
-import type { Destination, Day, Route, ChecklistCategory, Booking } from './types';
+import type { Destination, Day, Route, ChecklistCategory, Booking, BudgetItem } from './types';
 
 /**
  * Returns all destinations sorted by their `order` field (0..5).
@@ -54,6 +54,22 @@ export async function getCriticalDays(): Promise<Day[]> {
 export async function getDestinationBySlug(slug: string): Promise<Destination | undefined> {
   const destinations = await getDestinations();
   return destinations.find((d) => d.slug === slug);
+}
+
+/**
+ * Returns all budget items sorted by category (flight → transfer → insurance → activity)
+ * and then by id ascending.
+ */
+export async function getBudgetItems(): Promise<BudgetItem[]> {
+  const entries = await getCollection('budget-items');
+  const catOrder = ['flight', 'transfer', 'insurance', 'activity'] as const;
+  return entries
+    .map((e) => e.data)
+    .sort((a, b) => {
+      const catDiff = catOrder.indexOf(a.cat) - catOrder.indexOf(b.cat);
+      if (catDiff !== 0) return catDiff;
+      return a.id.localeCompare(b.id);
+    });
 }
 
 /**

@@ -21,7 +21,7 @@ const destinationSchema = z.object({
   ),
   stay: z.object({
     type: z.string(),
-    range: z.tuple([z.number(), z.number()]),  // [minUSD, maxUSD]
+    range: z.tuple([z.number(), z.number()]).nullable(),  // [minUSD, maxUSD] — null = a confirmar
   }),
   out: z.string(),
 });
@@ -78,6 +78,19 @@ const checklistCategorySchema = z.object({
   ),
 });
 
+// ── Budget Item ──────────────────────────────────────────────────────────────
+const budgetItemSchema = z.object({
+  id: z.string(),
+  cat: z.enum(['flight', 'transfer', 'insurance', 'activity']),
+  label: z.string(),
+  date: z.string().optional(),
+  perPerson: z.boolean().default(true),
+  range: z.tuple([z.number(), z.number()]).nullable(),
+  critical: z.boolean().default(false),
+  free: z.boolean().default(false),
+  destSlug: z.string().nullable().default(null),
+});
+
 // ── Booking ──────────────────────────────────────────────────────────────────
 const bookingSchema = z.object({
   id: z.string(),
@@ -118,5 +131,9 @@ export const collections = {
   bookings: defineCollection({
     loader: glob({ pattern: '**/*.json', base: './src/content/bookings' }),
     schema: bookingSchema,
+  }),
+  'budget-items': defineCollection({
+    loader: glob({ pattern: '**/*.json', base: './src/content/budget-items' }),
+    schema: budgetItemSchema,
   }),
 };

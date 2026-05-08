@@ -1,0 +1,11 @@
+{
+  "id": "registro-fitz-roy",
+  "cat": "activity",
+  "label": "Registro PNLG Fitz Roy",
+  "date": "24 nov",
+  "perPerson": true,
+  "range": null,
+  "critical": false,
+  "free": true,
+  "destSlug": "chalten"
+}

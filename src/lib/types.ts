@@ -9,6 +9,7 @@ export type Day = CollectionEntry<'days'>['data'];
 export type Route = CollectionEntry<'routes'>['data'];
 export type ChecklistCategory = CollectionEntry<'checklist-items'>['data'];
 export type Booking = CollectionEntry<'bookings'>['data'];
+export type BudgetItem = CollectionEntry<'budget-items'>['data'];
 
 // ── Derived scalar types ─────────────────────────────────────────────────────
 export type ChecklistItem = ChecklistCategory['items'][number];

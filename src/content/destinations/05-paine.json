@@ -13,6 +13,6 @@
     { "title": "Valle del Francés (parcial)", "difficulty": "hard", "hours": 8 },
     { "title": "Lago Grey + glaciar", "difficulty": "medium", "hours": 5 }
   ],
-  "stay": { "type": "Refugio / camping con servicios", "range": [70, 110] },
+  "stay": { "type": "Refugio / camping con servicios", "range": null },
   "out": "Bus a Punta Arenas vía Natales · ~6 h"
 }

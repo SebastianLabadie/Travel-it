@@ -12,6 +12,6 @@
     { "title": "Mirador Cerro Dorotea", "difficulty": "medium", "hours": 4 },
     { "title": "Compras + briefing del trek", "difficulty": "easy", "hours": 3 }
   ],
-  "stay": { "type": "Hostal con cocina", "range": [50, 75] },
+  "stay": { "type": "Hostal con cocina", "range": [20, 20] },
   "out": "Bus al sector Las Torres · ~2 h"
 }
