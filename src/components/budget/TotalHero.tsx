@@ -15,10 +15,10 @@ export function TotalHero({ pax, totals, layout }: TotalHeroProps) {
     totals.total[1] * pax,
   ];
 
-  const categories: { key: 'flights' | 'transfers' | 'insurance' | 'activities'; label: string }[] = [
+  const categories: { key: 'flights' | 'lodging' | 'transfers' | 'activities'; label: string }[] = [
     { key: 'flights', label: 'Vuelos' },
+    { key: 'lodging', label: 'Alojamiento' },
     { key: 'transfers', label: 'Traslados' },
-    { key: 'insurance', label: 'Seguro' },
     { key: 'activities', label: 'Actividades' },
   ];
 

@@ -137,17 +137,7 @@ export function LineItemsSection({
 
               {/* Per-person */}
               <div style={{ textAlign: 'right' }}>
-                {isPlaceholder ? (
-                  <span
-                    style={{
-                      fontFamily: 'var(--font-mono)',
-                      fontSize: 10,
-                      color: 'var(--color-stone)',
-                    }}
-                  >
-                    — · pendiente confirmar
-                  </span>
-                ) : isFree ? (
+                {isFree ? (
                   <span
                     style={{
                       fontFamily: 'var(--font-mono)',
@@ -156,6 +146,16 @@ export function LineItemsSection({
                     }}
                   >
                     —
+                  </span>
+                ) : isPlaceholder ? (
+                  <span
+                    style={{
+                      fontFamily: 'var(--font-mono)',
+                      fontSize: 10,
+                      color: 'var(--color-stone)',
+                    }}
+                  >
+                    — · pendiente confirmar
                   </span>
                 ) : (
                   <span
@@ -173,17 +173,7 @@ export function LineItemsSection({
               {/* Group total (desktop) */}
               {!isStacked && (
                 <div style={{ textAlign: 'right' }}>
-                  {isPlaceholder ? (
-                    <span
-                      style={{
-                        fontFamily: 'var(--font-mono)',
-                        fontSize: 10,
-                        color: 'var(--color-stone)',
-                      }}
-                    >
-                      — · pendiente confirmar
-                    </span>
-                  ) : isFree ? (
+                  {isFree ? (
                     <span
                       style={{
                         fontFamily: 'var(--font-mono)',
@@ -192,6 +182,16 @@ export function LineItemsSection({
                       }}
                     >
                       —
+                    </span>
+                  ) : isPlaceholder ? (
+                    <span
+                      style={{
+                        fontFamily: 'var(--font-mono)',
+                        fontSize: 10,
+                        color: 'var(--color-stone)',
+                      }}
+                    >
+                      — · pendiente confirmar
                     </span>
                   ) : (
                     <span
