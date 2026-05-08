@@ -87,6 +87,32 @@ Bitácora append-only. Cada sesión cerrada se vuelca acá con fecha, feature, r
 
 ---
 
+## 2026-05-07 — F-08 Imágenes por destino
+
+**Feature:** F-08 — Imágenes optimizadas por destino
+**SDD change:** f-08 (implementación directa, ~50 líneas + 7 binarios)
+**Resultado:** Mergeado.
+**PR:** #16
+
+**Hecho:**
+- 7 fotos en `public/images/destinations/{slug}.jpg` desde Wikipedia pageimages API (1280px wide).
+- Punta Arenas re-comprimido vía `sips` (PNG 3.9MB → JPEG 80q 314KB).
+- `DestinationImage` Preact component — `<img>` con `object-fit: cover`, `loading="lazy"`, `decoding="async"`.
+- Reemplazados 2 usos de `StripedPlaceholder` en `ItineraryView.tsx` (thumb 64×64 + hero 200×130).
+- Reemplazada `.img-placeholder` div en `index.astro` (next-stop card mobile).
+- Eliminada función `StripedPlaceholder` no usada.
+
+**Decisiones tomadas:**
+- `public/images/` en lugar de `src/assets/` — sin Astro `<Image />` build optimization, pero sirve directo y simplifica uso desde Preact.
+- Naming convention basada en slug del destino — sin cambios al schema.
+- Wikipedia pageimages API como fuente principal por licencia permisiva (CC BY-SA / PD).
+
+**Próximos pasos:**
+- Mejor curaduría de imágenes si se desea (Calafate con glaciar zoom-in, Chaltén con Fitz Roy, etc.).
+- Considerar pre-procesar a múltiples tamaños cuando se haga F-03 (PWA caching).
+
+---
+
 ## 2026-05-07 — F-04 Día actual + countdown
 
 **Feature:** F-04 — Día actual + countdown

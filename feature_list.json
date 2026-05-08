@@ -118,14 +118,14 @@
     {
       "id": "F-08",
       "title": "Imágenes optimizadas por destino",
-      "status": "in_progress",
+      "status": "done",
       "priority": "low",
       "source": "PRD §4 — v1.1 backlog",
       "summary": "Astro <Image /> por destino. Reemplaza placeholders rayados 64×64 actuales.",
       "estimate_lines": 100,
       "depends_on": [],
       "sdd_change": "f-08",
-      "pr": null,
+      "pr": "16",
       "design": {
         "status": "n/a",
         "paths": []
