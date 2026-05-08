@@ -1,32 +1,26 @@
 # Sesión actual
 
-> Feature F-02 en progreso. Inicio: 2026-05-07.
+> Plantilla viva. Se actualiza durante la sesión, se mueve a `history.md` al cerrar.
 
 ## Feature
 
-- ID: F-02
-- Title: Vista presupuesto
-- SDD change: f-02
-- Inicio: 2026-05-07
+- ID: —
+- Title: —
+- SDD change: —
+- Inicio: —
 
 ## Plan
 
-1. `/sdd-new f-02` → exploration + proposal
-2. Estrategia de entrega: **chained PRs** con **feature-branch-chain**
-3. Seguir SDD completo: spec → design → tasks → apply → verify → archive
-4. Diseño ya listo en `design/presupuesto.jsx`
+(qué se va a hacer, en bullets cortos)
 
 ## Notas / decisiones tomadas durante la sesión
 
-- Usuario eligió explícitamente: chained PRs + feature-branch-chain
-- SDD ya inicializado (engram #1702)
-- init.sh verde, entorno listo
-- Feature F-02 marcada como in_progress en feature_list.json
+(append-only mientras se trabaja)
 
 ## Bloqueos
 
-- Ninguno
+(si aplica — detalle del bloqueo + qué se necesita para desbloquear)
 
 ## Próximos pasos al reanudar
 
-- Continuar con SDD: esperar a que termine sdd-explore
+(si la sesión cierra sin terminar)

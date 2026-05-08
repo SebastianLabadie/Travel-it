@@ -52,7 +52,11 @@ export function LineItemsSection({
                 ];
 
           const group: [number, number] | null =
-            isPlaceholder || isFree ? null : item.range!;
+            isPlaceholder || isFree
+              ? null
+              : item.perPerson
+                ? [item.range![0] * pax, item.range![1] * pax]
+                : item.range!;
 
           return (
             <div

@@ -84,3 +84,36 @@ Bitácora append-only. Cada sesión cerrada se vuelca acá con fecha, feature, r
 **Próximos pasos:**
 - F-06 Plan A/B/C falta diseño (era parte del set de prompts pero no quedó archivo)
 - Elegir primera feature lista para promover a SDD (F-01, F-02, F-04, o F-05)
+
+---
+
+## 2026-05-07 — F-02 Vista presupuesto (SDD archive)
+
+**Feature:** F-02 — Vista presupuesto
+**SDD change:** f-02
+**Resultado:** Implementación completa, verificación PASS WITH WARNINGS, archivado.
+**PR:** #13
+
+**Hecho:**
+- SDD completo: explore → propose → spec → design → tasks → apply → verify → archive.
+- Chained PRs: PR-1 (data+nav) → PR-2 (shell+hero) → PR-3 (viz+breakdown).
+- Creada content collection `budget-items` con schema Zod y 16 archivos JSON.
+- Creada página `/presupuesto` con isla Preact `BudgetView` (`client:only="preact"`).
+- Componentes: `PaxToggle`, `TotalHero`, `StackedBar`, `PercentTable`, `DestinationBreakdown`, `LineItemsSection`, `VizToggle`.
+- Utilidades `src/lib/budget.ts` con cálculos de categorías, formato de rangos y totales.
+- Navegación extendida: tab #05 en `TopNav` y `TabBar`.
+- `astro build` pasa con 0 errores, 5 páginas generadas.
+- Verificación: 20/20 tareas completas, 10/10 escenarios con evidencia estructural, 0 issues críticos.
+
+**Decisiones tomadas:**
+- Chained PRs con feature-branch-chain por ~850 líneas estimadas.
+- `client:only="preact"` en lugar de `client:visible` (spec pedía visible; design eligió only para coincidir con `/reservas`).
+- Inline styles con CSS vars para consistencia con componentes existentes.
+- Responsive vía CSS en `.astro` (`.bdg-mobile`/`.bdg-desktop`) evitando hydration mismatch.
+
+**Warnings post-verify:**
+- `client:only` vs `client:visible`: desviación intencional del spec.
+- `registro-fitz-roy` tiene `free: true` + `range: null`; precedencia no definida en spec (renderiza placeholder).
+
+**Próximos pasos:**
+- Elegir siguiente feature pendiente (F-03 PWA offline tiene prioridad high).

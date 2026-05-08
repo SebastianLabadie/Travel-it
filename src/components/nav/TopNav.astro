@@ -26,12 +26,10 @@ const tabs = [
     </div>
 
     <!-- Tabs -->
-    <div class="top-nav__tabs" role="tablist" aria-label="Secciones">
+    <div class="top-nav__tabs" aria-label="Secciones">
       {tabs.map((tab) => (
         <a
           href={tab.href}
-          role="tab"
-          aria-selected={active === tab.id}
           aria-current={active === tab.id ? 'page' : undefined}
           class:list={['top-nav__tab', { 'top-nav__tab--active': active === tab.id }]}
         >
