@@ -49,7 +49,7 @@ export function PercentTable({ totals, layout }: PercentTableProps) {
         }}
       >
         {CATS.map((cat, i) => {
-          const pct = pcts[i];
+          const pct = pcts[i] ?? 0;
           return (
             <div
               key={cat.key}

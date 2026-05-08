@@ -51,7 +51,7 @@ export function StackedBar({ totals, layout }: StackedBarProps) {
         }}
       >
         {CATS.map((cat, i) => {
-          const pct = pcts[i];
+          const pct = pcts[i] ?? 0;
           if (pct < 0.5) return null;
           return (
             <div
@@ -77,7 +77,7 @@ export function StackedBar({ totals, layout }: StackedBarProps) {
         }}
       >
         {CATS.map((cat, i) => {
-          const pct = pcts[i];
+          const pct = pcts[i] ?? 0;
           return (
             <div
               key={cat.key}
