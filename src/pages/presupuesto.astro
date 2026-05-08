@@ -1,0 +1,49 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { BudgetView } from '../components/budget/BudgetView';
+import { getDestinations, getBudgetItems } from '../lib/trip';
+
+const destinations = await getDestinations();
+const budgetItems = await getBudgetItems();
+---
+
+<BaseLayout title="Patagonia · Presupuesto" activeTab="presupuesto">
+  <BudgetView
+    client:only="preact"
+    destinations={destinations}
+    budgetItems={budgetItems}
+  />
+</BaseLayout>
+
+<style>
+  /*
+   * Responsive layout switching for BudgetView.
+   * .bdg-mobile  — single column, compact (< 1024px)
+   * .bdg-desktop — comfortable padding (>= 1024px)
+   *
+   * The island renders both; CSS controls visibility.
+   * This avoids hydration mismatch.
+   */
+
+  :global(.bdg-mobile) {
+    display: block;
+    padding: 0 20px 80px; /* 80px clears mobile TabBar */
+  }
+
+  :global(.bdg-desktop) {
+    display: none;
+  }
+
+  @media (min-width: 1024px) {
+    :global(.bdg-mobile) {
+      display: none;
+    }
+
+    :global(.bdg-desktop) {
+      display: block;
+      padding: 0 32px 32px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+  }
+</style>
