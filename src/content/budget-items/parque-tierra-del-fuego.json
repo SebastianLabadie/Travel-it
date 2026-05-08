@@ -1,0 +1,11 @@
+{
+  "id": "parque-tierra-del-fuego",
+  "cat": "activity",
+  "label": "Entrada Parque Nacional Tierra del Fuego",
+  "date": "6 dic",
+  "perPerson": true,
+  "range": [10, 15],
+  "critical": false,
+  "free": false,
+  "destSlug": "ushuaia"
+}

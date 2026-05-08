@@ -1,0 +1,11 @@
+{
+  "id": "canal-beagle",
+  "cat": "activity",
+  "label": "Navegación Canal Beagle",
+  "date": "5 dic",
+  "perPerson": true,
+  "range": [60, 80],
+  "critical": false,
+  "free": false,
+  "destSlug": "ushuaia"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "navegacion-lago-argentino",
+  "cat": "activity",
+  "label": "Navegación Lago Argentino (Upsala + Spegazzini)",
+  "date": "23 nov",
+  "perPerson": true,
+  "range": [100, 140],
+  "critical": false,
+  "free": false,
+  "destSlug": "calafate"
+}

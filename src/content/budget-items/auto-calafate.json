@@ -1,0 +1,11 @@
+{
+  "id": "auto-calafate",
+  "cat": "transfer",
+  "label": "Auto alquiler El Calafate (3 días · SUV)",
+  "date": "21–24 nov",
+  "perPerson": false,
+  "range": [400, 550],
+  "critical": false,
+  "free": false,
+  "destSlug": "calafate"
+}
