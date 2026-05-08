@@ -1,15 +1,16 @@
 ---
 interface Props {
-  active: 'home' | 'itinerario' | 'checklist' | 'reservas';
+  active: 'home' | 'itinerario' | 'checklist' | 'reservas' | 'presupuesto';
 }
 
 const { active } = Astro.props;
 
 const tabs = [
-  { id: 'home',       label: 'HOME',       num: '01', href: '/'           },
-  { id: 'itinerario', label: 'ITINERARIO', num: '02', href: '/itinerario' },
-  { id: 'checklist',  label: 'CHECKLIST',  num: '03', href: '/checklist'  },
-  { id: 'reservas',   label: 'RESERVAS',   num: '04', href: '/reservas'   },
+  { id: 'home',        label: 'HOME',        num: '01', href: '/'            },
+  { id: 'itinerario',  label: 'ITINERARIO',  num: '02', href: '/itinerario'  },
+  { id: 'checklist',   label: 'CHECKLIST',   num: '03', href: '/checklist'   },
+  { id: 'reservas',    label: 'RESERVAS',    num: '04', href: '/reservas'    },
+  { id: 'presupuesto', label: 'USD',         num: '05', href: '/presupuesto' },
 ] as const;
 ---
 
