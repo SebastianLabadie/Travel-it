@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'preact/hooks';
-import type { Destination, Day } from '../../lib/types';
+import type { Destination, DayWithDate } from '../../lib/types';
+import { localISODate } from '../../lib/tripState';
 import { DifficultyBadge } from './DifficultyBadge';
 
 // ── Types ────────────────────────────────────────────────────────────────────
@@ -8,7 +9,7 @@ type ViewMode = 'destinos' | 'timeline';
 
 interface ItineraryViewProps {
   destinations: Destination[];
-  days: Day[];
+  days: DayWithDate[];
 }
 
 // ── localStorage helpers ─────────────────────────────────────────────────────
@@ -79,7 +80,7 @@ function StripedPlaceholder({ label, w, h }: StripedPlaceholderProps) {
 
 interface DestinosViewProps {
   destinations: Destination[];
-  days: Day[];
+  days: DayWithDate[];
 }
 
 function DestinosView({ destinations, days }: DestinosViewProps) {
@@ -240,12 +241,16 @@ function DestinosView({ destinations, days }: DestinosViewProps) {
 
 interface TimelineViewProps {
   destinations: Destination[];
-  days: Day[];
+  days: DayWithDate[];
 }
 
 function TimelineView({ destinations, days }: TimelineViewProps) {
   const destMap = new Map<string, Destination>();
   for (const d of destinations) destMap.set(d.slug, d);
+
+  // Computed client-side to avoid hydration mismatch (page is statically generated)
+  const [todayISO, setTodayISO] = useState<string | null>(null);
+  useEffect(() => { setTodayISO(localISODate(new Date())); }, []);
 
   return (
     <div style={{ padding: '0 20px 20px', position: 'relative' }}>
@@ -263,6 +268,8 @@ function TimelineView({ destinations, days }: TimelineViewProps) {
       <ol style={{ listStyle: 'none', padding: 0, margin: 0 }}>
         {days.map((day, idx) => {
           const dest = destMap.get(day.dest);
+          const isToday = todayISO !== null && day.isoDate === todayISO;
+          const isCombo = isToday && day.critical;
           return (
             <li
               key={idx}
@@ -284,7 +291,8 @@ function TimelineView({ destinations, days }: TimelineViewProps) {
                   width: 44,
                   fontFamily: 'var(--font-mono)',
                   fontSize: 9,
-                  color: 'var(--color-stone)',
+                  color: isToday ? 'var(--color-fg)' : 'var(--color-stone)',
+                  fontWeight: isToday ? 600 : 400,
                   paddingTop: 3,
                   flexShrink: 0,
                 }}
@@ -292,25 +300,50 @@ function TimelineView({ destinations, days }: TimelineViewProps) {
                 {day.date.toUpperCase()}
               </div>
 
-              {/* Timeline pin */}
-              <div
-                style={{
-                  position: 'relative',
-                  zIndex: 1,
-                  width: 12,
-                  height: 12,
-                  borderRadius: '50%',
-                  background: day.critical
-                    ? 'var(--color-warning)'
-                    : 'var(--color-bg)',
-                  border: `1.5px solid ${day.critical ? 'var(--color-warning)' : 'var(--color-fg)'}`,
-                  marginTop: 4,
-                  flexShrink: 0,
-                }}
-              />
+              {/* Timeline pin — glacier fill + ring when today */}
+              <div style={{ position: 'relative', flexShrink: 0, marginTop: 4 }}>
+                {isToday && (
+                  <div
+                    className={isCombo ? 'f04-pulse-ring' : ''}
+                    style={{
+                      position: 'absolute',
+                      inset: -4,
+                      border: `1.5px solid ${isCombo ? 'var(--color-warning)' : 'var(--color-fg)'}`,
+                    }}
+                  />
+                )}
+                <div
+                  style={{
+                    position: 'relative',
+                    zIndex: 1,
+                    width: 12,
+                    height: 12,
+                    background: isToday
+                      ? 'var(--color-glacier)'
+                      : day.critical
+                      ? 'var(--color-warning)'
+                      : 'var(--color-bg)',
+                    border: `1.5px solid ${day.critical ? 'var(--color-warning)' : 'var(--color-fg)'}`,
+                  }}
+                />
+              </div>
 
               {/* Content */}
               <div style={{ flex: 1, paddingLeft: 4 }}>
+                {isToday && (
+                  <div
+                    style={{
+                      fontFamily: 'var(--font-mono)',
+                      fontSize: 8,
+                      color: isCombo ? 'var(--color-warning)' : 'var(--color-fg)',
+                      letterSpacing: '0.2em',
+                      fontWeight: 600,
+                      marginBottom: 2,
+                    }}
+                  >
+                    HOY
+                  </div>
+                )}
                 {day.critical && (
                   <div
                     style={{
@@ -391,13 +424,15 @@ function TimelineView({ destinations, days }: TimelineViewProps) {
 
 interface DesktopViewProps {
   destinations: Destination[];
-  days: Day[];
+  days: DayWithDate[];
 }
 
 function DesktopView({ destinations, days }: DesktopViewProps) {
   const [activeSlug, setActiveSlug] = useState<string>(
     destinations[0]?.slug ?? ''
   );
+  const [todayISO, setTodayISO] = useState<string | null>(null);
+  useEffect(() => { setTodayISO(localISODate(new Date())); }, []);
 
   const dest = destinations.find((d) => d.slug === activeSlug);
   const destDays = days.filter((d) => d.dest === activeSlug);
@@ -736,14 +771,22 @@ function DesktopView({ destinations, days }: DesktopViewProps) {
             Sin días registrados.
           </p>
         )}
-        {destDays.map((day, idx) => (
+        {destDays.map((day, idx) => {
+          const isToday = todayISO !== null && day.isoDate === todayISO;
+          return (
           <div
             key={idx}
             style={{
               padding: '14px 20px',
               borderTop: '1px solid var(--color-rule)',
-              background: day.critical ? '#C9601A10' : 'transparent',
-              borderLeft: day.critical
+              background: isToday
+                ? 'rgba(122,178,201,0.12)'
+                : day.critical
+                ? '#C9601A10'
+                : 'transparent',
+              borderLeft: isToday
+                ? '3px solid var(--color-glacier)'
+                : day.critical
                 ? '3px solid var(--color-warning)'
                 : '3px solid transparent',
             }}
@@ -764,19 +807,34 @@ function DesktopView({ destinations, days }: DesktopViewProps) {
               >
                 {day.date}
               </span>
-              {day.critical && (
-                <span
-                  style={{
-                    fontFamily: 'var(--font-mono)',
-                    fontSize: 8,
-                    color: 'var(--color-warning)',
-                    letterSpacing: '0.18em',
-                    fontWeight: 600,
-                  }}
-                >
-                  !! CRÍTICO
-                </span>
-              )}
+              <div style={{ display: 'flex', gap: 8, alignItems: 'center' }}>
+                {isToday && (
+                  <span
+                    style={{
+                      fontFamily: 'var(--font-mono)',
+                      fontSize: 8,
+                      color: 'var(--color-glacier)',
+                      letterSpacing: '0.2em',
+                      fontWeight: 600,
+                    }}
+                  >
+                    HOY
+                  </span>
+                )}
+                {day.critical && (
+                  <span
+                    style={{
+                      fontFamily: 'var(--font-mono)',
+                      fontSize: 8,
+                      color: 'var(--color-warning)',
+                      letterSpacing: '0.18em',
+                      fontWeight: 600,
+                    }}
+                  >
+                    !! CRÍTICO
+                  </span>
+                )}
+              </div>
             </div>
             <div style={{ fontSize: 12, marginTop: 4, color: 'var(--color-fg)' }}>
               {day.main}
@@ -807,7 +865,8 @@ function DesktopView({ destinations, days }: DesktopViewProps) {
               </div>
             )}
           </div>
-        ))}
+          );
+        })}
       </div>
     </div>
   );
