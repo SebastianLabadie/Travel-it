@@ -5,5 +5,6 @@
   "urgency": "alta-ya",
   "status": "pendiente",
   "deadline": "2026-07-15",
+  "cost": { "amount": 500, "currency": "USD", "perPerson": true },
   "notes": "Aerolíneas Argentinas o LATAM. Salida 21 nov noche, regreso 8 dic mediodía."
 }

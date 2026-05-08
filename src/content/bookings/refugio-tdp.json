@@ -1,11 +1,10 @@
 {
   "id": "refugio-tdp",
   "category": "accommodation",
-  "title": "Refugio Central Torres del Paine (Fantástico Sur)",
+  "title": "Refugio/Camping Torres del Paine (29 nov – 3 dic)",
   "urgency": "alta-ya",
   "status": "pendiente",
   "deadline": "2026-07-15",
-  "cost": { "amount": 75, "currency": "USD", "perPerson": true },
   "destination": "paine",
-  "notes": "4 noches. Media pensión incluida. 5–6 personas."
+  "notes": "4 noches. Fantástico Sur o Vertice. Media pensión incluida. Precio a confirmar (~USD 70–110/noche). 5–6 personas."
 }

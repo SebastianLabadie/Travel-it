@@ -1,10 +1,11 @@
 {
   "id": "auto-calafate",
-  "category": "rental",
-  "title": "Auto de alquiler El Calafate",
+  "category": "transfer",
+  "title": "Auto de alquiler El Chaltén (25–27 nov)",
   "urgency": "alta-3-6m",
   "status": "pendiente",
   "deadline": "2026-08-15",
-  "destination": "calafate",
-  "notes": "SUV o 4x4. Localiza, Hertz, Europcar. Devolver en aeropuerto FTE."
+  "cost": { "amount": 50, "currency": "USD", "perPerson": true },
+  "destination": "chalten",
+  "notes": "2 días. SUV o 4x4. ~USD 50/pax total. Localiza, Hertz, Europcar."
 }
