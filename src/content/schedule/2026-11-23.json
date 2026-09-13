@@ -1,0 +1,30 @@
+{
+  "date": "23 nov",
+  "weekday": "lun",
+  "title": "El Chaltén · Fitz Roy",
+  "from": "chalten",
+  "to": "chalten",
+  "sleep": "Cabaña El Chaltén · noche 3/17",
+  "slots": [
+    {
+      "time": "07:00",
+      "kind": "walk",
+      "title": "Salida a Laguna de los Tres",
+      "detail": "A pie desde Av. San Martín norte"
+    },
+    {
+      "time": "07:00",
+      "end": "17:00",
+      "kind": "walk",
+      "title": "Laguna de los Tres / Fitz Roy · 22 km · 1.200 m · 8-10 h",
+      "detail": "Laguna Capri, Piedras Blancas. Último km: 400 m de subida pedregosa, el tramo más duro del viaje",
+      "warning": true
+    },
+    {
+      "time": "~18:00",
+      "kind": "food",
+      "title": "Cena en el pueblo",
+      "detail": "La Vinería / La Chocolatería"
+    }
+  ]
+}

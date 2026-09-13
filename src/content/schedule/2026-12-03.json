@@ -1,0 +1,48 @@
+{
+  "date": "3 dic",
+  "weekday": "jue",
+  "title": "Torres del Paine → El Calafate",
+  "from": "paine",
+  "to": "calafate",
+  "sleep": "Airbnb El Calafate · noche 13/17",
+  "driveHours": 7,
+  "critical": true,
+  "slots": [
+    {
+      "time": "~07:30",
+      "kind": "lodging",
+      "title": "Desarmar campamento · desayuno"
+    },
+    {
+      "time": "09:20",
+      "kind": "boat",
+      "title": "Primer catamarán Paine Grande → Pudeto · 35 min",
+      "detail": "Se cancela por viento con cierta frecuencia. Si se demora, se llega tarde pero no se pierde el vuelo",
+      "warning": true
+    },
+    {
+      "time": "~10:00",
+      "end": "17:00",
+      "kind": "car",
+      "title": "Pudeto → Puerto Natales → frontera → El Calafate · ~7 h",
+      "detail": "Tras 4 días de camping. Rotar al volante. Guanacos al atardecer en Ruta 9 y RN40",
+      "warning": true
+    },
+    {
+      "time": "~17:00",
+      "kind": "car",
+      "title": "Devolución del auto en FTE",
+      "detail": "Confirmar horario del mostrador"
+    },
+    {
+      "time": "~17:30",
+      "kind": "taxi",
+      "title": "Taxi FTE → pueblo · 20 min"
+    },
+    {
+      "time": "~20:00",
+      "kind": "lodging",
+      "title": "Check-in · cena · dormir temprano"
+    }
+  ]
+}

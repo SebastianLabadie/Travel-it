@@ -1,0 +1,33 @@
+{
+  "id": "pipe",
+  "name": "Pipe",
+  "order": 1,
+  "zone": {
+    "slug": "chalten",
+    "label": "El Chaltén",
+    "dates": "22–26 nov",
+    "nights": 4
+  },
+  "lodging": {
+    "brief": "Cabaña u hostería con habitación privada y estacionamiento, para 4. Lo más difícil del viaje: 4 noches seguidas en temporada.",
+    "budget": "~USD 25-40 p.p./noche",
+    "requirements": [
+      "Estacionamiento",
+      "Cocina o desayuno",
+      "A pie de los senderos (todos salen del pueblo)",
+      "Cancelación flexible por clima"
+    ]
+  },
+  "activities": [
+    "Confirmar registro online PNLG (losglaciares.gob.ar)",
+    "Decidir trek del 24 nov: Pliegue Tumbado vs Laguna Torre (D-08)",
+    "Plan del día flexible 25 nov: Lago del Desierto / Piedra del Fraile / Chorrillo del Salto",
+    "Averiguar estado de la estación de servicio y horarios"
+  ],
+  "food": [
+    "La Vinería",
+    "La Chocolatería",
+    "Opciones de cena post-trek que abran tarde"
+  ],
+  "deadline": "2026-09-30"
+}

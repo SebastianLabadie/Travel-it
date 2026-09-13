@@ -1,0 +1,55 @@
+{
+  "date": "28 nov",
+  "weekday": "sáb",
+  "title": "El Calafate → Puerto Natales",
+  "from": "calafate",
+  "to": "natales",
+  "sleep": "Airbnb Puerto Natales · noche 8/17",
+  "driveHours": 5.5,
+  "slots": [
+    {
+      "time": "~07:30",
+      "kind": "car",
+      "title": "Salida temprano con tanque lleno",
+      "detail": "Permiso Chile y cédulas a mano",
+      "warning": true
+    },
+    {
+      "time": "~07:30",
+      "end": "13:00",
+      "kind": "car",
+      "title": "Ruta a Puerto Natales · 5-6 h",
+      "detail": "Frontera Cerro Castillo / Río Don Guillermo: sumar 30-60 min. Sin cambio de huso horario"
+    },
+    {
+      "time": "~13:30",
+      "kind": "lodging",
+      "title": "Check-in · almuerzo"
+    },
+    {
+      "time": "15:00",
+      "kind": "activity",
+      "title": "3 O'Clock Talk · Erratic Rock Hostel",
+      "detail": "Charla gratuita sobre cómo recorrer Torres del Paine"
+    },
+    {
+      "time": "~16:00",
+      "kind": "note",
+      "title": "Retiro de sacos de dormir",
+      "detail": "Vértice Patagonia, Manuel Bulnes 1202 (reservados con antelación)"
+    },
+    {
+      "time": "~17:00",
+      "kind": "note",
+      "title": "Compras TDP · única ventana",
+      "detail": "Comida 4 días en Unimarc (nada que precise heladera) · cartucho de gas en ferretería · entrada CONAF impresa",
+      "warning": true
+    },
+    {
+      "time": "~20:30",
+      "kind": "food",
+      "title": "Cena · armado de mochilas",
+      "detail": "Lo que no va al parque queda en el baúl"
+    }
+  ]
+}

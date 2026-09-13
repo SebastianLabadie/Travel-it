@@ -1,0 +1,56 @@
+{
+  "date": "22 nov",
+  "weekday": "dom",
+  "title": "El Calafate → El Chaltén",
+  "from": "calafate",
+  "to": "chalten",
+  "sleep": "Cabaña El Chaltén · noche 2/17",
+  "driveHours": 3,
+  "slots": [
+    {
+      "time": "~08:00",
+      "kind": "taxi",
+      "title": "Taxi al aeropuerto FTE"
+    },
+    {
+      "time": "~08:30",
+      "kind": "car",
+      "title": "Retiro del auto (SUV/4x4)",
+      "detail": "Revisar permiso de salida a Chile en la guantera, cobertura de cristales, horario de devolución del 3 dic"
+    },
+    {
+      "time": "~09:00",
+      "kind": "car",
+      "title": "Cargar tanque lleno en El Calafate",
+      "detail": "En la RN40 no hay nada en el medio",
+      "warning": true
+    },
+    {
+      "time": "~09:15",
+      "end": "12:15",
+      "kind": "car",
+      "title": "RN40 a El Chaltén · 3 h",
+      "detail": "Asfalto. Parada en La Leona (hostería de 1894)"
+    },
+    {
+      "time": "~12:30",
+      "kind": "note",
+      "title": "Registro obligatorio en el Centro de Visitantes PNLG",
+      "detail": "Check-in y almuerzo"
+    },
+    {
+      "time": "~15:00",
+      "end": "17:00",
+      "kind": "walk",
+      "title": "Mirador de los Cóndores + Mirador de las Águilas",
+      "detail": "1-2 h ida y vuelta desde el pueblo. Sirve para aclimatar"
+    },
+    {
+      "time": "~18:00",
+      "kind": "car",
+      "title": "Cargar nafta si hay disponibilidad",
+      "detail": "Una sola estación en el pueblo, se queda sin combustible en temporada",
+      "warning": true
+    }
+  ]
+}

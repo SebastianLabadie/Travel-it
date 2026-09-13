@@ -1,0 +1,49 @@
+{
+  "date": "21 nov",
+  "weekday": "sáb",
+  "title": "Montevideo → El Calafate",
+  "from": "mvd",
+  "to": "calafate",
+  "sleep": "Airbnb El Calafate · noche 1/17",
+  "slots": [
+    {
+      "time": "07:30",
+      "kind": "note",
+      "title": "Llegada a Carrasco (MVD)",
+      "detail": "Check-in Aerolíneas 2 h antes"
+    },
+    {
+      "time": "09:45",
+      "end": "10:40",
+      "kind": "flight",
+      "title": "AR1383 MVD → AEP",
+      "detail": "0h55m"
+    },
+    {
+      "time": "10:40",
+      "end": "15:15",
+      "kind": "note",
+      "title": "Escala en Aeroparque · 4h35m",
+      "detail": "Retirar y re-despachar equipaje",
+      "warning": true
+    },
+    {
+      "time": "15:15",
+      "end": "18:35",
+      "kind": "flight",
+      "title": "AR1850 AEP → FTE",
+      "detail": "3h20m"
+    },
+    {
+      "time": "18:35",
+      "kind": "taxi",
+      "title": "Taxi FTE → alojamiento",
+      "detail": "~20 min. El mostrador de la rentadora puede estar cerrado: el auto se retira mañana"
+    },
+    {
+      "time": "~19:30",
+      "kind": "lodging",
+      "title": "Check-in · cena tranquila · descanso"
+    }
+  ]
+}

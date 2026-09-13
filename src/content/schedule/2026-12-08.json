@@ -1,0 +1,45 @@
+{
+  "date": "8 dic",
+  "weekday": "mar",
+  "title": "Ushuaia → Montevideo",
+  "from": "ushuaia",
+  "to": "mvd",
+  "sleep": "En casa",
+  "slots": [
+    {
+      "time": "~08:30",
+      "kind": "lodging",
+      "title": "Desayuno · check-out"
+    },
+    {
+      "time": "~09:30",
+      "kind": "taxi",
+      "title": "Taxi al aeropuerto USH"
+    },
+    {
+      "time": "12:20",
+      "end": "15:50",
+      "kind": "flight",
+      "title": "AR1881 USH → AEP",
+      "detail": "3h30m"
+    },
+    {
+      "time": "15:50",
+      "end": "19:45",
+      "kind": "note",
+      "title": "Escala en Aeroparque · 3h55m",
+      "detail": "Sin retirar equipaje"
+    },
+    {
+      "time": "19:45",
+      "end": "20:35",
+      "kind": "flight",
+      "title": "AR1390 AEP → MVD"
+    },
+    {
+      "time": "20:35",
+      "kind": "note",
+      "title": "Llegada a Carrasco · fin del viaje"
+    }
+  ]
+}

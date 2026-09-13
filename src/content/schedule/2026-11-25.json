@@ -1,0 +1,37 @@
+{
+  "date": "25 nov",
+  "weekday": "mié",
+  "title": "El Chaltén · día flexible",
+  "from": "chalten",
+  "to": "chalten",
+  "sleep": "Cabaña El Chaltén · noche 5/17",
+  "slots": [
+    {
+      "time": "~08:00",
+      "kind": "activity",
+      "title": "Opción A · revancha Fitz Roy si el 23 falló el clima"
+    },
+    {
+      "time": "~08:00",
+      "kind": "activity",
+      "title": "Opción B · el trek que quedó sin hacer el 24"
+    },
+    {
+      "time": "~09:00",
+      "kind": "car",
+      "title": "Opción C · Lago del Desierto (37 km de ripio al norte) o Piedra del Fraile / Río Eléctrico",
+      "detail": "Solo con auto"
+    },
+    {
+      "time": "~10:00",
+      "kind": "activity",
+      "title": "Opción D · plan liviano: Chorrillo del Salto (15 min en auto) o día de pueblo"
+    },
+    {
+      "time": "~18:00",
+      "kind": "car",
+      "title": "Tanque lleno para la vuelta de mañana",
+      "warning": true
+    }
+  ]
+}

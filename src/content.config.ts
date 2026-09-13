@@ -112,6 +112,52 @@ const bookingSchema = z.object({
   destination: z.string().optional(),
 });
 
+// ── Schedule (hour-by-hour movement plan, one file per day) ──────────────────
+const scheduleSlotSchema = z.object({
+  time: z.string(),            // "09:45", "~12:00" when approximate, "" for untimed
+  end: z.string().optional(),  // "10:40"
+  kind: z.enum(['flight', 'car', 'boat', 'taxi', 'bus', 'walk', 'activity', 'food', 'lodging', 'note']),
+  title: z.string(),
+  detail: z.string().optional(),
+  warning: z.boolean().default(false),
+});
+
+const scheduleDaySchema = z.object({
+  date: z.string(),            // "21 nov"
+  weekday: z.string(),         // "sáb"
+  title: z.string(),           // "Montevideo → El Calafate"
+  from: z.string(),            // destination slug
+  to: z.string(),              // destination slug (same as `from` when there is no move)
+  sleep: z.string(),           // "Airbnb El Calafate · noche 1/17"
+  driveHours: z.number().nonnegative().optional(),
+  critical: z.boolean().default(false),
+  slots: z.array(scheduleSlotSchema),
+});
+
+// ── Team (one owner per zone) ────────────────────────────────────────────────
+const MEMBER_IDS = ['pipe', 'batman', 'varelinni', 'wire'] as const;
+
+const teamMemberSchema = z.object({
+  id: z.enum(MEMBER_IDS),
+  name: z.string(),
+  order: z.number().int().positive(),
+  zone: z.object({
+    slug: z.string(),          // destination slug
+    label: z.string(),
+    dates: z.string(),
+    nights: z.number().int().nonnegative(),
+  }),
+  lodging: z.object({
+    brief: z.string(),
+    budget: z.string(),
+    requirements: z.array(z.string()),
+  }),
+  activities: z.array(z.string()),
+  food: z.array(z.string()),
+  deadline: z.string().date(),
+  notes: z.string().optional(),
+});
+
 export const collections = {
   destinations: defineCollection({
     loader: glob({ pattern: '**/*.json', base: './src/content/destinations' }),
@@ -136,5 +182,13 @@ export const collections = {
   'budget-items': defineCollection({
     loader: glob({ pattern: '**/*.json', base: './src/content/budget-items' }),
     schema: budgetItemSchema,
+  }),
+  schedule: defineCollection({
+    loader: glob({ pattern: '**/*.json', base: './src/content/schedule' }),
+    schema: scheduleDaySchema,
+  }),
+  team: defineCollection({
+    loader: glob({ pattern: '**/*.json', base: './src/content/team' }),
+    schema: teamMemberSchema,
   }),
 };

@@ -1,0 +1,48 @@
+{
+  "date": "1 dic",
+  "weekday": "mar",
+  "title": "Grey → Paine Grande",
+  "from": "paine",
+  "to": "paine",
+  "sleep": "Camping Paine Grande · noche 11/17",
+  "driveHours": 1,
+  "slots": [
+    {
+      "time": "~08:00",
+      "kind": "lodging",
+      "title": "Desarmar campamento"
+    },
+    {
+      "time": "~08:30",
+      "end": "10:00",
+      "kind": "walk",
+      "title": "Camping Grey → Hotel Lago Grey · 1-1,5 h",
+      "detail": "Mochila completa"
+    },
+    {
+      "time": "~10:00",
+      "end": "11:00",
+      "kind": "car",
+      "title": "Hotel Lago Grey → Pudeto · ~1 h"
+    },
+    {
+      "time": "~11:00",
+      "kind": "car",
+      "title": "Estacionar en Pudeto · 2 noches",
+      "detail": "Sin vigilancia. Nada a la vista",
+      "warning": true
+    },
+    {
+      "time": "~12:00",
+      "kind": "boat",
+      "title": "Catamarán Hielos Patagónicos Pudeto → Paine Grande · 35 min",
+      "detail": "Horario dic 2026 a confirmar",
+      "warning": true
+    },
+    {
+      "time": "~13:00",
+      "kind": "lodging",
+      "title": "Armado de campamento · tarde libre"
+    }
+  ]
+}

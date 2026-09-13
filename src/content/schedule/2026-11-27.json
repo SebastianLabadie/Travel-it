@@ -1,0 +1,43 @@
+{
+  "date": "27 nov",
+  "weekday": "vie",
+  "title": "El Calafate · Perito Moreno",
+  "from": "calafate",
+  "to": "calafate",
+  "sleep": "Airbnb El Calafate · noche 7/17",
+  "driveHours": 2.7,
+  "slots": [
+    {
+      "time": "07:00",
+      "end": "08:20",
+      "kind": "car",
+      "title": "RP11 a Puerto Bajo las Sombras · 1h20m",
+      "detail": "Asfalto"
+    },
+    {
+      "time": "~08:20",
+      "kind": "note",
+      "title": "Entrada PN Los Glaciares",
+      "detail": "ARS 45.000-50.000 p.p., se paga aparte"
+    },
+    {
+      "time": "~08:30",
+      "end": "17:30",
+      "kind": "activity",
+      "title": "Minitrekking Perito Moreno · Hielo y Aventura · ~9 h",
+      "detail": "Catamarán Brazo Rico 20 min · 1h30m sobre el hielo con crampones · pasarelas incluidas. 8-65 años"
+    },
+    {
+      "time": "~17:30",
+      "end": "19:00",
+      "kind": "car",
+      "title": "Regreso a El Calafate"
+    },
+    {
+      "time": "~20:30",
+      "kind": "food",
+      "title": "Cena",
+      "detail": "La Zorra Taproom (hamburguesa de guanaco) o La Tablita (cordero). Viernes todo abierto"
+    }
+  ]
+}

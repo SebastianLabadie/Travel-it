@@ -1,0 +1,35 @@
+{
+  "id": "wire",
+  "name": "Wire",
+  "order": 4,
+  "zone": {
+    "slug": "ushuaia",
+    "label": "Ushuaia",
+    "dates": "4–8 dic",
+    "nights": 4
+  },
+  "lodging": {
+    "brief": "Airbnb o habitación privada para 4, cerca del centro y de la terminal (salen los shuttles).",
+    "budget": "~USD 30-45 p.p./noche",
+    "requirements": [
+      "Cerca de la terminal / costanera",
+      "Cocina o desayuno",
+      "Check-in al mediodía el 4 dic"
+    ]
+  },
+  "activities": [
+    "Reservar Isla Martillo con Piratour (único con desembarco) para el 5 o 6 dic — cupos escasos",
+    "Navegación Canal Beagle con desembarco en Isla Bridges o H",
+    "PN Tierra del Fuego: bus turístico y senda a elegir",
+    "Shuttle Laguna Esmeralda 10:00 / 15:00",
+    "Plan B lluvia: Museo Marítimo y del Presidio",
+    "Vuelo FTE → USH 4 dic 10:10 (con Sebastian)"
+  ],
+  "food": [
+    "La Casa de los Mariscos (reservar o ir 19:30)",
+    "El Viejo Marino (cierra domingos y sábado noche)",
+    "Cerveza Patagonia Refugio (happy hour)",
+    "Cena de despedida del 7 dic"
+  ],
+  "deadline": "2026-10-15"
+}
