@@ -3,7 +3,7 @@ interface PaxToggleProps {
   onChange: (pax: number) => void;
 }
 
-/** Segmented 5/6 pax toggle with aria-pressed accessibility */
+/** Segmented 4/5 pax toggle with aria-pressed accessibility (group is 4; 5 = what-if) */
 export function PaxToggle({ pax, onChange }: PaxToggleProps) {
   return (
     <div
@@ -17,7 +17,7 @@ export function PaxToggle({ pax, onChange }: PaxToggleProps) {
         overflow: 'hidden',
       }}
     >
-      {[5, 6].map((n) => {
+      {[4, 5].map((n) => {
         const active = pax === n;
         return (
           <button

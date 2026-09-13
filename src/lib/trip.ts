@@ -2,7 +2,7 @@ import { getCollection } from 'astro:content';
 import type { Destination, Day, DayWithDate, TripDaySlim, Route, ChecklistCategory, Booking, BudgetItem } from './types';
 
 /**
- * Returns all destinations sorted by their `order` field (0..5).
+ * Returns all destinations sorted by their `order` field (0..5, MVD first).
  */
 export async function getDestinations(): Promise<Destination[]> {
   const entries = await getCollection('destinations');
@@ -23,15 +23,19 @@ export async function getDays(): Promise<Day[]> {
 }
 
 /**
- * Returns all route segments in their natural collection order.
+ * Returns all route segments in draw order.
+ * Files are prefixed with a digit (1-mvd-fte, 2-fte-elc, ...) so sorting by
+ * entry id yields the travel order.
  */
 export async function getRoutes(): Promise<Route[]> {
   const entries = await getCollection('routes');
-  return entries.map((e) => e.data);
+  return entries
+    .sort((a, b) => a.id.localeCompare(b.id))
+    .map((e) => e.data);
 }
 
 /**
- * Returns all checklist categories sorted by their `order` field (0..6).
+ * Returns all checklist categories sorted by their `order` field (0..7).
  */
 export async function getChecklist(): Promise<ChecklistCategory[]> {
   const entries = await getCollection('checklist-items');

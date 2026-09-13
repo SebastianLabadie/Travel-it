@@ -8,6 +8,22 @@ const destinations = await getDestinations();
 const routes = await getRoutes();
 const tripDays = await getTripDaysSlim();
 
+// Critical-day signal is derived from the days collection (critical: true),
+// never hard-coded per destination. Label example: "03 DIC".
+const MONTHS_SHORT = ['ENE', 'FEB', 'MAR', 'ABR', 'MAY', 'JUN', 'JUL', 'AGO', 'SEP', 'OCT', 'NOV', 'DIC'];
+function critLabel(isoDate: string): string {
+  const [, month, day] = isoDate.split('-');
+  return `${day} ${MONTHS_SHORT[Number(month) - 1]}`;
+}
+const criticalDays = tripDays.filter((d) => d.critical);
+const criticalSlugs = [...new Set(criticalDays.map((d) => d.dest))];
+const criticalLabelBySlug = new Map<string, string>();
+for (const d of criticalDays) {
+  if (!criticalLabelBySlug.has(d.dest)) criticalLabelBySlug.set(d.dest, critLabel(d.isoDate));
+}
+const totalNights = destinations.reduce((sum, d) => sum + d.nights, 0);
+const bases = destinations.length;
+
 // "Próxima parada" salta MVD (0 noches, punto de partida)
 const firstDest = destinations.find((d) => d.nights > 0) ?? destinations[0];
 ---
@@ -22,7 +38,7 @@ const firstDest = destinations.find((d) => d.nights > 0) ?? destinations[0];
         De Montevideo,<br />
         <em class="hero-h1-em">al fin del mundo.</em>
       </h1>
-      <p class="hero-sub">Siete bases · 16 noches · 5 amigos.</p>
+      <p class="hero-sub">Seis bases · {totalNights} noches · 4 amigos.</p>
     </div>
 
     <!-- Map island: 320px on mobile, per spec AC-F1-12 / NFR-Responsive -->
@@ -34,21 +50,22 @@ const firstDest = destinations.find((d) => d.nights > 0) ?? destinations[0];
         height={320}
         autoplay={true}
         showCriticalNote={true}
+        criticalSlugs={criticalSlugs}
       />
     </div>
 
     <!-- Stats row -->
     <div class="stats-row">
       <div class="stat-cell">
-        <div class="stat-number">16</div>
+        <div class="stat-number">{totalNights}</div>
         <div class="stat-label">noches</div>
       </div>
       <div class="stat-cell stat-cell--mid">
-        <div class="stat-number">7</div>
+        <div class="stat-number">{bases}</div>
         <div class="stat-label">destinos</div>
       </div>
       <div class="stat-cell">
-        <div class="stat-number">~3.200</div>
+        <div class="stat-number">~7.000</div>
         <div class="stat-label">km</div>
       </div>
     </div>
@@ -111,17 +128,18 @@ const firstDest = destinations.find((d) => d.nights > 0) ?? destinations[0];
         height={747}
         autoplay={true}
         showCriticalNote={true}
+        criticalSlugs={criticalSlugs}
       />
 
       <!-- Hero overlay (absolute over the map) -->
       <div class="hero-overlay">
-        <div class="overlay-eyebrow">EXPEDICIÓN · 16 NOCHES</div>
+        <div class="overlay-eyebrow">EXPEDICIÓN · {totalNights} NOCHES</div>
         <h1 class="overlay-h1">
           De Montevideo,<br />
           <em class="overlay-h1-em">al fin del mundo.</em>
         </h1>
         <p class="overlay-body">
-          7 bases · ~3.200 km · del glaciar al fin del mundo.<br />
+          {bases} bases · ~7.000 km (aire + ruta) · del glaciar al fin del mundo.<br />
           La ruta se traza arriba, las bases a la derecha.
         </p>
       </div>
@@ -132,12 +150,13 @@ const firstDest = destinations.find((d) => d.nights > 0) ?? destinations[0];
       <TripStatus client:only="preact" days={tripDays} variant="desktop" />
 
       <div class="bases-header">
-        <div class="bases-eyebrow">BASES · 07</div>
+        <div class="bases-eyebrow">BASES · {String(bases).padStart(2, '0')}</div>
         <div class="bases-title">La traza.</div>
       </div>
 
       {destinations.map((dest, i) => {
-        const isCrit = dest.slug === 'ushuaia';
+        const critDate = criticalLabelBySlug.get(dest.slug);
+        const isCrit = critDate !== undefined;
         return (
           <div class:list={['base-item', isCrit && 'base-item--crit']}>
             <div class="base-row-top">
@@ -150,7 +169,7 @@ const firstDest = destinations.find((d) => d.nights > 0) ?? destinations[0];
             </div>
             <p class="base-summary">{dest.summary}</p>
             {isCrit && (
-              <div class="base-crit-signal">!! INCLUYE DÍA CRÍTICO · 04 DIC</div>
+              <div class="base-crit-signal">!! INCLUYE DÍA CRÍTICO · {critDate}</div>
             )}
           </div>
         );

@@ -78,7 +78,7 @@ function VizToggle({
  * Both views rendered; CSS controls visibility at 1024px.
  */
 export function BudgetView({ destinations, budgetItems }: BudgetViewProps) {
-  const [pax, setPax] = useState(5);
+  const [pax, setPax] = useState(4);
   const [viz, setViz] = useState<'bar' | 'table'>('bar');
 
   const totals = useMemo(

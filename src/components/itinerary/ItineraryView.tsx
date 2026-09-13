@@ -43,11 +43,8 @@ interface DestinosViewProps {
 }
 
 function DestinosView({ destinations, days }: DestinosViewProps) {
-  // Punta Arenas (slug "punta") always gets the critical signal per AC-F2-09
-  const critDestSlugs = new Set<string>(['punta']);
-  for (const day of days) {
-    if (day.critical) critDestSlugs.add(day.dest);
-  }
+  // A destination carries the critical signal when one of its days is critical (AC-F2-09)
+  const critDestSlugs = new Set<string>(days.filter((d) => d.critical).map((d) => d.dest));
 
   return (
     <div style={{ padding: '0 20px 20px' }}>
@@ -397,11 +394,8 @@ function DesktopView({ destinations, days }: DesktopViewProps) {
   const destDays = days.filter((d) => d.dest === activeSlug);
   const activeIdx = destinations.findIndex((d) => d.slug === activeSlug);
 
-  // Punta Arenas always gets critical signal per AC-F2-09
-  const critDestSlugs = new Set<string>(['punta']);
-  for (const day of days) {
-    if (day.critical) critDestSlugs.add(day.dest);
-  }
+  // A destination carries the critical signal when one of its days is critical (AC-F2-09)
+  const critDestSlugs = new Set<string>(days.filter((d) => d.critical).map((d) => d.dest));
 
   return (
     <div
