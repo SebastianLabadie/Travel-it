@@ -1,11 +1,15 @@
 {
   "id": "canal-beagle",
   "category": "activity",
-  "title": "Navegación Canal Beagle (Ushuaia)",
+  "title": "Navegación Canal Beagle (5 o 6 dic)",
   "urgency": "media",
   "status": "pendiente",
   "deadline": "2026-10-15",
-  "cost": { "amount": 70, "currency": "USD", "perPerson": true },
+  "cost": {
+    "amount": 70,
+    "currency": "USD",
+    "perPerson": true
+  },
   "destination": "ushuaia",
-  "notes": "Tres Marías o Patagonia Adventure Explorer."
+  "notes": "Tres Marías o Patagonia Adventure Explorer. Pedir el que desembarca en Isla Bridges o Isla H."
 }

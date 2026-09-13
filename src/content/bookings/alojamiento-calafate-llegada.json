@@ -1,0 +1,15 @@
+{
+  "id": "alojamiento-calafate-llegada",
+  "category": "accommodation",
+  "title": "Alojamiento El Calafate · llegada (21–22 nov · 1 noche)",
+  "urgency": "alta-ya",
+  "status": "pendiente",
+  "deadline": "2026-09-30",
+  "cost": {
+    "amount": 32,
+    "currency": "USD",
+    "perPerson": true
+  },
+  "destination": "calafate",
+  "notes": "Con estacionamiento. Evaluar el mismo lugar para las tres estadías."
+}

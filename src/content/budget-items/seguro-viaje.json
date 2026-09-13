@@ -3,7 +3,10 @@
   "cat": "insurance",
   "label": "Seguro de viaje + asistencia al viajero",
   "perPerson": false,
-  "range": [160, 220],
+  "range": [
+    160,
+    220
+  ],
   "critical": true,
   "free": false,
   "destSlug": null

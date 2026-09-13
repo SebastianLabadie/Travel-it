@@ -1,0 +1,14 @@
+{
+  "id": "comida-gas-tdp",
+  "cat": "activity",
+  "label": "Comida 4 días TDP + cartucho de gas (estimado)",
+  "date": "28 nov",
+  "perPerson": true,
+  "range": [
+    40,
+    60
+  ],
+  "critical": false,
+  "free": false,
+  "destSlug": "paine"
+}

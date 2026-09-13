@@ -1,0 +1,15 @@
+{
+  "id": "entrada-pn-los-glaciares",
+  "category": "activity",
+  "title": "Entrada PN Los Glaciares (27 nov)",
+  "urgency": "baja",
+  "status": "pendiente",
+  "deadline": "2026-11-15",
+  "cost": {
+    "amount": 32,
+    "currency": "USD",
+    "perPerson": true
+  },
+  "destination": "calafate",
+  "notes": "ARS 45.000-50.000 p.p. Se paga aparte del minitrekking."
+}

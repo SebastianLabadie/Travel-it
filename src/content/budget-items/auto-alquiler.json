@@ -1,0 +1,14 @@
+{
+  "id": "auto-alquiler",
+  "cat": "transfer",
+  "label": "Auto de alquiler SUV/4x4 · 12 días",
+  "date": "22 nov – 3 dic",
+  "perPerson": false,
+  "range": [
+    990,
+    1430
+  ],
+  "critical": false,
+  "free": false,
+  "destSlug": null
+}

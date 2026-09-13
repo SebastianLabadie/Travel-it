@@ -1,0 +1,15 @@
+{
+  "id": "minitrekking-perito-moreno",
+  "category": "activity",
+  "title": "Minitrekking Glaciar Perito Moreno · Hielo y Aventura (27 nov)",
+  "urgency": "alta-ya",
+  "status": "pendiente",
+  "deadline": "2026-10-15",
+  "cost": {
+    "amount": 212,
+    "currency": "USD",
+    "perPerson": true
+  },
+  "destination": "calafate",
+  "notes": "Grilla 2025/26: ARS 320.000 p.p. Presupuestar 25-40% más. Sin traslado (vamos en auto). 8-65 años."
+}

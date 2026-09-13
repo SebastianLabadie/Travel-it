@@ -1,0 +1,14 @@
+{
+  "id": "laguna-nimez",
+  "cat": "activity",
+  "label": "Reserva Laguna Nimez",
+  "date": "26 nov",
+  "perPerson": true,
+  "range": [
+    8,
+    10
+  ],
+  "critical": false,
+  "free": false,
+  "destSlug": "calafate"
+}

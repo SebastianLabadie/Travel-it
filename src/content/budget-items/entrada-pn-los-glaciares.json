@@ -1,0 +1,14 @@
+{
+  "id": "entrada-pn-los-glaciares",
+  "cat": "activity",
+  "label": "Entrada PN Los Glaciares",
+  "date": "27 nov",
+  "perPerson": true,
+  "range": [
+    30,
+    33
+  ],
+  "critical": false,
+  "free": false,
+  "destSlug": "calafate"
+}

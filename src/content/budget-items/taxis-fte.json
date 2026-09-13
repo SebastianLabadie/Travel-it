@@ -1,0 +1,13 @@
+{
+  "id": "taxis-fte",
+  "cat": "transfer",
+  "label": "Taxis FTE ⇄ pueblo (21 nov, 3 dic, 4 dic)",
+  "perPerson": false,
+  "range": [
+    40,
+    60
+  ],
+  "critical": false,
+  "free": false,
+  "destSlug": "calafate"
+}

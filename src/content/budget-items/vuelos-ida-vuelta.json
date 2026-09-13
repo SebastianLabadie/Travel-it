@@ -1,10 +1,13 @@
 {
   "id": "vuelos-ida-vuelta",
   "cat": "flight",
-  "label": "Vuelos ida y vuelta",
+  "label": "Vuelos MVD ⇄ Patagonia (comprados, precio a cargar)",
   "date": "21 nov / 8 dic",
   "perPerson": true,
-  "range": [500, 500],
+  "range": [
+    500,
+    500
+  ],
   "critical": true,
   "free": false,
   "destSlug": null
