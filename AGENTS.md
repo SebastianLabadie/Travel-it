@@ -24,7 +24,7 @@ Este proyecto integra **harness organizacional** (este archivo, `feature_list.js
 | `CHECKPOINTS.md` | Criterios objetivos de "done" | Antes de cerrar sesión / merge |
 | `docs/PRD.md` | Requisitos funcionales y no-funcionales del MVP | Antes de implementar feature nueva |
 | `docs/TASKS.md` | Histórico de PRs PR-0..PR-7 (read-only) | Para ver cómo se hicieron features previas |
-| `docs/Patagonia_2026.md` | Source of truth del contenido del viaje | Al editar content collections |
+| `docs/Patagonia_2026_v2.md` (+ `Patagonia_2026_Compras_v2.md`, `Patagonia_2026_Equipaje_v2.md`) | Source of truth del contenido del viaje (v2, sep 2026). `docs/Patagonia_2026.md` es histórico | Al editar content collections |
 | `design/DESIGN.md` | Tokens, componentes, layouts canónicos | Antes de tocar UI |
 | `init.sh` | Gate ejecutable del entorno | Al empezar y antes de marcar `done` |
 | `scripts/validate-feature-list.mjs` | Validador del backlog | Lo corre `init.sh`, no lo invoques manual |

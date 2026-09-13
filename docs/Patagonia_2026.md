@@ -1,3 +1,5 @@
+> Superseded por `Patagonia_2026_v2.md` (septiembre 2026). Se conserva como histórico.
+
 # Patagonia 2026
 
 *Guía de viaje — documento vivo*

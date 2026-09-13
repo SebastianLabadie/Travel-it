@@ -19,51 +19,122 @@
     {
       "id": "D-02",
       "title": "¿Vamos 5 o 6 personas?",
-      "status": "pending",
+      "status": "resolved",
       "context": "Afecta auto (SUV vs 2 autos / Hilux), Airbnbs, refugios Torres del Paine. Bloquea reservas de F-01.",
-      "options": ["5 personas", "6 personas"],
+      "options": [
+        "5 personas",
+        "6 personas"
+      ],
       "owner": "Sebastian",
       "deadline": "2026-06-01",
-      "resolution": null
+      "resolution": "4 personas: pipe, batman, varelinni, wire (v2, sep 2026)"
     },
     {
       "id": "D-03",
       "title": "Horario bus PUQ → USH del 4 dic (día crítico)",
-      "status": "pending",
+      "status": "resolved",
       "context": "Idealmente bus tarde (~14:00) Bus Sur o Pacheco, después de Magdalena. Si solo nocturno (~22:00) también sirve. Determina Plan A vs B de F-06.",
-      "options": ["Bus tarde (Plan A)", "Bus nocturno (Plan B)", "Sumar noche PUQ + bus mañana 5 dic (Plan C)"],
+      "options": [
+        "Bus tarde (Plan A)",
+        "Bus nocturno (Plan B)",
+        "Sumar noche PUQ + bus mañana 5 dic (Plan C)"
+      ],
       "owner": "Sebastian",
       "deadline": "2026-09-01",
-      "resolution": null
+      "resolution": "N/A — Punta Arenas e Isla Magdalena eliminados en v2; pingüinos en Isla Martillo (Piratour)"
     },
     {
       "id": "D-04",
       "title": "Reservar Magdalena con Comapa para 4 dic",
-      "status": "pending",
+      "status": "resolved",
       "context": "Solo Express, salida ~8 AM. Cupos limitados, alta temporada se agota. USD 80-110 p.p.",
-      "options": ["Reservar ya", "Esperar a tener fechas confirmadas"],
+      "options": [
+        "Reservar ya",
+        "Esperar a tener fechas confirmadas"
+      ],
       "owner": "Sebastian",
       "deadline": "2026-08-01",
-      "resolution": null
+      "resolution": "N/A — Punta Arenas e Isla Magdalena eliminados en v2; pingüinos en Isla Martillo (Piratour)"
     },
     {
       "id": "D-05",
       "title": "Distribución día por día en Calafate y Puerto Natales",
-      "status": "pending",
+      "status": "resolved",
       "context": "Hoy hay actividades sugeridas pero no asignadas a días concretos. Afecta UI del itinerario y reservas de actividades.",
-      "options": ["Mantener flexible (actividades sin día fijo)", "Asignar actividades a días concretos"],
+      "options": [
+        "Mantener flexible (actividades sin día fijo)",
+        "Asignar actividades a días concretos"
+      ],
       "owner": "Sebastian",
       "deadline": null,
-      "resolution": null
+      "resolution": "Asignadas en v2 (calendario día por día). Quedan abiertas: trek del 24 nov y distribución en Ushuaia (D-08, D-09)"
     },
     {
       "id": "D-06",
       "title": "Presupuesto vuelos MVD-FTE / USH-MVD",
       "status": "pending",
       "context": "Impacta total del viaje. Afecta vista de presupuesto F-02. Aerolíneas Argentinas o LATAM.",
-      "options": ["Confirmar precios actuales", "Usar rango estimado en UI"],
+      "options": [
+        "Confirmar precios actuales",
+        "Usar rango estimado en UI"
+      ],
       "owner": "Sebastian",
       "deadline": "2026-06-01",
+      "resolution": null
+    },
+    {
+      "id": "D-07",
+      "title": "Permiso de salida a Chile con la rentadora en FTE",
+      "status": "pending",
+      "context": "Condición previa del plan v2: el auto cruza a Chile (28 nov – 3 dic). Requiere autorización pedida con 15-21 días de anticipación, seguro chileno aparte y USD 150-300 extra. No todas las sucursales de FTE lo ofrecen. Confirmar también cobertura de cristales y horario del mostrador.",
+      "options": [
+        "Localiza",
+        "Hertz",
+        "Europcar",
+        "Cambiar plan si ninguna lo ofrece"
+      ],
+      "owner": "Sebastian",
+      "deadline": "2026-10-15",
+      "resolution": null
+    },
+    {
+      "id": "D-08",
+      "title": "Trek del 24 nov en Chaltén",
+      "status": "pending",
+      "context": "Segundo día de trek después de Fitz Roy. Pliegue Tumbado (19 km · 1.100 m · 7-8 h) es la recomendación del doc v2; Laguna Torre (18 km · casi plano · 6 h) es la opción suave.",
+      "options": [
+        "Loma del Pliegue Tumbado",
+        "Laguna Torre"
+      ],
+      "owner": "Sebastian",
+      "deadline": null,
+      "resolution": null
+    },
+    {
+      "id": "D-09",
+      "title": "Distribución 5 y 6 dic en Ushuaia",
+      "status": "pending",
+      "context": "Isla Martillo (Piratour) tiene cupos escasos y define el orden del resto. PN Tierra del Fuego y Canal Beagle son flexibles.",
+      "options": [
+        "Martillo 5 + PN 6",
+        "Beagle 5 + Martillo 6",
+        "Según cupos Piratour"
+      ],
+      "owner": "Sebastian",
+      "deadline": "2026-10-15",
+      "resolution": null
+    },
+    {
+      "id": "D-10",
+      "title": "Cocina en campamentos Vértice",
+      "status": "pending",
+      "context": "La reserva de Grey y Paine Grande no incluye comida. Falta confirmar si los campamentos tienen zona de cocina compartida o hay que llevar anafe propio (y comprar gas en Natales el 28 nov).",
+      "options": [
+        "Zona de cocina compartida",
+        "Llevar anafe propio"
+      ],
+      "owner": "Sebastian",
+      "deadline": "2026-11-01",
       "resolution": null
     }
   ]

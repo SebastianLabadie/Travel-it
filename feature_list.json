@@ -16,7 +16,9 @@
       "pr": "main",
       "design": {
         "status": "ready",
-        "paths": ["design/reservas.jsx"]
+        "paths": [
+          "design/reservas.jsx"
+        ]
       }
     },
     {
@@ -32,7 +34,9 @@
       "pr": "13",
       "design": {
         "status": "ready",
-        "paths": ["design/presupuesto.jsx"]
+        "paths": [
+          "design/presupuesto.jsx"
+        ]
       }
     },
     {
@@ -64,7 +68,10 @@
       "pr": "15",
       "design": {
         "status": "ready",
-        "paths": ["design/f04-countdown.jsx", "design/f04-sheets.jsx"]
+        "paths": [
+          "design/f04-countdown.jsx",
+          "design/f04-sheets.jsx"
+        ]
       }
     },
     {
@@ -73,23 +80,26 @@
       "status": "pending",
       "priority": "medium",
       "source": "PRD §4 — v1.1 backlog",
-      "summary": "Capa toggleable en mapa: Fitz Roy, Base Las Torres, Laguna Esmeralda. GPX desde Wikiloc/AllTrails. Aporta densidad real al mapa.",
+      "summary": "Capa toggleable en mapa: Fitz Roy, Mirador Glaciar Grey / Valle Francés, Laguna Esmeralda. GPX desde Wikiloc/AllTrails. Aporta densidad real al mapa.",
       "estimate_lines": 300,
       "depends_on": [],
       "sdd_change": null,
       "pr": null,
       "design": {
         "status": "ready",
-        "paths": ["design/f05-mocks.jsx", "design/f05-tracks.jsx"]
+        "paths": [
+          "design/f05-mocks.jsx",
+          "design/f05-tracks.jsx"
+        ]
       }
     },
     {
       "id": "F-06",
-      "title": "Plan A/B/C del día crítico PUQ→USH",
+      "title": "Plan A/B del día crítico 3 dic (catamarán + 7 h de auto) y vuelo 4 dic",
       "status": "pending",
       "priority": "medium",
-      "source": "docs/Patagonia_2026.md — sección Logística",
-      "summary": "Renderizar 3 planes alternativos en el día crítico (4 dic). Hoy info enterrada en md, app solo muestra critical:true.",
+      "source": "docs/Patagonia_2026_v2.md — sección Rutas y tiempos",
+      "summary": "Renderizar plan A (catamarán 09:20 + auto ~7 h a El Calafate) y plan B (catamarán cancelado por viento: demora, vuelo FTE→USH 10:10 protegido por la noche del 3; alternativa AR1898 16:29) en el día crítico. Hoy la app solo muestra critical:true.",
       "estimate_lines": 120,
       "depends_on": [],
       "sdd_change": null,
@@ -177,6 +187,22 @@
       "pr": null,
       "design": {
         "status": "pending",
+        "paths": []
+      }
+    },
+    {
+      "id": "F-12",
+      "title": "Sync itinerario v2 + timeline horaria + responsables por zona",
+      "status": "in_progress",
+      "priority": "high",
+      "source": "docs/Patagonia_2026_v2.md · Compras_v2 · Equipaje_v2",
+      "summary": "Punta Arenas eliminado, auto de alquiler 22 nov–3 dic, vuelo FTE→USH 4 dic, 4 pax, 17 noches. Nueva página /timeline con horarios y transportes por día y nueva página /equipo con responsables por zona (pipe, batman, varelinni, wire).",
+      "estimate_lines": 900,
+      "depends_on": [],
+      "sdd_change": null,
+      "pr": null,
+      "design": {
+        "status": "n/a",
         "paths": []
       }
     }
