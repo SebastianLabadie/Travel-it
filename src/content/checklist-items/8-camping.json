@@ -1,0 +1,54 @@
+{
+  "id": "camping",
+  "order": 7,
+  "label": "Camping TDP",
+  "items": [
+    {
+      "id": "cp1",
+      "label": "Saco de dormir alquilado",
+      "note": "Retiro 28 nov en Natales · confort mínimo -5°C"
+    },
+    {
+      "id": "cp2",
+      "label": "Linterna frontal + pilas de repuesto",
+      "note": "Los campamentos no tienen luz general"
+    },
+    {
+      "id": "cp3",
+      "label": "Anafe portátil (grupal)",
+      "note": "Comida no incluida en el camping"
+    },
+    {
+      "id": "cp4",
+      "label": "Cartucho de gas (grupal)",
+      "note": "Comprar en Natales el 28 nov · no se puede volar con gas"
+    },
+    {
+      "id": "cp5",
+      "label": "Olla + platos y vasos plegables (grupal)"
+    },
+    {
+      "id": "cp6",
+      "label": "Cubiertos livianos, uno por persona"
+    },
+    {
+      "id": "cp7",
+      "label": "Encendedor + fósforos de respaldo",
+      "note": "En bolsa hermética"
+    },
+    {
+      "id": "cp8",
+      "label": "Bolsas de residuos resistentes",
+      "note": "TDP: todo lo que entra, sale"
+    },
+    {
+      "id": "cp9",
+      "label": "Funda para dejar cosas en el baúl",
+      "note": "Auto en Hotel Lago Grey y Pudeto · nada a la vista"
+    },
+    {
+      "id": "cp10",
+      "label": "Liner y almohada inflable (opcional)"
+    }
+  ]
+}

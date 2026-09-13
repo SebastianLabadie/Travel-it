@@ -3,9 +3,33 @@
   "order": 4,
   "label": "Documentación",
   "items": [
-    { "id": "d1", "label": "DNI vigente (cruce CL)" },
-    { "id": "d2", "label": "Seguro de viaje con cobertura outdoor" },
-    { "id": "d3", "label": "Vacuna fiebre amarilla (no requerido pero útil)" },
-    { "id": "d4", "label": "Copia digital de pasajes" }
+    {
+      "id": "d1",
+      "label": "Cédula de identidad vigente (Argentina y Chile por Mercosur)"
+    },
+    {
+      "id": "d2",
+      "label": "Seguro de viaje con cobertura outdoor"
+    },
+    {
+      "id": "d4",
+      "label": "Copia digital de pasajes"
+    },
+    {
+      "id": "d5",
+      "label": "Pasaporte como respaldo"
+    },
+    {
+      "id": "d6",
+      "label": "Licencia de conducir vigente (2-3 conductores) + tarjeta del conductor"
+    },
+    {
+      "id": "d7",
+      "label": "Permiso de salida a Chile impreso en la guantera"
+    },
+    {
+      "id": "d8",
+      "label": "Reservas offline: vuelos, camping, catamarán, auto, alojamientos"
+    }
   ]
 }

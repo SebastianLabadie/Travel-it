@@ -3,11 +3,40 @@
   "order": 1,
   "label": "Alojamiento",
   "items": [
-    { "id": "a1", "label": "Calafate · cabaña 3 noches" },
-    { "id": "a2", "label": "Chaltén · hostel 4 noches" },
-    { "id": "a3", "label": "Natales · hostal 2 noches" },
-    { "id": "a4", "label": "Torres del Paine · refugio 3 noches", "note": "Reservar con anticipación" },
-    { "id": "a5", "label": "Punta Arenas · hotel 1 noche" },
-    { "id": "a6", "label": "Ushuaia · cabaña 4 noches" }
+    {
+      "id": "a10",
+      "label": "Calafate · llegada 21 nov (1 noche)",
+      "note": "Con estacionamiento"
+    },
+    {
+      "id": "a11",
+      "label": "Chaltén · 22–26 nov (4 noches)",
+      "note": "Con estacionamiento · lo más difícil de conseguir"
+    },
+    {
+      "id": "a12",
+      "label": "Calafate · 26–28 nov (2 noches)",
+      "note": "Con cocina y estacionamiento"
+    },
+    {
+      "id": "a13",
+      "label": "Natales · 28–29 nov (1 noche)",
+      "note": "Céntrico, con estacionamiento"
+    },
+    {
+      "id": "a14",
+      "label": "Camping Grey + Paine Grande · 29 nov – 3 dic",
+      "note": "Contratado con Vértice Patagonia"
+    },
+    {
+      "id": "a15",
+      "label": "Calafate · 3 dic (1 noche)",
+      "note": "Cerca del centro · vuelo 10:10 al día siguiente"
+    },
+    {
+      "id": "a16",
+      "label": "Ushuaia · 4–8 dic (4 noches)",
+      "note": "Airbnb o habitación privada"
+    }
   ]
 }

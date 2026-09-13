@@ -65,6 +65,7 @@ const checklistCategorySchema = z.object({
     'documentacion',
     'conectividad',
     'utilidades',
+    'camping',
   ]),
   order: z.number().int().nonnegative(),
   label: z.string(),

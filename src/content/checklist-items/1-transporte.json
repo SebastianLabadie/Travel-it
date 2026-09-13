@@ -3,12 +3,40 @@
   "order": 0,
   "label": "Transporte",
   "items": [
-    { "id": "t1", "label": "Vuelo MVD → FTE (21 nov)", "note": "Salida desde Carrasco · vía SCL o EZE" },
-    { "id": "t2", "label": "Bus Calafate → Chaltén (24 nov)", "note": "Cal-Tur o Chaltén Travel" },
-    { "id": "t3", "label": "Bus Chaltén → Natales (28 nov)", "note": "~9h, paso Don Guillermo" },
-    { "id": "t4", "label": "Bus Natales → Las Torres (30 nov)" },
-    { "id": "t5", "label": "Bus Paine → Punta Arenas (3 dic)" },
-    { "id": "t6", "label": "Vuelo PUQ → USH (4 dic)", "note": "!! Día crítico — conexión SCL" },
-    { "id": "t7", "label": "Vuelo USH → MVD (8 dic)", "note": "Vía conexión · día completo" }
+    {
+      "id": "t10",
+      "label": "Vuelo MVD → AEP → FTE (21 nov)",
+      "note": "AR1383 + AR1850 · comprado"
+    },
+    {
+      "id": "t11",
+      "label": "Auto de alquiler SUV (22 nov – 3 dic)",
+      "note": "Retiro y devolución en FTE · Localiza, Hertz o Europcar"
+    },
+    {
+      "id": "t12",
+      "label": "Permiso de salida a Chile + seguro chileno",
+      "note": "Tramitar 15-21 días antes · USD 150-300"
+    },
+    {
+      "id": "t13",
+      "label": "Vuelo FTE → USH (4 dic · 10:10)",
+      "note": "Aerolíneas o Flybondi · 1h20m"
+    },
+    {
+      "id": "t14",
+      "label": "Catamarán Pudeto → Paine Grande (1 dic)",
+      "note": "Hielos Patagónicos · horario a confirmar"
+    },
+    {
+      "id": "t15",
+      "label": "Catamarán Paine Grande → Pudeto (3 dic · 09:20)",
+      "note": "Primera salida · se cancela por viento"
+    },
+    {
+      "id": "t16",
+      "label": "Vuelo USH → AEP → MVD (8 dic)",
+      "note": "AR1881 + AR1390 · comprado"
+    }
   ]
 }
