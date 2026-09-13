@@ -4,15 +4,17 @@
   "name": "El Chaltén",
   "country": "AR",
   "coords": [-72.8868, -49.3315],
-  "startDate": "24 nov",
-  "endDate": "28 nov",
+  "startDate": "22 nov",
+  "endDate": "26 nov",
   "nights": 4,
-  "summary": "Capital nacional del trekking. Fitz Roy, Cerro Torre, lagunas glaciares.",
+  "summary": "Capital nacional del trekking. Fitz Roy, Cerro Torre, Pliegue Tumbado. Todos los senderos salen del pueblo; el auto queda estacionado.",
   "activities": [
     { "title": "Laguna de los Tres (Fitz Roy)", "difficulty": "hard", "hours": 10 },
-    { "title": "Laguna Torre", "difficulty": "medium", "hours": 7 },
-    { "title": "Mirador Los Cóndores", "difficulty": "easy", "hours": 2 }
+    { "title": "Loma del Pliegue Tumbado", "difficulty": "hard", "hours": 8 },
+    { "title": "Laguna Torre", "difficulty": "medium", "hours": 6 },
+    { "title": "Miradores Cóndores + Águilas", "difficulty": "easy", "hours": 2 },
+    { "title": "Lago del Desierto (auto, día flexible)", "difficulty": "easy", "hours": 4 }
   ],
-  "stay": { "type": "Hostel boutique", "range": [19, 19] },
-  "out": "Bus a Puerto Natales · ~9 h, paso Río Don Guillermo"
+  "stay": { "type": "Cabaña / hostería con estacionamiento", "range": [25, 40] },
+  "out": "Auto RN40 a El Calafate · 3 h · 26 nov"
 }

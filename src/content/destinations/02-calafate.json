@@ -5,14 +5,15 @@
   "country": "AR",
   "coords": [-72.2648, -50.3379],
   "startDate": "21 nov",
-  "endDate": "24 nov",
-  "nights": 3,
-  "summary": "Glaciar Perito Moreno, base sobre el Lago Argentino. Aclimatación + un primer impacto glaciar.",
+  "endDate": "4 dic",
+  "nights": 4,
+  "summary": "Base del Lago Argentino en tres estadías: llegada (21 nov), bloque principal con Perito Moreno (26–28 nov) y escala antes del vuelo a Ushuaia (3 dic).",
   "activities": [
-    { "title": "Perito Moreno · pasarelas", "difficulty": "easy", "hours": 5 },
-    { "title": "Big Ice o minitrekking", "difficulty": "medium", "hours": 7 },
-    { "title": "Laguna Nimez", "difficulty": "easy", "hours": 2 }
+    { "title": "Minitrekking Perito Moreno + pasarelas", "difficulty": "medium", "hours": 9 },
+    { "title": "Reserva Laguna Nimez", "difficulty": "easy", "hours": 1.5 },
+    { "title": "Punta Walichu", "difficulty": "easy", "hours": 1.5 },
+    { "title": "Glaciarium", "difficulty": "easy", "hours": 2 }
   ],
-  "stay": { "type": "Cabaña / Airbnb", "range": [20, 20] },
-  "out": "Bus a El Chaltén · ~3 h por RN40"
+  "stay": { "type": "Airbnb con cocina y estacionamiento", "range": [25, 40] },
+  "out": "Auto RN40 a El Chaltén (22 nov) · a Puerto Natales (28 nov) · vuelo a Ushuaia (4 dic)"
 }

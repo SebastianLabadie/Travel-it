@@ -1,1 +1,1 @@
-{ "date": "04 dic", "dest": "ushuaia", "main": "PUQ → USH (vía SCL)", "transfer": "Vuelo LATAM, conexión SCL", "critical": true, "note": "Día crítico: única conexión aérea del viaje. Conexión apretada en SCL. Plan B: vuelo del día siguiente." }
+{ "date": "04 dic", "dest": "ushuaia", "main": "Vuelo a Ushuaia · tarde libre (Glaciar Martial)", "transfer": "Vuelo FTE → USH 10:10 → 11:30 · 1h20m", "critical": false, "note": "Plan B si algo falla: AR1898 sale 16:29." }

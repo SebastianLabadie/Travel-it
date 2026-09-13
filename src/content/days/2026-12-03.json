@@ -1,1 +1,1 @@
-{ "date": "03 dic", "dest": "punta", "main": "Salida Paine → Punta Arenas", "transfer": "Bus · 6h vía Natales", "critical": false }
+{ "date": "03 dic", "dest": "calafate", "main": "Catamarán 09:20 → Pudeto → El Calafate · devolución del auto", "transfer": "Catamarán 35 min + auto ~7 h vía Natales y frontera", "critical": true, "note": "Día crítico: el catamarán se cancela por viento y son 7 h de manejo tras 4 días de camping. Guanacos al atardecer: rotar al volante. La noche en Calafate protege el vuelo del 4." }

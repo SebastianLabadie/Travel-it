@@ -1,8 +1,0 @@
-{
-  "id": "puq-ush",
-  "from": "punta",
-  "to": "ushuaia",
-  "mode": "plane",
-  "coords": [[-70.917, -53.164], [-69.5, -54.0], [-68.303, -54.802]],
-  "curved": true
-}

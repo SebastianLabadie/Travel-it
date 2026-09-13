@@ -1,0 +1,8 @@
+{
+  "id": "fte-ush",
+  "from": "calafate",
+  "to": "ushuaia",
+  "mode": "plane",
+  "coords": [[-72.265, -50.338], [-70.8, -52.3], [-69.3, -54.0], [-68.303, -54.802]],
+  "curved": true
+}
