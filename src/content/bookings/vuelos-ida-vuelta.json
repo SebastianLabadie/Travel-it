@@ -1,10 +1,8 @@
 {
   "id": "vuelos-ida-vuelta",
   "category": "flight",
-  "title": "Vuelos ida y vuelta (MVD→FTE / USH→MVD)",
+  "title": "Vuelos MVD ⇄ Patagonia · Aerolíneas Argentinas",
   "urgency": "alta-ya",
-  "status": "pendiente",
-  "deadline": "2026-07-15",
-  "cost": { "amount": 500, "currency": "USD", "perPerson": true },
-  "notes": "Aerolíneas Argentinas o LATAM. Vuelo directo o 1 escala (no EZE). Salida 21 nov noche, regreso 8 dic mediodía."
+  "status": "pagado",
+  "notes": "Ida 21 nov: AR1383 MVD→AEP 09:45-10:40 + AR1850 AEP→FTE 15:15-18:35. Vuelta 8 dic: AR1881 USH→AEP 12:20-15:50 + AR1390 AEP→MVD 19:45-20:35. Ambos por Aeroparque."
 }

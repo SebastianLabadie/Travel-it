@@ -1,0 +1,20 @@
+{
+  "slug": "ushuaia",
+  "order": 5,
+  "name": "Ushuaia",
+  "country": "AR",
+  "coords": [-68.3030, -54.8019],
+  "startDate": "4 dic",
+  "endDate": "8 dic",
+  "nights": 4,
+  "summary": "Fin del mundo. Isla Martillo, Canal Beagle, Tierra del Fuego, Laguna Esmeralda. Cierre del viaje.",
+  "activities": [
+    { "title": "Isla Martillo · pingüinos (Piratour)", "difficulty": "easy", "hours": 5 },
+    { "title": "Navegación Canal Beagle", "difficulty": "easy", "hours": 4 },
+    { "title": "PN Tierra del Fuego · Senda Costera", "difficulty": "medium", "hours": 7 },
+    { "title": "Laguna Esmeralda", "difficulty": "medium", "hours": 5 },
+    { "title": "Glaciar Martial", "difficulty": "easy", "hours": 3 }
+  ],
+  "stay": { "type": "Airbnb / habitación privada", "range": [30, 45] },
+  "out": "Vuelo USH → AEP → MVD · 8 dic · llega 20:35"
+}

@@ -1,0 +1,14 @@
+{
+  "id": "catamaran-tdp",
+  "cat": "transfer",
+  "label": "Catamarán Pudeto ⇄ Paine Grande (2 tramos)",
+  "date": "1 y 3 dic",
+  "perPerson": true,
+  "range": [
+    55,
+    65
+  ],
+  "critical": false,
+  "free": false,
+  "destSlug": "paine"
+}

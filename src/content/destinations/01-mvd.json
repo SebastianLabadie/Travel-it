@@ -7,10 +7,10 @@
   "startDate": "21 nov",
   "endDate": "21 nov",
   "nights": 0,
-  "summary": "Punto de partida. Vuelo a El Calafate (vía SCL o EZE según conexión).",
+  "summary": "Punto de partida. Vuelo a El Calafate vía Aeroparque (AR1383 + AR1850).",
   "activities": [
     { "title": "Check-in MVD · Carrasco", "difficulty": "easy", "hours": 2 }
   ],
   "stay": { "type": "En tránsito", "range": [0, 0] },
-  "out": "Vuelo MVD → FTE · 21 nov (vía conexión)"
+  "out": "Vuelo MVD → AEP → FTE · 21 nov · llega 18:35"
 }

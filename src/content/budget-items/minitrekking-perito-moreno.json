@@ -1,0 +1,14 @@
+{
+  "id": "minitrekking-perito-moreno",
+  "cat": "activity",
+  "label": "Minitrekking Perito Moreno · Hielo y Aventura",
+  "date": "27 nov",
+  "perPerson": true,
+  "range": [
+    212,
+    300
+  ],
+  "critical": false,
+  "free": false,
+  "destSlug": "calafate"
+}

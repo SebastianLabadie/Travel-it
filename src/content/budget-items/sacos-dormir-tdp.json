@@ -1,0 +1,14 @@
+{
+  "id": "sacos-dormir-tdp",
+  "cat": "activity",
+  "label": "Alquiler sacos de dormir TDP (4 noches, estimado)",
+  "date": "28 nov",
+  "perPerson": true,
+  "range": [
+    25,
+    40
+  ],
+  "critical": false,
+  "free": false,
+  "destSlug": "paine"
+}

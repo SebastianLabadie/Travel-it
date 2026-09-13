@@ -3,11 +3,33 @@
   "order": 6,
   "label": "Utilidades",
   "items": [
-    { "id": "u1", "label": "Botella térmica" },
-    { "id": "u2", "label": "Filtro de agua / pastillas" },
-    { "id": "u3", "label": "Linterna frontal + pilas" },
-    { "id": "u4", "label": "Botiquín (ibu, ampollas, antihistamínico)" },
-    { "id": "u5", "label": "Protector solar SPF50" },
-    { "id": "u6", "label": "Anteojos de sol categoría 4" }
+    {
+      "id": "u1",
+      "label": "Botella térmica"
+    },
+    {
+      "id": "u2",
+      "label": "Filtro de agua / pastillas"
+    },
+    {
+      "id": "u3",
+      "label": "Linterna frontal + pilas"
+    },
+    {
+      "id": "u4",
+      "label": "Botiquín (ibu, ampollas, antihistamínico)"
+    },
+    {
+      "id": "u5",
+      "label": "Protector solar SPF50"
+    },
+    {
+      "id": "u6",
+      "label": "Anteojos de sol categoría 4"
+    },
+    {
+      "id": "u7",
+      "label": "Repelente (tábanos en Chaltén y TDP)"
+    }
   ]
 }

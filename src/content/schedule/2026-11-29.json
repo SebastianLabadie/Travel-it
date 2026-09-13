@@ -1,0 +1,38 @@
+{
+  "date": "29 nov",
+  "weekday": "dom",
+  "title": "Puerto Natales → Torres del Paine",
+  "from": "natales",
+  "to": "paine",
+  "sleep": "Camping Grey · noche 9/17",
+  "driveHours": 4,
+  "slots": [
+    {
+      "time": "~07:00",
+      "end": "11:00",
+      "kind": "car",
+      "title": "Puerto Natales → Hotel Lago Grey · ~4 h",
+      "detail": "Entrada CONAF en portería. Últimos ~18 km de ripio"
+    },
+    {
+      "time": "~11:00",
+      "kind": "car",
+      "title": "Estacionar en Hotel Lago Grey",
+      "detail": "Nada a la vista. El auto queda hasta el 1 dic",
+      "warning": true
+    },
+    {
+      "time": "~11:30",
+      "end": "13:00",
+      "kind": "walk",
+      "title": "Hotel Lago Grey → Camping Grey · 1-1,5 h",
+      "detail": "Mochila completa"
+    },
+    {
+      "time": "~13:00",
+      "kind": "lodging",
+      "title": "Armado de campamento · tarde libre",
+      "detail": "Noche cerca de 0°C junto al glaciar"
+    }
+  ]
+}

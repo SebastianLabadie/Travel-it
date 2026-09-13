@@ -1,0 +1,14 @@
+{
+  "id": "isla-martillo",
+  "cat": "activity",
+  "label": "Isla Martillo · Piratour",
+  "date": "5 dic",
+  "perPerson": true,
+  "range": [
+    100,
+    150
+  ],
+  "critical": false,
+  "free": false,
+  "destSlug": "ushuaia"
+}

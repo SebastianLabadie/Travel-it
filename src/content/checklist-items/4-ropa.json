@@ -3,12 +3,37 @@
   "order": 3,
   "label": "Ropa",
   "items": [
-    { "id": "r1", "label": "Campera de pluma" },
-    { "id": "r2", "label": "Membrana impermeable (3 capas)" },
-    { "id": "r3", "label": "Botas de trekking impermeables" },
-    { "id": "r4", "label": "Capas térmicas (merino x2)" },
-    { "id": "r5", "label": "Guantes + gorro + buff" },
-    { "id": "r6", "label": "Pantalón trekking + softshell" },
-    { "id": "r7", "label": "Bastones trekking" }
+    {
+      "id": "r1",
+      "label": "Campera de pluma"
+    },
+    {
+      "id": "r2",
+      "label": "Membrana impermeable (3 capas)"
+    },
+    {
+      "id": "r3",
+      "label": "Botas de trekking impermeables"
+    },
+    {
+      "id": "r4",
+      "label": "Capas térmicas (merino x2)"
+    },
+    {
+      "id": "r5",
+      "label": "Guantes + gorro + buff"
+    },
+    {
+      "id": "r6",
+      "label": "Pantalón trekking + softshell"
+    },
+    {
+      "id": "r7",
+      "label": "Bastones trekking"
+    },
+    {
+      "id": "r8",
+      "label": "Polainas (Laguna Esmeralda, barro)"
+    }
   ]
 }

@@ -1,0 +1,22 @@
+{
+  "date": "5 dic",
+  "weekday": "sáb",
+  "title": "Ushuaia",
+  "from": "ushuaia",
+  "to": "ushuaia",
+  "sleep": "Airbnb Ushuaia · noche 15/17",
+  "slots": [
+    {
+      "time": "~09:00",
+      "kind": "boat",
+      "title": "Isla Martillo con Piratour (desembarco) o Canal Beagle",
+      "detail": "Piratour: único con desembarco, dos especies de pingüinos, ~USD 100-150. Beagle: ~4 h, pedir desembarco en Isla Bridges/H. Horario según reserva (D-09)"
+    },
+    {
+      "time": "19:30",
+      "kind": "food",
+      "title": "La Casa de los Mariscos",
+      "detail": "Centolla y merluza negra. Ir al abrir o reservar. El Viejo Marino no abre sábado noche"
+    }
+  ]
+}

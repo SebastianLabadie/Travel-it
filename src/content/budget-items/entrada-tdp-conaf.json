@@ -1,0 +1,14 @@
+{
+  "id": "entrada-tdp-conaf",
+  "cat": "activity",
+  "label": "Entrada CONAF Torres del Paine",
+  "date": "29 nov",
+  "perPerson": true,
+  "range": [
+    30,
+    35
+  ],
+  "critical": false,
+  "free": false,
+  "destSlug": "paine"
+}

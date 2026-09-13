@@ -1,0 +1,22 @@
+{
+  "date": "30 nov",
+  "weekday": "lun",
+  "title": "Torres del Paine · Glaciar Grey",
+  "from": "paine",
+  "to": "paine",
+  "sleep": "Camping Grey · noche 10/17",
+  "slots": [
+    {
+      "time": "~09:00",
+      "end": "14:00",
+      "kind": "walk",
+      "title": "Mirador Glaciar Grey (+ mirador ampliado) · ~11 km · 4-5 h",
+      "detail": "Mochila liviana. Glaciar e icebergs"
+    },
+    {
+      "time": "~15:00",
+      "kind": "lodging",
+      "title": "Tarde libre en Grey"
+    }
+  ]
+}

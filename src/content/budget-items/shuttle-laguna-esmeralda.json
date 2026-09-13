@@ -1,0 +1,14 @@
+{
+  "id": "shuttle-laguna-esmeralda",
+  "cat": "transfer",
+  "label": "Shuttle Laguna Esmeralda (ida y vuelta)",
+  "date": "7 dic",
+  "perPerson": true,
+  "range": [
+    12,
+    16
+  ],
+  "critical": false,
+  "free": false,
+  "destSlug": "ushuaia"
+}

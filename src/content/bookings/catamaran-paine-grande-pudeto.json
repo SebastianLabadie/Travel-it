@@ -1,0 +1,16 @@
+{
+  "id": "catamaran-paine-grande-pudeto",
+  "category": "transfer",
+  "title": "Catamarán Paine Grande → Pudeto (3 dic · 09:20)",
+  "urgency": "alta-ya",
+  "status": "pendiente",
+  "deadline": "2026-10-31",
+  "cost": {
+    "amount": 27000,
+    "currency": "CLP",
+    "perPerson": true
+  },
+  "destination": "paine",
+  "notes": "Primera salida. Se cancela por viento con cierta frecuencia.",
+  "owner": "varelinni"
+}

@@ -1,0 +1,14 @@
+{
+  "id": "glaciar-martial",
+  "cat": "activity",
+  "label": "Glaciar Martial",
+  "date": "4 dic",
+  "perPerson": true,
+  "range": [
+    6,
+    8
+  ],
+  "critical": false,
+  "free": false,
+  "destSlug": "ushuaia"
+}

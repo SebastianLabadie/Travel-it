@@ -1,0 +1,13 @@
+{
+  "id": "combustible",
+  "cat": "transfer",
+  "label": "Combustible · ~1.500 km (estimado)",
+  "perPerson": false,
+  "range": [
+    150,
+    250
+  ],
+  "critical": false,
+  "free": false,
+  "destSlug": null
+}

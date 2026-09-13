@@ -1,6 +1,6 @@
 ---
 interface Props {
-  active: 'home' | 'itinerario' | 'checklist' | 'reservas' | 'presupuesto';
+  active: 'home' | 'itinerario' | 'checklist' | 'reservas' | 'presupuesto' | 'timeline' | 'equipo';
 }
 
 const { active } = Astro.props;
@@ -11,6 +11,8 @@ const tabs = [
   { id: 'checklist',   label: 'CHECKLIST',   num: '03', href: '/checklist'   },
   { id: 'reservas',    label: 'RESERVAS',    num: '04', href: '/reservas'    },
   { id: 'presupuesto', label: 'PRESUPUESTO', num: '05', href: '/presupuesto' },
+  { id: 'timeline',    label: 'TIMELINE',    num: '06', href: '/timeline'    },
+  { id: 'equipo',      label: 'EQUIPO',      num: '07', href: '/equipo'      },
 ] as const;
 ---
 
@@ -33,14 +35,14 @@ const tabs = [
           aria-current={active === tab.id ? 'page' : undefined}
           class:list={['top-nav__tab', { 'top-nav__tab--active': active === tab.id }]}
         >
-          {tab.num} · {tab.label}
+          <span class="top-nav__num">{tab.num} · </span>{tab.label}
         </a>
       ))}
     </div>
 
     <!-- Meta -->
     <div class="top-nav__meta" aria-label="Fechas del viaje">
-      21·NOV → 08·DIC · 5 PAX
+      21·NOV → 08·DIC · 4 PAX
     </div>
   </nav>
 </header>
@@ -81,6 +83,7 @@ const tabs = [
     letter-spacing: 0.16em;
     text-transform: uppercase;
     color: var(--color-stone);
+    white-space: nowrap;
   }
 
   .top-nav__tabs {
@@ -96,9 +99,25 @@ const tabs = [
     text-transform: uppercase;
     text-decoration: none;
     color: var(--color-fg);
-    padding: 8px 16px;
+    padding: 8px 12px;
     border-radius: 0;
+    white-space: nowrap;
     transition: background 0.15s, color 0.15s;
+  }
+
+  /* Seven tabs: the trip meta fits from 1440px, the "NN ·" prefix from 1600px */
+  .top-nav__num {
+    display: none;
+  }
+
+  @media (min-width: 1600px) {
+    .top-nav__num {
+      display: inline;
+    }
+
+    .top-nav__tab {
+      padding: 8px 16px;
+    }
   }
 
   .top-nav__tab:focus-visible {
@@ -112,10 +131,18 @@ const tabs = [
   }
 
   .top-nav__meta {
+    display: none;
     font-family: var(--font-mono);
     font-size: 0.625rem; /* 10px */
     letter-spacing: 0.14em;
     color: var(--color-stone);
     text-transform: uppercase;
+    white-space: nowrap;
+  }
+
+  @media (min-width: 1440px) {
+    .top-nav__meta {
+      display: block;
+    }
   }
 </style>

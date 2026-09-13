@@ -1,0 +1,14 @@
+{
+  "id": "bus-pn-tierra-del-fuego",
+  "cat": "transfer",
+  "label": "Bus turístico PN Tierra del Fuego",
+  "date": "6 dic",
+  "perPerson": true,
+  "range": [
+    20,
+    30
+  ],
+  "critical": false,
+  "free": false,
+  "destSlug": "ushuaia"
+}

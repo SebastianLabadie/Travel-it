@@ -1,0 +1,16 @@
+{
+  "id": "alojamiento-natales",
+  "category": "accommodation",
+  "title": "Alojamiento Puerto Natales (28–29 nov · 1 noche)",
+  "urgency": "alta-ya",
+  "status": "pendiente",
+  "deadline": "2026-09-30",
+  "cost": {
+    "amount": 30,
+    "currency": "USD",
+    "perPerson": true
+  },
+  "destination": "natales",
+  "notes": "Céntrico, cerca de Unimarc y Vértice, con estacionamiento.",
+  "owner": "varelinni"
+}

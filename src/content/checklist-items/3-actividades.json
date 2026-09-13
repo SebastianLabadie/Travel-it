@@ -3,10 +3,40 @@
   "order": 2,
   "label": "Actividades",
   "items": [
-    { "id": "ac1", "label": "Big Ice · Perito Moreno" },
-    { "id": "ac2", "label": "Permisos PN Los Glaciares" },
-    { "id": "ac3", "label": "Entrada Torres del Paine (CONAF)" },
-    { "id": "ac4", "label": "Navegación Canal Beagle" },
-    { "id": "ac5", "label": "Permiso PN Tierra del Fuego" }
+    {
+      "id": "ac10",
+      "label": "Registro PNLG Fitz Roy (online)",
+      "note": "losglaciares.gob.ar · gratis"
+    },
+    {
+      "id": "ac11",
+      "label": "Minitrekking Perito Moreno (Hielo y Aventura)",
+      "note": "27 nov · sin traslado"
+    },
+    {
+      "id": "ac12",
+      "label": "Entrada PN Los Glaciares",
+      "note": "Se paga aparte del minitrekking"
+    },
+    {
+      "id": "ac13",
+      "label": "Entrada CONAF Torres del Paine",
+      "note": "reservas.conaf.cl · imprimir"
+    },
+    {
+      "id": "ac14",
+      "label": "Alquiler sacos de dormir TDP",
+      "note": "Reservar · retiro 28 nov en Natales"
+    },
+    {
+      "id": "ac15",
+      "label": "Isla Martillo · Piratour",
+      "note": "Reservar ya · único operador con desembarco"
+    },
+    {
+      "id": "ac16",
+      "label": "Navegación Canal Beagle",
+      "note": "Operador con desembarco en Isla Bridges o Isla H"
+    }
   ]
 }

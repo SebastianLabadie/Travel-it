@@ -1,0 +1,35 @@
+{
+  "date": "7 dic",
+  "weekday": "lun",
+  "title": "Ushuaia · Laguna Esmeralda",
+  "from": "ushuaia",
+  "to": "ushuaia",
+  "sleep": "Airbnb Ushuaia · noche 17/17",
+  "slots": [
+    {
+      "time": "10:00",
+      "kind": "bus",
+      "title": "Shuttle desde la terminal",
+      "detail": "~ARS 20.000 ida y vuelta, más barato en efectivo"
+    },
+    {
+      "time": "~10:45",
+      "end": "14:45",
+      "kind": "walk",
+      "title": "Laguna Esmeralda · 15 km · 350 m · 4-5 h",
+      "detail": "Turba y barro garantizado: botas impermeables y polainas",
+      "warning": true
+    },
+    {
+      "time": "15:00",
+      "kind": "bus",
+      "title": "Shuttle de vuelta",
+      "detail": "También hay taxis al final del sendero"
+    },
+    {
+      "time": "~20:30",
+      "kind": "food",
+      "title": "Cena de despedida"
+    }
+  ]
+}

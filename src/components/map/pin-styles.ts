@@ -48,7 +48,7 @@ export const PIN_CSS = `
     flex-shrink: 0;
   }
 
-  /* Critical pin override (Ushuaia) */
+  /* Critical pin override (destination with a critical day) */
   .ptg-pin-crit .ptg-pin-num {
     background: var(--color-warning);
     color: var(--color-paper);
@@ -225,10 +225,10 @@ export function pinHtml(num: number, name: string, isCrit: boolean): string {
 
 /** HTML string for the critical-day field note. */
 export const FIELD_NOTE_HTML = `<div class="ptg-note">
-  <div class="ptg-note-tag">04 DIC · DÍA CRÍTICO</div>
-  <div class="ptg-note-title">PUQ → SCL → USH</div>
+  <div class="ptg-note-tag">03 DIC · DÍA CRÍTICO</div>
+  <div class="ptg-note-title">PAINE GRANDE → PUDETO → FTE</div>
   <div class="ptg-note-body">
-    Única conexión aérea. Conexión apretada en SCL.<br/>
-    <span>Plan B: vuelo del día siguiente.</span>
+    Catamarán 09:20 + ~7 h de auto hasta El Calafate. Guanacos al atardecer: rotar al volante.<br/>
+    <span>La noche en Calafate protege el vuelo FTE → USH del 4 dic 10:10.</span>
   </div>
 </div>`;

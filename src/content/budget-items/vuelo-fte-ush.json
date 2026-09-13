@@ -1,0 +1,14 @@
+{
+  "id": "vuelo-fte-ush",
+  "cat": "flight",
+  "label": "Vuelo El Calafate → Ushuaia",
+  "date": "4 dic",
+  "perPerson": true,
+  "range": [
+    70,
+    120
+  ],
+  "critical": true,
+  "free": false,
+  "destSlug": null
+}

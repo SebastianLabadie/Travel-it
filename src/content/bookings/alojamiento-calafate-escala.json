@@ -1,0 +1,16 @@
+{
+  "id": "alojamiento-calafate-escala",
+  "category": "accommodation",
+  "title": "Alojamiento El Calafate · escala final (3–4 dic · 1 noche)",
+  "urgency": "alta-ya",
+  "status": "pendiente",
+  "deadline": "2026-09-30",
+  "cost": {
+    "amount": 32,
+    "currency": "USD",
+    "perPerson": true
+  },
+  "destination": "calafate",
+  "notes": "Cerca del centro. Llegada de noche, vuelo 10:10 al día siguiente.",
+  "owner": "batman"
+}

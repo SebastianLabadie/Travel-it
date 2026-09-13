@@ -1,0 +1,40 @@
+{
+  "date": "26 nov",
+  "weekday": "jue",
+  "title": "El Chaltén → El Calafate",
+  "from": "chalten",
+  "to": "calafate",
+  "sleep": "Airbnb El Calafate · noche 6/17",
+  "driveHours": 3,
+  "slots": [
+    {
+      "time": "~08:30",
+      "kind": "lodging",
+      "title": "Check-out"
+    },
+    {
+      "time": "~09:00",
+      "end": "12:00",
+      "kind": "car",
+      "title": "RN40 a El Calafate · 3 h"
+    },
+    {
+      "time": "~12:30",
+      "kind": "lodging",
+      "title": "Check-in Airbnb · almuerzo"
+    },
+    {
+      "time": "~15:00",
+      "end": "17:30",
+      "kind": "activity",
+      "title": "Tarde chill según clima",
+      "detail": "Laguna Nimez (plana, cierra 18:00, ~ARS 12.000) · Punta Walichu (11-19, si está lindo) · Glaciarium (abre 12:00, si está feo) · Chocolates Patagonia"
+    },
+    {
+      "time": "~20:30",
+      "kind": "food",
+      "title": "Cena",
+      "detail": "Nativa (abre 17:00) o Don Pichón (reservar ventana al atardecer). Jueves está todo abierto"
+    }
+  ]
+}

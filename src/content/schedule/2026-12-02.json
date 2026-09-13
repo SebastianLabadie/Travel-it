@@ -1,0 +1,21 @@
+{
+  "date": "2 dic",
+  "weekday": "mié",
+  "title": "Torres del Paine · Valle Francés",
+  "from": "paine",
+  "to": "paine",
+  "sleep": "Camping Paine Grande · noche 12/17",
+  "slots": [
+    {
+      "time": "~07:30",
+      "kind": "walk",
+      "title": "Valle Francés · Mirador Francés (4-5 h) o Mirador Británico (22 km · 7-8 h)",
+      "detail": "Mochila liviana. Cuernos y valle colgante"
+    },
+    {
+      "time": "~17:00",
+      "kind": "lodging",
+      "title": "Segunda noche en Paine Grande · preparar la salida temprana"
+    }
+  ]
+}

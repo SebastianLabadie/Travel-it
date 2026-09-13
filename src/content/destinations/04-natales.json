@@ -5,13 +5,13 @@
   "country": "CL",
   "coords": [-72.5066, -51.7236],
   "startDate": "28 nov",
-  "endDate": "30 nov",
-  "nights": 2,
-  "summary": "Puerta de entrada a Torres del Paine. Reabastecer, alquilar equipo, comer cordero.",
+  "endDate": "29 nov",
+  "nights": 1,
+  "summary": "Puerta de entrada a Torres del Paine. Una sola tarde para retirar sacos de dormir, comprar comida y gas.",
   "activities": [
-    { "title": "Mirador Cerro Dorotea", "difficulty": "medium", "hours": 4 },
-    { "title": "Compras + briefing del trek", "difficulty": "easy", "hours": 3 }
+    { "title": "Compras TDP + retiro sacos de dormir", "difficulty": "easy", "hours": 3 },
+    { "title": "3 O'Clock Talk · Erratic Rock", "difficulty": "easy", "hours": 1 }
   ],
-  "stay": { "type": "Hostal con cocina", "range": [20, 20] },
-  "out": "Bus al sector Las Torres · ~2 h"
+  "stay": { "type": "Airbnb / guesthouse céntrico con estacionamiento", "range": [25, 35] },
+  "out": "Auto a Hotel Lago Grey · ~4 h · 29 nov"
 }

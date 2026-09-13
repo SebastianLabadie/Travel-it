@@ -1,0 +1,13 @@
+{
+  "id": "permiso-chile-auto",
+  "cat": "transfer",
+  "label": "Permiso de salida a Chile + seguro chileno",
+  "perPerson": false,
+  "range": [
+    150,
+    300
+  ],
+  "critical": false,
+  "free": false,
+  "destSlug": null
+}

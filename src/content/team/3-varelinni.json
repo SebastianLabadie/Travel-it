@@ -1,0 +1,33 @@
+{
+  "id": "varelinni",
+  "name": "Varelinni",
+  "order": 3,
+  "zone": {
+    "slug": "natales",
+    "label": "Puerto Natales + logística Torres del Paine",
+    "dates": "28 nov – 3 dic",
+    "nights": 1
+  },
+  "lodging": {
+    "brief": "Airbnb o guesthouse céntrico con estacionamiento para 1 noche, cerca de Unimarc y de Vértice Patagonia (Manuel Bulnes 1202).",
+    "budget": "~USD 25-35 p.p.",
+    "requirements": [
+      "Estacionamiento",
+      "Céntrico",
+      "Check-in a la tarde"
+    ]
+  },
+  "activities": [
+    "Reservar alquiler de sacos de dormir (confort -5°C) con retiro el 28 nov",
+    "Entrada CONAF (reservas.conaf.cl) e impresión",
+    "Catamarán Hielos Patagónicos: horarios dic 2026 y reserva de ambos tramos",
+    "Confirmar con Vértice si hay cocina compartida o llevamos anafe (D-10)",
+    "Lista de compras de comida para 4 días + gas"
+  ],
+  "food": [
+    "Cena del 28 en Natales (cordero)",
+    "Menú de camping para 4 días sin heladera"
+  ],
+  "deadline": "2026-10-15",
+  "notes": "+ 4 noches de camping ya pagadas con Vértice"
+}

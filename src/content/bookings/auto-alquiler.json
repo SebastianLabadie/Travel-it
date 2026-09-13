@@ -1,0 +1,16 @@
+{
+  "id": "auto-alquiler",
+  "category": "rental",
+  "title": "Auto de alquiler SUV/4x4 + permiso de salida a Chile (22 nov – 3 dic)",
+  "urgency": "alta-ya",
+  "status": "pendiente",
+  "deadline": "2026-10-15",
+  "cost": {
+    "amount": 1400,
+    "currency": "USD",
+    "perPerson": false
+  },
+  "destination": "calafate",
+  "notes": "Localiza, Hertz o Europcar en FTE. Retiro 22 nov mañana, devolución 3 dic tarde. Confirmar: permiso Chile (15-21 días de anticipación, USD 150-300), seguro chileno, cobertura de cristales, horario del mostrador.",
+  "owner": "batman"
+}

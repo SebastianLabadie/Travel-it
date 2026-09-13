@@ -12,7 +12,8 @@
  *   height       — px height of the map container (default 360)
  *   autoplay     — play animation on mount (default true)
  *   staticMode   — skip animation, disable drag/tap (default false)
- *   showCriticalNote — render field note at Ushuaia (default true)
+ *   showCriticalNote — render field note at the first critical destination (default true)
+ *   criticalSlugs    — destination slugs that carry a critical day (derived from days)
  */
 
 import { useEffect, useRef, useState } from 'preact/hooks';
@@ -29,6 +30,7 @@ export type PatagoniaMapProps = {
   autoplay?: boolean;
   staticMode?: boolean;
   showCriticalNote?: boolean;
+  criticalSlugs?: string[];
 };
 
 // ── Helpers ──────────────────────────────────────────────────────────────────
@@ -45,7 +47,11 @@ export default function PatagoniaMap({
   autoplay = true,
   staticMode = false,
   showCriticalNote = true,
+  criticalSlugs = [],
 }: PatagoniaMapProps) {
+  const critSet = new Set(criticalSlugs);
+  // The field note anchors to the first critical destination (in route order)
+  const noteSlug = destinations.find((d) => critSet.has(d.slug))?.slug ?? null;
   const containerRef = useRef<HTMLDivElement>(null);
   // animKey increment triggers effect re-run (replay)
   const [animKey, setAnimKey] = useState(0);
@@ -92,7 +98,7 @@ export default function PatagoniaMap({
       // ── Build markers ──────────────────────────────────────────────────────
 
       function makeMarker(dest: Destination, idx: number): import('leaflet').Marker {
-        const isCrit = dest.slug === 'ushuaia';
+        const isCrit = critSet.has(dest.slug);
         const html = pinHtml(idx + 1, dest.name, isCrit);
         const icon = L.divIcon({
           html,
@@ -208,8 +214,8 @@ export default function PatagoniaMap({
           lineLayers.push(poly);
         }
 
-        if (showCriticalNote) {
-          const ush = destinations.find((d) => d.slug === 'ushuaia');
+        if (showCriticalNote && noteSlug) {
+          const ush = destinations.find((d) => d.slug === noteSlug);
           if (ush) {
             const noteIcon = L.divIcon({
               html: FIELD_NOTE_HTML,
@@ -248,6 +254,11 @@ export default function PatagoniaMap({
       // Check reduced-motion preference
       const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+      // Routes are drawn in collection order. A destination visited more than
+      // once (e.g. El Calafate) has several outgoing routes, so we advance a
+      // cursor until the segment that lands on the next destination is drawn.
+      let routeCursor = 0;
+
       async function run() {
         if (!autoplay) {
           // If autoplay is off, show everything immediately
@@ -280,8 +291,8 @@ export default function PatagoniaMap({
           }
           setStep(i);
 
-          // Field note appears when Ushuaia is revealed
-          if (showCriticalNote && dest.slug === 'ushuaia') {
+          // Field note appears when the critical destination is revealed
+          if (showCriticalNote && dest.slug === noteSlug) {
             const noteIcon = L.divIcon({
               html: FIELD_NOTE_HTML,
               className: 'ptg-divicon',
@@ -303,23 +314,26 @@ export default function PatagoniaMap({
             }
           }
 
-          // Draw the route leading out of this destination
-          if (i < destinations.length - 1) {
-            const route = routes.find((r) => r.from === dest.slug);
-            if (route) {
-              const latlngs = route.coords.map((c): [number, number] => [c[1], c[0]]);
-              const opts: import('leaflet').PolylineOptions =
-                route.mode === 'plane'
-                  ? { color: 'var(--color-warning)', weight: 2.5, opacity: 0.95, dashArray: '6 5', lineCap: 'round' }
-                  : { color: 'var(--color-fg)', weight: 3, opacity: 0.9, lineCap: 'round' };
+          // Draw the route segments leading to the next destination
+          const next = destinations[i + 1];
+          while (next && routeCursor < routes.length) {
+            if (cancelled) return;
+            const route = routes[routeCursor];
+            routeCursor++;
+            if (!route) break;
+            const latlngs = route.coords.map((c): [number, number] => [c[1], c[0]]);
+            const opts: import('leaflet').PolylineOptions =
+              route.mode === 'plane'
+                ? { color: 'var(--color-warning)', weight: 2.5, opacity: 0.95, dashArray: '6 5', lineCap: 'round' }
+                : { color: 'var(--color-fg)', weight: 3, opacity: 0.9, lineCap: 'round' };
 
-              if (reducedMotion) {
-                const poly = L.polyline(latlngs, opts).addTo(map);
-                lineLayers.push(poly);
-              } else {
-                await animatePolyline(latlngs, opts, 850);
-              }
+            if (reducedMotion) {
+              const poly = L.polyline(latlngs, opts).addTo(map);
+              lineLayers.push(poly);
+            } else {
+              await animatePolyline(latlngs, opts, 850);
             }
+            if (route.to === next.slug) break;
           }
         }
       }
@@ -366,7 +380,7 @@ export default function PatagoniaMap({
         ref={containerRef}
         style={{ position: 'absolute', inset: 0 }}
         role="img"
-        aria-label="Mapa interactivo con las 6 bases de la ruta patagónica"
+        aria-label={`Mapa interactivo con las ${destinations.length} bases de la ruta patagónica`}
       />
 
       {/* Screen-reader fallback list of destinations */}

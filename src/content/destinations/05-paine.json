@@ -4,15 +4,16 @@
   "name": "Torres del Paine",
   "country": "CL",
   "coords": [-72.9888, -50.9423],
-  "startDate": "30 nov",
+  "startDate": "29 nov",
   "endDate": "3 dic",
-  "nights": 3,
-  "summary": "Sector Las Torres. Trekking emblema: Base de las Torres al amanecer.",
+  "nights": 4,
+  "summary": "Camping Grey (2 noches) y Camping Paine Grande (2 noches) con Vértice Patagonia. Glaciar Grey y Valle Francés.",
   "activities": [
-    { "title": "Base Las Torres (Mirador)", "difficulty": "hard", "hours": 9 },
-    { "title": "Valle del Francés (parcial)", "difficulty": "hard", "hours": 8 },
-    { "title": "Lago Grey + glaciar", "difficulty": "medium", "hours": 5 }
+    { "title": "Hotel Lago Grey → Camping Grey (mochila completa)", "difficulty": "medium", "hours": 1.5 },
+    { "title": "Mirador Glaciar Grey", "difficulty": "medium", "hours": 5 },
+    { "title": "Valle Francés / Mirador Británico", "difficulty": "hard", "hours": 8 },
+    { "title": "Catamarán Pudeto ⇄ Paine Grande", "difficulty": "easy", "hours": 0.6 }
   ],
-  "stay": { "type": "Refugio / camping con servicios", "range": null },
-  "out": "Bus a Punta Arenas vía Natales · ~6 h"
+  "stay": { "type": "Camping Grey + Paine Grande · Vértice Patagonia (contratado)", "range": null },
+  "out": "Catamarán 09:20 + auto ~7 h a El Calafate · 3 dic"
 }

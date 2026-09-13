@@ -43,11 +43,8 @@ interface DestinosViewProps {
 }
 
 function DestinosView({ destinations, days }: DestinosViewProps) {
-  // Punta Arenas (slug "punta") always gets the critical signal per AC-F2-09
-  const critDestSlugs = new Set<string>(['punta']);
-  for (const day of days) {
-    if (day.critical) critDestSlugs.add(day.dest);
-  }
+  // A destination carries the critical signal when one of its days is critical (AC-F2-09)
+  const critDestSlugs = new Set<string>(days.filter((d) => d.critical).map((d) => d.dest));
 
   return (
     <div style={{ padding: '0 20px 20px' }}>
@@ -397,11 +394,8 @@ function DesktopView({ destinations, days }: DesktopViewProps) {
   const destDays = days.filter((d) => d.dest === activeSlug);
   const activeIdx = destinations.findIndex((d) => d.slug === activeSlug);
 
-  // Punta Arenas always gets critical signal per AC-F2-09
-  const critDestSlugs = new Set<string>(['punta']);
-  for (const day of days) {
-    if (day.critical) critDestSlugs.add(day.dest);
-  }
+  // A destination carries the critical signal when one of its days is critical (AC-F2-09)
+  const critDestSlugs = new Set<string>(days.filter((d) => d.critical).map((d) => d.dest));
 
   return (
     <div
@@ -890,6 +884,7 @@ export function ItineraryView({ destinations, days }: ItineraryViewProps) {
           La <span style={{ fontStyle: 'italic' }}>traza</span>.
         </h1>
 
+        <div style={{ display: 'flex', alignItems: 'center', gap: 16, flexWrap: 'wrap' }}>
         {/* Toggle — role="tablist" per NFR-A11y */}
         <div
           role="tablist"
@@ -921,6 +916,22 @@ export function ItineraryView({ destinations, days }: ItineraryViewProps) {
               {id === 'destinos' ? 'Destinos' : 'Timeline'}
             </button>
           ))}
+        </div>
+        {/* Hour-by-hour plan lives on its own page */}
+        <a
+          href="/timeline"
+          style={{
+            fontFamily: 'var(--font-mono)',
+            fontSize: 10,
+            letterSpacing: '0.14em',
+            textTransform: 'uppercase' as const,
+            color: 'var(--color-fg)',
+            textDecoration: 'none',
+            borderBottom: '1px solid var(--color-fg)',
+          }}
+        >
+          Horarios y transportes <span style={{ color: 'var(--color-stone)' }}>→</span>
+        </a>
         </div>
       </div>
 

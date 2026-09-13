@@ -1,8 +1,19 @@
 import { getCollection } from 'astro:content';
-import type { Destination, Day, DayWithDate, TripDaySlim, Route, ChecklistCategory, Booking, BudgetItem } from './types';
+import type {
+  Destination,
+  Day,
+  DayWithDate,
+  TripDaySlim,
+  Route,
+  ChecklistCategory,
+  Booking,
+  BudgetItem,
+  ScheduleDayWithDate,
+  TeamMember,
+} from './types';
 
 /**
- * Returns all destinations sorted by their `order` field (0..5).
+ * Returns all destinations sorted by their `order` field (0..5, MVD first).
  */
 export async function getDestinations(): Promise<Destination[]> {
   const entries = await getCollection('destinations');
@@ -23,15 +34,19 @@ export async function getDays(): Promise<Day[]> {
 }
 
 /**
- * Returns all route segments in their natural collection order.
+ * Returns all route segments in draw order.
+ * Files are prefixed with a digit (1-mvd-fte, 2-fte-elc, ...) so sorting by
+ * entry id yields the travel order.
  */
 export async function getRoutes(): Promise<Route[]> {
   const entries = await getCollection('routes');
-  return entries.map((e) => e.data);
+  return entries
+    .sort((a, b) => a.id.localeCompare(b.id))
+    .map((e) => e.data);
 }
 
 /**
- * Returns all checklist categories sorted by their `order` field (0..6).
+ * Returns all checklist categories sorted by their `order` field (0..7).
  */
 export async function getChecklist(): Promise<ChecklistCategory[]> {
   const entries = await getCollection('checklist-items');
@@ -122,4 +137,26 @@ export async function getBookings(): Promise<Booking[]> {
       if (b.deadline) return 1;
       return 0;
     });
+}
+
+/**
+ * Returns the hour-by-hour schedule sorted by ISO file id (2026-11-21 → 2026-12-08).
+ * The file id IS the ISO date, so lexicographic sort is correct; it is surfaced
+ * as `isoDate` so the UI can highlight today.
+ */
+export async function getSchedule(): Promise<ScheduleDayWithDate[]> {
+  const entries = await getCollection('schedule');
+  return entries
+    .sort((a, b) => a.id.localeCompare(b.id))
+    .map((e) => ({ ...e.data, isoDate: e.id.slice(0, 10) }));
+}
+
+/**
+ * Returns the team members (one owner per zone) sorted by their `order` field.
+ */
+export async function getTeam(): Promise<TeamMember[]> {
+  const entries = await getCollection('team');
+  return entries
+    .map((e) => e.data)
+    .sort((a, b) => a.order - b.order);
 }
