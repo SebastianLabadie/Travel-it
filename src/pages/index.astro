@@ -82,6 +82,7 @@ const firstDest = destinations.find((d) => d.nights > 0) ?? destinations[0];
           {firstDest.startDate.toUpperCase()} — {firstDest.endDate.toUpperCase()} · {firstDest.nights}N · {firstDest.country}
         </div>
         <p class="next-stop-summary">{firstDest.summary}</p>
+        <a href="/timeline" class="next-stop-link">Ver timeline &#8594;</a>
         <img
           class="next-stop-img"
           src={`/images/destinations/${firstDest.slug}.jpg`}
@@ -308,6 +309,18 @@ const firstDest = destinations.find((d) => d.nights > 0) ?? destinations[0];
     color: var(--color-fg);
     line-height: 1.4;
     margin: 6px 0 0;
+  }
+
+  .next-stop-link {
+    display: inline-block;
+    margin-top: 8px;
+    font-family: var(--font-mono);
+    font-size: 0.5625rem; /* 9px */
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--color-fg);
+    text-decoration: none;
+    border-bottom: 1px solid var(--color-fg);
   }
 
   /* Next-stop image */

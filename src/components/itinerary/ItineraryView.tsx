@@ -884,6 +884,7 @@ export function ItineraryView({ destinations, days }: ItineraryViewProps) {
           La <span style={{ fontStyle: 'italic' }}>traza</span>.
         </h1>
 
+        <div style={{ display: 'flex', alignItems: 'center', gap: 16, flexWrap: 'wrap' }}>
         {/* Toggle — role="tablist" per NFR-A11y */}
         <div
           role="tablist"
@@ -915,6 +916,22 @@ export function ItineraryView({ destinations, days }: ItineraryViewProps) {
               {id === 'destinos' ? 'Destinos' : 'Timeline'}
             </button>
           ))}
+        </div>
+        {/* Hour-by-hour plan lives on its own page */}
+        <a
+          href="/timeline"
+          style={{
+            fontFamily: 'var(--font-mono)',
+            fontSize: 10,
+            letterSpacing: '0.14em',
+            textTransform: 'uppercase' as const,
+            color: 'var(--color-fg)',
+            textDecoration: 'none',
+            borderBottom: '1px solid var(--color-fg)',
+          }}
+        >
+          Horarios y transportes <span style={{ color: 'var(--color-stone)' }}>→</span>
+        </a>
         </div>
       </div>
 

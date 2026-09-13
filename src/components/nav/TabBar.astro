@@ -5,12 +5,16 @@ interface Props {
 
 const { active } = Astro.props;
 
+// Mobile labels are shortened so seven tabs stay legible at 360px
+// (TRAZA = "La traza", the itinerary page title; LISTA = checklist).
 const tabs = [
-  { id: 'home',        label: 'HOME',        num: '01', href: '/'            },
-  { id: 'itinerario',  label: 'ITINERARIO',  num: '02', href: '/itinerario'  },
-  { id: 'checklist',   label: 'CHECKLIST',   num: '03', href: '/checklist'   },
-  { id: 'reservas',    label: 'RESERVAS',    num: '04', href: '/reservas'    },
-  { id: 'presupuesto', label: 'USD',         num: '05', href: '/presupuesto' },
+  { id: 'home',        label: 'HOME',     num: '01', href: '/'            },
+  { id: 'itinerario',  label: 'TRAZA',    num: '02', href: '/itinerario'  },
+  { id: 'checklist',   label: 'LISTA',    num: '03', href: '/checklist'   },
+  { id: 'reservas',    label: 'RESERVAS', num: '04', href: '/reservas'    },
+  { id: 'presupuesto', label: 'USD',      num: '05', href: '/presupuesto' },
+  { id: 'timeline',    label: 'TIMELINE', num: '06', href: '/timeline'    },
+  { id: 'equipo',      label: 'EQUIPO',   num: '07', href: '/equipo'      },
 ] as const;
 ---
 
@@ -47,7 +51,8 @@ const tabs = [
   }
 
   .tab-bar__item {
-    flex: 1;
+    flex: 1 1 auto; /* longer labels get more room; seven tabs must fit 360px */
+    min-width: 0;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -56,7 +61,7 @@ const tabs = [
     text-decoration: none;
     color: var(--color-stone);
     position: relative;
-    padding-top: 6px;
+    padding: 6px 4px 0;
   }
 
   .tab-bar__item:focus-visible {
@@ -73,8 +78,8 @@ const tabs = [
     content: '';
     position: absolute;
     top: 0;
-    left: 16px;
-    right: 16px;
+    left: 6px;
+    right: 6px;
     height: 2px;
     background: var(--color-fg);
   }
@@ -93,5 +98,18 @@ const tabs = [
     letter-spacing: 0.16em;
     text-transform: uppercase;
     line-height: 1;
+    white-space: nowrap;
+  }
+
+  /* Narrow phones (< 400px): drop the number row, tighten the label */
+  @media (max-width: 399px) {
+    .tab-bar__num {
+      display: none;
+    }
+
+    .tab-bar__label {
+      font-size: var(--font-size-xs); /* 10px */
+      letter-spacing: 0.08em;
+    }
   }
 </style>
