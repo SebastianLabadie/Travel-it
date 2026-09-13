@@ -1,0 +1,160 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { TimelineView } from '../components/timeline/TimelineView';
+import { getSchedule } from '../lib/trip';
+
+const schedule = await getSchedule();
+---
+
+<BaseLayout
+  title="Patagonia · Timeline"
+  description="Horarios y transportes del viaje a la Patagonia, día por día."
+  activeTab="timeline"
+>
+  <TimelineView client:visible schedule={schedule} />
+</BaseLayout>
+
+<style>
+  /*
+   * Responsive layout switching for TimelineView.
+   * .tl-mobile  — chip index + single column (< 1024px)
+   * .tl-desktop — grid 320px index / 1fr day list (>= 1024px)
+   *
+   * The island renders both trees; CSS controls visibility.
+   * This avoids hydration mismatch when JS runs after SSG.
+   */
+
+  :global(.tl-header) {
+    padding: 16px 20px 14px;
+    border-bottom: 1px solid var(--color-rule);
+  }
+
+  :global(.tl-title) {
+    font-size: 36px;
+  }
+
+  :global(.tl-stats) {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 4px 16px;
+    margin: 6px 0 0;
+  }
+
+  /* Nights strip: on narrow screens only the first cell of each stay shows its code */
+  :global(.tl-night-code--rest) {
+    display: none;
+  }
+
+  :global(.tl-sr-only) {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+
+  :global(.tl-chips) {
+    background: var(--color-bg);
+    border-bottom: 1px solid var(--color-rule);
+    padding: 10px 20px;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+
+  :global(.tl-chips::-webkit-scrollbar) {
+    display: none;
+  }
+
+  :global(.tl-mobile) {
+    display: block;
+  }
+
+  :global(.tl-desktop) {
+    display: none;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html,
+    :global(.tl-scroll) {
+      scroll-behavior: auto;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    :global(.tl-header) {
+      padding: 24px 32px 16px;
+    }
+
+    :global(.tl-title) {
+      font-size: 38px;
+    }
+
+    :global(.tl-stats) {
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    :global(.tl-night-code--rest) {
+      display: inline;
+    }
+
+    :global(.tl-mobile) {
+      display: none;
+    }
+
+    /* Fill the viewport below the TopNav regardless of header height:
+       body → main → .tl-root are flex columns; only the day list scrolls. */
+    :global(body) {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+
+    :global(body > header) {
+      flex-shrink: 0;
+    }
+
+    :global(main) {
+      flex: 1;
+      min-height: 0;
+      display: flex;
+      flex-direction: column;
+    }
+
+    :global(.tl-root) {
+      flex: 1;
+      min-height: 0;
+    }
+
+    :global(.tl-header) {
+      flex-shrink: 0;
+    }
+
+    :global(.tl-desktop) {
+      flex: 1;
+      min-height: 0;
+      display: grid;
+      grid-template-columns: 320px 1fr;
+      overflow: hidden;
+    }
+
+    :global(.tl-index) {
+      overflow-y: auto;
+      border-right: 1px solid var(--color-rule);
+      background: var(--color-bg-alt);
+    }
+
+    :global(.tl-scroll) {
+      overflow-y: auto;
+      padding: 0 32px 32px;
+      scroll-behavior: smooth;
+    }
+  }
+</style>
