@@ -92,6 +92,9 @@ const budgetItemSchema = z.object({
   destSlug: z.string().nullable().default(null),
 });
 
+// ── Team member ids (owners of zones and bookings) ──────────────────────────
+const MEMBER_IDS = ['pipe', 'batman', 'varelinni', 'wire'] as const;
+
 // ── Booking ──────────────────────────────────────────────────────────────────
 const bookingSchema = z.object({
   id: z.string(),
@@ -110,6 +113,7 @@ const bookingSchema = z.object({
   link: safeUrl.optional(),
   notes: z.string().optional(),
   destination: z.string().optional(),
+  owner: z.enum(MEMBER_IDS).optional(),   // team member responsible for this booking
 });
 
 // ── Schedule (hour-by-hour movement plan, one file per day) ──────────────────
@@ -135,8 +139,6 @@ const scheduleDaySchema = z.object({
 });
 
 // ── Team (one owner per zone) ────────────────────────────────────────────────
-const MEMBER_IDS = ['pipe', 'batman', 'varelinni', 'wire'] as const;
-
 const teamMemberSchema = z.object({
   id: z.enum(MEMBER_IDS),
   name: z.string(),

@@ -1,0 +1,77 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { TeamView } from '../components/team/TeamView';
+import { getBookings, getTeam } from '../lib/trip';
+
+const team = await getTeam();
+const bookings = await getBookings();
+---
+
+<BaseLayout
+  title="Patagonia · Equipo"
+  description="Responsables por zona: quién busca alojamiento, actividades y restaurantes."
+  activeTab="equipo"
+>
+  <TeamView team={team} bookings={bookings} />
+</BaseLayout>
+
+<style>
+  /*
+   * Static page (no island): cards stack on mobile, 2x2 grid at 1024px+.
+   */
+  :global(.tm-header) {
+    padding: 16px 20px 14px;
+    border-bottom: 1px solid var(--color-rule);
+  }
+
+  :global(.tm-title) {
+    font-size: 36px;
+  }
+
+  :global(.tm-grid) {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+    padding: 16px 20px 0;
+  }
+
+  :global(.tm-progress) {
+    padding: 24px 20px 32px;
+  }
+
+  :global(.tm-progress-grid) {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0 24px;
+  }
+
+  @media (min-width: 640px) {
+    :global(.tm-progress-grid) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (min-width: 1024px) {
+    :global(.tm-header) {
+      padding: 24px 32px 16px;
+    }
+
+    :global(.tm-title) {
+      font-size: 38px;
+    }
+
+    :global(.tm-grid) {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+      padding: 24px 32px 0;
+    }
+
+    :global(.tm-progress) {
+      padding: 32px 32px 40px;
+    }
+
+    :global(.tm-progress-grid) {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+</style>

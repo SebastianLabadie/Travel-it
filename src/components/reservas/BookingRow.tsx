@@ -1,6 +1,7 @@
 import type { Booking } from '../../lib/types';
 import { UrgencyBadge } from './UrgencyBadge';
 import { StatusBadge } from './StatusBadge';
+import { OwnerChip } from './OwnerChip';
 import { formatCost, formatDeadline } from './constants';
 
 interface BookingRowProps {
@@ -82,17 +83,21 @@ export function BookingRow({
           >
             {booking.title}
           </div>
-          {deadlineStr && (
+          {(deadlineStr || booking.owner) && (
             <div
               style={{
+                display: 'flex',
+                alignItems: 'center',
+                gap: 8,
+                marginTop: 3,
                 fontFamily: 'var(--font-mono)',
                 fontSize: 9,
                 color: 'var(--color-stone)',
                 letterSpacing: '0.08em',
-                marginTop: 2,
               }}
             >
-              {deadlineStr}
+              {booking.owner && <OwnerChip owner={booking.owner} />}
+              {deadlineStr && <span>{deadlineStr}</span>}
             </div>
           )}
         </div>

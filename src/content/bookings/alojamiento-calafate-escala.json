@@ -11,5 +11,6 @@
     "perPerson": true
   },
   "destination": "calafate",
-  "notes": "Cerca del centro. Llegada de noche, vuelo 10:10 al día siguiente."
+  "notes": "Cerca del centro. Llegada de noche, vuelo 10:10 al día siguiente.",
+  "owner": "batman"
 }

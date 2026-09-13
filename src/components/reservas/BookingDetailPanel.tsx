@@ -1,6 +1,7 @@
 import type { Booking, Destination } from '../../lib/types';
 import { UrgencyBadge } from './UrgencyBadge';
 import { StatusBadge } from './StatusBadge';
+import { OwnerChip } from './OwnerChip';
 import { CATEGORY_LABELS, formatCost, formatDeadline } from './constants';
 
 interface BookingDetailPanelProps {
@@ -80,6 +81,7 @@ export function BookingDetailPanel({ booking, destinations }: BookingDetailPanel
       <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap', marginBottom: 20 }}>
         <UrgencyBadge urgency={booking.urgency} />
         <StatusBadge status={booking.status} />
+        {booking.owner && <OwnerChip owner={booking.owner} prefix="Responsable:" />}
       </div>
 
       {/* Meta grid */}

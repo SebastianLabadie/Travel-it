@@ -11,5 +11,6 @@
     "perPerson": true
   },
   "destination": "ushuaia",
-  "notes": "Único operador habilitado a desembarcar. Cupos escasos. Magallánicos + papúa."
+  "notes": "Único operador habilitado a desembarcar. Cupos escasos. Magallánicos + papúa.",
+  "owner": "wire"
 }
