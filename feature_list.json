@@ -193,7 +193,7 @@
     {
       "id": "F-12",
       "title": "Sync itinerario v2 + timeline horaria + responsables por zona",
-      "status": "in_progress",
+      "status": "done",
       "priority": "high",
       "source": "docs/Patagonia_2026_v2.md · Compras_v2 · Equipaje_v2",
       "summary": "Punta Arenas eliminado, auto de alquiler 22 nov–3 dic, vuelo FTE→USH 4 dic, 4 pax, 17 noches. Nueva página /timeline con horarios y transportes por día y nueva página /equipo con responsables por zona (pipe, batman, varelinni, wire).",
@@ -201,6 +201,24 @@
       "depends_on": [],
       "sdd_change": null,
       "pr": 17,
+      "design": {
+        "status": "n/a",
+        "paths": []
+      }
+    },
+    {
+      "id": "F-13",
+      "title": "Reparto v2.1: Calafate 21–24, Chaltén → Natales directo",
+      "status": "in_progress",
+      "priority": "high",
+      "source": "Mensaje del grupo 13 sep 2026 + docs v2.1",
+      "summary": "Se elimina la noche suelta del 21 en Calafate: Calafate 21–24 nov (Perito Moreno el 23), Chaltén 24–28, 28 nov Chaltén → Natales directo ~8 h. Actualiza days, schedule, bookings, budget, checklist, team, decisions y los tres docs.",
+      "estimate_lines": 250,
+      "depends_on": [
+        "F-12"
+      ],
+      "sdd_change": null,
+      "pr": 18,
       "design": {
         "status": "n/a",
         "paths": []

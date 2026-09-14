@@ -1,40 +1,21 @@
 {
   "date": "26 nov",
   "weekday": "jue",
-  "title": "El Chaltén → El Calafate",
+  "title": "El Chaltén",
   "from": "chalten",
-  "to": "calafate",
-  "sleep": "Airbnb El Calafate · noche 6/17",
-  "driveHours": 3,
+  "to": "chalten",
+  "sleep": "Cabaña El Chaltén · noche 6/17",
   "slots": [
     {
-      "time": "~08:30",
-      "kind": "lodging",
-      "title": "Check-out"
+      "time": "~08:00",
+      "kind": "walk",
+      "title": "Trek a elegir (decisión abierta D-08)",
+      "detail": "Loma del Pliegue Tumbado · 19 km · 1.100 m · 7-8 h (recomendado: Fitz Roy y Cerro Torre en la misma vista) o Laguna Torre · 18 km · casi plano · 6 h"
     },
     {
-      "time": "~09:00",
-      "end": "12:00",
-      "kind": "car",
-      "title": "RN40 a El Calafate · 3 h"
-    },
-    {
-      "time": "~12:30",
-      "kind": "lodging",
-      "title": "Check-in Airbnb · almuerzo"
-    },
-    {
-      "time": "~15:00",
-      "end": "17:30",
-      "kind": "activity",
-      "title": "Tarde chill según clima",
-      "detail": "Laguna Nimez (plana, cierra 18:00, ~ARS 12.000) · Punta Walichu (11-19, si está lindo) · Glaciarium (abre 12:00, si está feo) · Chocolates Patagonia"
-    },
-    {
-      "time": "~20:30",
+      "time": "~17:00",
       "kind": "food",
-      "title": "Cena",
-      "detail": "Nativa (abre 17:00) o Don Pichón (reservar ventana al atardecer). Jueves está todo abierto"
+      "title": "Pueblo · mate al lado del río"
     }
   ]
 }

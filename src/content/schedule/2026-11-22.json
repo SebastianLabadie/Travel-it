@@ -1,11 +1,11 @@
 {
   "date": "22 nov",
   "weekday": "dom",
-  "title": "El Calafate → El Chaltén",
+  "title": "El Calafate · retiro del auto",
   "from": "calafate",
-  "to": "chalten",
-  "sleep": "Cabaña El Chaltén · noche 2/17",
-  "driveHours": 3,
+  "to": "calafate",
+  "sleep": "Airbnb El Calafate · noche 2/17",
+  "driveHours": 0.5,
   "slots": [
     {
       "time": "~08:00",
@@ -22,35 +22,21 @@
       "time": "~09:00",
       "kind": "car",
       "title": "Cargar tanque lleno en El Calafate",
-      "detail": "En la RN40 no hay nada en el medio",
+      "detail": "Queda listo para el Perito Moreno de mañana",
       "warning": true
-    },
-    {
-      "time": "~09:15",
-      "end": "12:15",
-      "kind": "car",
-      "title": "RN40 a El Chaltén · 3 h",
-      "detail": "Asfalto. Parada en La Leona (hostería de 1894)"
-    },
-    {
-      "time": "~12:30",
-      "kind": "note",
-      "title": "Registro obligatorio en el Centro de Visitantes PNLG",
-      "detail": "Check-in y almuerzo"
     },
     {
       "time": "~15:00",
-      "end": "17:00",
-      "kind": "walk",
-      "title": "Mirador de los Cóndores + Mirador de las Águilas",
-      "detail": "1-2 h ida y vuelta desde el pueblo. Sirve para aclimatar"
+      "end": "17:30",
+      "kind": "activity",
+      "title": "Tarde chill según clima",
+      "detail": "Laguna Nimez (plana, cierra 18:00, ~ARS 12.000) · Punta Walichu (11-19, si está lindo) · Glaciarium (abre 12:00, si está feo) · Chocolates Patagonia"
     },
     {
-      "time": "~18:00",
-      "kind": "car",
-      "title": "Cargar nafta si hay disponibilidad",
-      "detail": "Una sola estación en el pueblo, se queda sin combustible en temporada",
-      "warning": true
+      "time": "~20:30",
+      "kind": "food",
+      "title": "Cena",
+      "detail": "Don Pichón (reservar ventana al atardecer) o La Zorra Taproom. Domingo: Nativa y Chopen cierran"
     }
   ]
 }

@@ -5,23 +5,23 @@
   "zone": {
     "slug": "calafate",
     "label": "El Calafate",
-    "dates": "21 nov, 26–28 nov, 3 dic",
+    "dates": "21–24 nov · 3 dic",
     "nights": 4
   },
   "lodging": {
-    "brief": "Airbnb con cocina y estacionamiento cerca de Av. del Libertador. Evaluar el mismo lugar las tres veces.",
+    "brief": "Airbnb con cocina y estacionamiento cerca de Av. del Libertador. Evaluar el mismo lugar las dos veces.",
     "budget": "~USD 25-40 p.p./noche",
     "requirements": [
-      "Estacionamiento (26–28 nov y 3 dic)",
+      "Estacionamiento (21–24 nov y 3 dic)",
       "Cocina",
       "Check-in tardío el 21 nov (llegada 18:35) y el 3 dic (llegada de noche)",
       "Cerca del centro"
     ]
   },
   "activities": [
-    "Reservar Minitrekking Perito Moreno con Hielo y Aventura (27 nov) y confirmar precio 2026/27",
+    "Reservar Minitrekking Perito Moreno con Hielo y Aventura (23 nov) y confirmar precio 2026/27",
     "Entrada PN Los Glaciares",
-    "Tarde del 26: Laguna Nimez / Punta Walichu / Glaciarium (confirmar Glaciobar)",
+    "Tarde del 22 (domingo: Nativa y Chopen cierran): Laguna Nimez / Punta Walichu / Glaciarium (confirmar Glaciobar)",
     "Cotizar auto de alquiler + permiso Chile en Localiza, Hertz y Europcar (con Sebastian)"
   ],
   "food": [
@@ -31,5 +31,5 @@
     "La Tablita"
   ],
   "deadline": "2026-09-30",
-  "notes": "en 3 estadías"
+  "notes": "en 2 estadías"
 }

@@ -1,6 +1,6 @@
 # Patagonia 2026 — v2
 
-> **Versión 2 · septiembre 2026.** Reemplaza a la v1. Cambios principales respecto de la v1: se elimina Punta Arenas e Isla Magdalena · todo el tramo argentino-chileno pasa de bus a **auto de alquiler (22 nov – 3 dic)** · se agrega **vuelo El Calafate → Ushuaia el 4 dic** · El Chaltén sube a 4 noches y Ushuaia a 4 · las 17 noches quedan en cama, sin noche de bus · los pingüinos se ven en Isla Martillo en vez de Isla Magdalena.
+> **Versión 2.1 · septiembre 2026.** Ajuste del reparto: El Calafate 21–24 nov (3 noches, Perito Moreno el 23), El Chaltén 24–28 nov, y el 28 se va directo de El Chaltén a Puerto Natales (~8 h) sin volver a dormir en El Calafate. Reemplaza a la v1. Cambios principales respecto de la v1: se elimina Punta Arenas e Isla Magdalena · todo el tramo argentino-chileno pasa de bus a **auto de alquiler (22 nov – 3 dic)** · se agrega **vuelo El Calafate → Ushuaia el 4 dic** · El Chaltén sube a 4 noches y Ushuaia a 4 · las 17 noches quedan en cama, sin noche de bus · los pingüinos se ven en Isla Martillo en vez de Isla Magdalena.
 
 *Guía de viaje — documento vivo*
 
@@ -32,10 +32,9 @@ Estas decisiones están cerradas y no se tocan sin avisar al grupo:
 
 | Tramo | Fechas | Noches | Transporte de llegada |
 |---|---|---|---|
-| El Calafate | 21–22 nov | 1 | Vuelo AR1850 + taxi desde FTE |
-| El Chaltén | 22–26 nov | 4 | Auto (RN40, 3 hs) |
-| El Calafate | 26–28 nov | 2 | Auto (RN40, 3 hs) |
-| Puerto Natales | 28–29 nov | 1 | Auto (cruce Cerro Castillo, 5-6 hs) |
+| El Calafate | 21–24 nov | 3 | Vuelo AR1850 + taxi desde FTE |
+| El Chaltén | 24–28 nov | 4 | Auto (RN40, 3 hs) |
+| Puerto Natales | 28–29 nov | 1 | Auto directo desde El Chaltén (RN40 vía La Leona + cruce Cerro Castillo, ~8 hs) |
 | Torres del Paine (Grey + Paine Grande) | 29 nov – 3 dic | 4 | Auto hasta Hotel Lago Grey |
 | El Calafate | 3–4 dic | 1 | Auto (~7 hs desde Pudeto) |
 | Ushuaia | 4–8 dic | 4 | Vuelo FTE → USH |
@@ -47,13 +46,13 @@ Estas decisiones están cerradas y no se tocan sin avisar al grupo:
 | Día | Fecha | Dónde | Qué |
 |---|---|---|---|
 | Sáb | 21 nov | El Calafate | Llegada 18:35. Taxi al alojamiento, cena, descanso. |
-| Dom | 22 nov | → El Chaltén | **Retiro del auto a primera hora.** RN40, 3 hs. Tarde: Mirador de los Cóndores + de las Águilas. |
-| Lun | 23 nov | El Chaltén | **Laguna de los Tres / Fitz Roy** (22 km, 1.200 m, día completo). Salida 7 AM. |
-| Mar | 24 nov | El Chaltén | Loma del Pliegue Tumbado o Laguna Torre. |
-| Mié | 25 nov | El Chaltén | Día flexible: revancha de Fitz Roy, Lago del Desierto, Piedra del Fraile o plan liviano. |
-| Jue | 26 nov | → El Calafate | RN40, 3 hs. Tarde chill: Laguna Nimez / Punta Walichu / Glaciarium. |
-| Vie | 27 nov | El Calafate | **Minitrekking Glaciar Perito Moreno** (día completo) + pasarelas. |
-| Sáb | 28 nov | → Puerto Natales | Cruce a Chile por Cerro Castillo. Tarde: compras de TDP, sacos de dormir, gas. |
+| Dom | 22 nov | El Calafate | **Retiro del auto a primera hora** en FTE, tanque lleno. Tarde chill: Laguna Nimez / Punta Walichu / Glaciarium. Domingo: Nativa y Chopen cierran. |
+| Lun | 23 nov | El Calafate | **Minitrekking Glaciar Perito Moreno** (día completo) + pasarelas. Lunes: La Zorra cierra. |
+| Mar | 24 nov | → El Chaltén | Check-out, tanque lleno, RN40, 3 hs. Registro en el Centro de Visitantes. Tarde: Mirador de los Cóndores + de las Águilas. |
+| Mié | 25 nov | El Chaltén | **Laguna de los Tres / Fitz Roy** (22 km, 1.200 m, día completo). Salida 7 AM. |
+| Jue | 26 nov | El Chaltén | Loma del Pliegue Tumbado o Laguna Torre. |
+| Vie | 27 nov | El Chaltén | Día flexible: revancha de Fitz Roy, Lago del Desierto, Piedra del Fraile o plan liviano. Tanque lleno para la salida de mañana. |
+| Sáb | 28 nov | → Puerto Natales | **Salida 07:00 directo desde El Chaltén** (~8 hs: RN40 vía La Leona sin entrar a El Calafate + frontera Cerro Castillo). Llegada ~15:00: compras de TDP, sacos de dormir, gas. |
 | Dom | 29 nov | → Torres del Paine | Auto hasta Hotel Lago Grey + caminata ~1-1,5 hs a Camping Grey. |
 | Lun | 30 nov | TDP (Grey) | Day hike Mirador Glaciar Grey (~11 km, 4-5 hs). |
 | Mar | 1 dic | TDP (→ Paine Grande) | Caminata a Hotel Lago Grey → auto a Pudeto → catamarán a Paine Grande. |
@@ -104,10 +103,9 @@ Ruta directa con **8 frecuencias semanales**, operada por Aerolíneas Argentinas
 
 | Tramo | Fecha | Tiempo | Notas |
 |---|---|---|---|
-| El Calafate → El Chaltén | 22 nov | 3 hs | RN40, asfalto en buen estado. Parada en La Leona (hostería de 1894). |
-| El Chaltén → El Calafate | 26 nov | 3 hs | |
-| El Calafate → Perito Moreno | 27 nov | 1h20m | RP11, asfalto. Puerto Bajo las Sombras para el minitrekking. |
-| El Calafate → Puerto Natales | 28 nov | 5-6 hs | Cruce frontera Cerro Castillo / Río Don Guillermo. Sumar 30-60 min. Sin cambio de huso horario. |
+| El Calafate → Perito Moreno | 23 nov | 1h20m | RP11, asfalto. Puerto Bajo las Sombras para el minitrekking. |
+| El Calafate → El Chaltén | 24 nov | 3 hs | RN40, asfalto en buen estado. Parada en La Leona (hostería de 1894). |
+| El Chaltén → Puerto Natales | 28 nov | ~8 hs | RN40 vía La Leona sin entrar a El Calafate (485 km) + frontera Cerro Castillo / Río Don Guillermo: sumar 30-60 min. Sin cambio de huso horario. Rotar al volante. |
 | Puerto Natales → Hotel Lago Grey | 29 nov | ~4 hs | Últimos ~18 km de ripio. |
 | Hotel Lago Grey → Pudeto | 1 dic | ~1 hs | Dejar el auto en Pudeto 2 noches. |
 | Pudeto → El Calafate | 3 dic | ~7 hs | Vía Puerto Natales y frontera. |
@@ -133,22 +131,20 @@ Todos los treks son day hikes **excepto Torres del Paine**: se sale y vuelve al 
 
 ## Destinos
 
-### El Calafate — 3 estadías, 4 noches en total
+### El Calafate — 2 estadías, 4 noches en total
 
-#### Noche 1 (21 nov) — llegada
+#### Noches 1-3 (21–24 nov) — llegada y Perito Moreno
 
-Vuelo AR1850 aterriza 18:35. Sin margen para actividades. Taxi al alojamiento, cena tranquila, descanso.
+**Sáb 21 nov — llegada.** Vuelo AR1850 aterriza 18:35. Sin margen para actividades. Taxi al alojamiento, cena tranquila, descanso.
 
-#### Noches 2-3 (26–28 nov) — el bloque principal
-
-**Jue 26 nov — tarde chill.** Llegada de Chaltén cerca del mediodía. Según el clima:
+**Dom 22 nov — retiro del auto y tarde chill.** Taxi a FTE ~08:00, retiro del auto y tanque lleno. Según el clima:
 
 - **Reserva Laguna Nimez** — caminata plana de 1-1,5 hs al borde del Lago Argentino, a pocas cuadras del centro. Flamencos, patos, zorros. Entrada ~ARS 12.000, válida toda la semana. **Cierra 18:00.**
 - **Punta Walichu** (7 km) — pinturas rupestres con audioguía, 1-1,5 hs, café con vista al lago. Abre 11:00-19:00. **Mejor si el día está lindo.**
 - **Glaciarium** (6 km, abre 12:00) — museo del hielo. ⚠️ El Glaciobar estuvo cerrado por refacciones en 2026: confirmar por teléfono. **Mejor si está feo o ventoso.**
 - **Chocolates Patagonia** (Av. del Libertador 1250) — chocolate caliente y mate.
 
-**Vie 27 nov — Minitrekking Perito Moreno (día completo).**
+**Lun 23 nov — Minitrekking Perito Moreno (día completo).**
 
 - Operador: **Hielo y Aventura**, concesionario exclusivo. No hay alternativa.
 - ~9 hs en total, de las cuales **1h30m caminando sobre el hielo** con crampones.
@@ -161,42 +157,44 @@ Vuelo AR1850 aterriza 18:35. Sin margen para actividades. Taxi al alojamiento, c
 
 *Descartados:* Big Ice (ARS 550.000 p.p., 12 hs de jornada) y Navegación Todo Glaciares (ARS 240.000 p.p. — el clima visual se repite con el Glaciar Grey).
 
+**Mar 24 nov — salida.** Check-out ~08:30, tanque lleno y RN40 a El Chaltén (ver El Chaltén).
+
 #### Noche 4 (3 dic) — escala de regreso
 
 Llegada de noche tras ~7 hs de manejo. Devolución del auto en FTE y taxi al pueblo. Cena y a dormir. Vuelo al día siguiente 10:10.
 
 #### Comer en El Calafate
 
-⚠️ **Cierres:** Nativa y Chopen cierran domingos · La Zorra cierra lunes. Las noches del 26 (jue) y 27 (vie) está todo abierto.
+⚠️ **Cierres:** Nativa y Chopen cierran domingos · La Zorra cierra lunes. El 22 nov es domingo (sin Nativa ni Chopen: Don Pichón o La Zorra) y el 23 nov es lunes (sin La Zorra: Nativa o Don Pichón). El 3 dic (jue) está todo abierto.
 
 - **Nativa** (25 de Mayo 186) — el mejor puntuado del pueblo (4.8), restaurante y cervecería propia. Abre 17:00. Preguntar por el cubierto.
 - **Don Pichón** (Puerto Deseado 242) — parrilla en alto con vista al pueblo y al lago, ideal al atardecer. Reservar mesa junto a la ventana. 10% de descuento en efectivo.
 - **La Zorra Taproom** (Av. del Libertador 832) — cervecería artesanal, hamburguesa de guanaco.
 - **La Tablita** — el clásico del cordero al asador. El más caro y turístico.
 
-**Alojamiento:** Airbnb con cocina, cerca de la Av. del Libertador y **con estacionamiento** · ~USD 25–40 p.p./noche. Evaluar reservar el mismo lugar las tres veces.
+**Alojamiento:** Airbnb con cocina, cerca de la Av. del Libertador y **con estacionamiento** · ~USD 25–40 p.p./noche. Evaluar reservar el mismo lugar las dos veces.
 
-### El Chaltén · 4 noches (22–26 nov)
+### El Chaltén · 4 noches (24–28 nov)
 
 Capital nacional del trekking. **Todos los senderos salen caminando desde el pueblo** — el auto queda estacionado los días de trek.
 
-**Dom 22 nov — llegada.** Retiro del auto en FTE a primera hora, RN40 hasta Chaltén (3 hs). Registro obligatorio en el Centro de Visitantes. Check-in y almuerzo. Tarde: **Mirador de los Cóndores + Mirador de las Águilas** (1-2 hs ida y vuelta, sale del pueblo). Sirve para aclimatar y ver cómo pinta el clima.
+**Mar 24 nov — llegada.** Check-out en El Calafate ~08:30, tanque lleno, RN40 hasta Chaltén (3 hs). Registro obligatorio en el Centro de Visitantes. Check-in y almuerzo. Tarde: **Mirador de los Cóndores + Mirador de las Águilas** (1-2 hs ida y vuelta, sale del pueblo). Sirve para aclimatar y ver cómo pinta el clima.
 
-**Lun 23 nov — Laguna de los Tres / Fitz Roy.** 22 km · 1.200 m de desnivel · 8-10 hs. Salida 7 AM desde el pueblo (Av. San Martín norte). Pasa por Laguna Capri y Piedras Blancas. El último km son ~400 m de subida pedregosa: el tramo más duro del viaje.
+**Mié 25 nov — Laguna de los Tres / Fitz Roy.** 22 km · 1.200 m de desnivel · 8-10 hs. Salida 7 AM desde el pueblo (Av. San Martín norte). Pasa por Laguna Capri y Piedras Blancas. El último km son ~400 m de subida pedregosa: el tramo más duro del viaje.
 
-**Mar 24 nov — elegir uno:**
+**Jue 26 nov — elegir uno:**
 
 - **Loma del Pliegue Tumbado** (19 km · 1.100 m · 7-8 hs) — **la recomendación.** El único sendero desde donde se ven el Fitz Roy y el Cerro Torre en la misma panorámica, con mucha menos gente.
 - **Laguna Torre** (18 km · casi plano · 6 hs) — mucho más suave después del Fitz Roy.
 
-**Mié 25 nov — día flexible.** La razón de ser de la cuarta noche:
+**Vie 27 nov — día flexible.** La razón de ser de la cuarta noche:
 
-- Si el clima arruinó el 23, **día de revancha para el Fitz Roy**.
-- El trek que quedó sin hacer del 24.
+- Si el clima arruinó el 25, **día de revancha para el Fitz Roy**.
+- El trek que quedó sin hacer del 26.
 - **Con auto se desbloquean:** Lago del Desierto (37 km al norte por ripio) y Piedra del Fraile / Río Eléctrico.
 - Plan liviano: **Chorrillo del Salto** (con auto, parada de 15 min) o día de pueblo.
 
-**Jue 26 nov — salida** temprano a El Calafate.
+**Sáb 28 nov — salida 07:00 directo a Puerto Natales.** Tanque lleno desde la noche anterior. ~8 hs por la RN40 vía La Leona, sin entrar a El Calafate, más la frontera de Cerro Castillo.
 
 **Pueblo:** cervecería La Vinería, La Chocolatería, mate al lado del río.
 
@@ -204,7 +202,7 @@ Capital nacional del trekking. **Todos los senderos salen caminando desde el pue
 
 ### Puerto Natales · Chile · 1 noche (28–29 nov)
 
-⚠️ **Una sola tarde para resolver todo lo de Torres del Paine.** Con auto propio manejan el horario, lo cual ayuda: pueden salir de Calafate temprano y llegar con la tarde entera.
+⚠️ **Una sola tarde corta para resolver todo lo de Torres del Paine.** Se llega directo desde El Chaltén: saliendo 07:00 se está en Natales ~15:00. Confirmar antes los horarios de cierre de Vértice y Unimarc el sábado.
 
 **Checklist obligatorio:**
 
@@ -213,7 +211,7 @@ Capital nacional del trekking. **Todos los senderos salen caminando desde el pue
 3. **Comprar el cartucho de gas** (no se puede volar con gas). Ferreterías o casas de equipo de montaña.
 4. Tener impresa la entrada CONAF.
 
-**Si llegan antes de las 15:00:** la charla gratuita **"3 O'Clock Talk"** en Erratic Rock Hostel, todos los días a las 15:00, sobre cómo recorrer Torres del Paine. Vale mucho la pena el día antes de entrar.
+**Solo si llegan a tiempo (15:00):** la charla gratuita **"3 O'Clock Talk"** en Erratic Rock Hostel, todos los días a las 15:00, sobre cómo recorrer Torres del Paine. Vale mucho la pena el día antes de entrar, pero con la llegada directa desde El Chaltén es probable que no entre.
 
 **Alojamiento:** Airbnb o guesthouse céntrico con estacionamiento · ~USD 25–35 p.p./noche.
 
@@ -258,11 +256,11 @@ Estamos a **septiembre 2026** para un viaje de nov-dic 2026.
 | Qué | Cuándo | Detalle |
 |---|---|---|
 | **Auto de alquiler + permiso Chile** | 22 nov – 3 dic | Localiza, Hertz o Europcar en FTE. SUV/4x4. El permiso necesita 15-21 días de anticipación. |
-| Alojamiento El Chaltén | 22–26 nov (4 noches) | Lo más difícil de conseguir. Con estacionamiento. |
-| Alojamiento El Calafate | 21 nov · 26–28 nov · 3 dic | Tres estadías. Evaluar el mismo lugar. Con estacionamiento. |
+| Alojamiento El Chaltén | 24–28 nov (4 noches) | Lo más difícil de conseguir. Con estacionamiento. |
+| Alojamiento El Calafate | 21–24 nov (3 noches) · 3 dic (1 noche) | Dos estadías. Evaluar el mismo lugar. Con cocina y estacionamiento. |
 | Alojamiento Puerto Natales | 28–29 nov (1 noche) | Céntrico, con estacionamiento. |
 | **Vuelo FTE → USH** | 4 dic, 10:10 | Aerolíneas o Flybondi. 1h20m. ~USD 70-120 p.p. |
-| Minitrekking Perito Moreno | 27 nov | Hielo y Aventura. ~ARS 320.000 p.p. + entrada aparte. |
+| Minitrekking Perito Moreno | 23 nov | Hielo y Aventura. ~ARS 320.000 p.p. + entrada aparte. |
 | **Alquiler de sacos de dormir TDP** | retiro 28 nov | Vértice Patagonia o casa de equipo. Confort mínimo -5°C. |
 | Entrada CONAF Torres del Paine | 29 nov | reservas.conaf.cl · ~USD 30-35 p.p. |
 | Catamarán Pudeto → Paine Grande | 1 dic | Hielos Patagónicos, ~35 min. |
@@ -281,7 +279,7 @@ Estamos a **septiembre 2026** para un viaje de nov-dic 2026.
 | Qué | Cuándo |
 |---|---|
 | Registro PNLG (Fitz Roy) — losglaciares.gob.ar | Antes de viajar |
-| Registro en Centro de Visitantes El Chaltén | 22 nov al llegar |
+| Registro en Centro de Visitantes El Chaltén | 24 nov al llegar |
 
 ## Pendientes por confirmar
 
@@ -291,7 +289,8 @@ Estamos a **septiembre 2026** para un viaje de nov-dic 2026.
 - Horarios exactos del catamarán Hielos Patagónicos para dic 2026, en ambos sentidos.
 - Precios 2026/27 del minitrekking (presupuestar 25-40% más que la grilla 2025/26).
 - Disponibilidad de cupos de desembarco de Piratour en Isla Martillo.
-- Decidir el trek del 24 nov en Chaltén: Pliegue Tumbado o Laguna Torre.
+- Decidir el trek del 26 nov en Chaltén: Pliegue Tumbado o Laguna Torre.
+- Horarios de cierre de Vértice Patagonia y Unimarc el sáb 28 nov (llegada ~15:00 directo desde El Chaltén).
 - Si los campamentos de Vértice tienen zona de cocina compartida o hay que llevar anafe propio.
 - Distribución final de actividades en Ushuaia.
 

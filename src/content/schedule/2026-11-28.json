@@ -1,42 +1,42 @@
 {
   "date": "28 nov",
   "weekday": "sáb",
-  "title": "El Calafate → Puerto Natales",
-  "from": "calafate",
+  "title": "El Chaltén → Puerto Natales directo",
+  "from": "chalten",
   "to": "natales",
   "sleep": "Airbnb Puerto Natales · noche 8/17",
-  "driveHours": 5.5,
+  "driveHours": 8,
   "slots": [
     {
-      "time": "~07:30",
-      "kind": "car",
-      "title": "Salida temprano con tanque lleno",
-      "detail": "Permiso Chile y cédulas a mano",
-      "warning": true
-    },
-    {
-      "time": "~07:30",
-      "end": "13:00",
-      "kind": "car",
-      "title": "Ruta a Puerto Natales · 5-6 h",
-      "detail": "Frontera Cerro Castillo / Río Don Guillermo: sumar 30-60 min. Sin cambio de huso horario"
-    },
-    {
-      "time": "~13:30",
+      "time": "07:00",
       "kind": "lodging",
-      "title": "Check-in · almuerzo"
+      "title": "Check-out y salida con tanque lleno",
+      "detail": "Permiso Chile y cédulas a mano"
+    },
+    {
+      "time": "07:00",
+      "end": "15:00",
+      "kind": "car",
+      "title": "El Chaltén → Puerto Natales · ~8 h (485 km)",
+      "detail": "RN40 hasta el cruce de La Leona, sin entrar a El Calafate. Frontera Cerro Castillo / Río Don Guillermo: sumar 30-60 min. Permiso Chile y cédulas a mano. Rotar al volante",
+      "warning": true
     },
     {
       "time": "15:00",
       "kind": "activity",
-      "title": "3 O'Clock Talk · Erratic Rock Hostel",
+      "title": "3 O'Clock Talk · Erratic Rock (solo si llegan a tiempo)",
       "detail": "Charla gratuita sobre cómo recorrer Torres del Paine"
+    },
+    {
+      "time": "~15:30",
+      "kind": "lodging",
+      "title": "Check-in"
     },
     {
       "time": "~16:00",
       "kind": "note",
       "title": "Retiro de sacos de dormir",
-      "detail": "Vértice Patagonia, Manuel Bulnes 1202 (reservados con antelación)"
+      "detail": "Vértice Patagonia, Manuel Bulnes 1202 (reservados con antelación) — confirmar horario de cierre"
     },
     {
       "time": "~17:00",
