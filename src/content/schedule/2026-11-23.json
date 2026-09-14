@@ -1,30 +1,43 @@
 {
   "date": "23 nov",
   "weekday": "lun",
-  "title": "El Chaltén · Fitz Roy",
-  "from": "chalten",
-  "to": "chalten",
-  "sleep": "Cabaña El Chaltén · noche 3/17",
+  "title": "El Calafate · Perito Moreno",
+  "from": "calafate",
+  "to": "calafate",
+  "sleep": "Airbnb El Calafate · noche 3/17",
+  "driveHours": 2.7,
   "slots": [
     {
       "time": "07:00",
-      "kind": "walk",
-      "title": "Salida a Laguna de los Tres",
-      "detail": "A pie desde Av. San Martín norte"
+      "end": "08:20",
+      "kind": "car",
+      "title": "RP11 a Puerto Bajo las Sombras · 1h20m",
+      "detail": "Asfalto"
     },
     {
-      "time": "07:00",
-      "end": "17:00",
-      "kind": "walk",
-      "title": "Laguna de los Tres / Fitz Roy · 22 km · 1.200 m · 8-10 h",
-      "detail": "Laguna Capri, Piedras Blancas. Último km: 400 m de subida pedregosa, el tramo más duro del viaje",
-      "warning": true
+      "time": "~08:20",
+      "kind": "note",
+      "title": "Entrada PN Los Glaciares",
+      "detail": "ARS 45.000-50.000 p.p., se paga aparte"
     },
     {
-      "time": "~18:00",
+      "time": "~08:30",
+      "end": "17:30",
+      "kind": "activity",
+      "title": "Minitrekking Perito Moreno · Hielo y Aventura · ~9 h",
+      "detail": "Catamarán Brazo Rico 20 min · 1h30m sobre el hielo con crampones · pasarelas incluidas. 8-65 años"
+    },
+    {
+      "time": "~17:30",
+      "end": "19:00",
+      "kind": "car",
+      "title": "Regreso a El Calafate"
+    },
+    {
+      "time": "~20:30",
       "kind": "food",
-      "title": "Cena en el pueblo",
-      "detail": "La Vinería / La Chocolatería"
+      "title": "Cena",
+      "detail": "Nativa (abre 17:00) o Don Pichón. Lunes: La Zorra cierra"
     }
   ]
 }
