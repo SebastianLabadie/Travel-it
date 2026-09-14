@@ -1,6 +1,6 @@
 # Patagonia 2026 — Checklist de equipaje · v2
 
-> **Versión 2 · septiembre 2026.** Reemplaza a la v1. Cambios: se suman licencia de conducir, permiso de salida a Chile y mapas offline · las fechas de los treks se ajustan al nuevo itinerario · con mochila completa ya solo se camina Hotel Lago Grey ↔ Camping Grey.
+> **Versión 2.1 · septiembre 2026.** Ajuste del reparto: El Calafate 21–24 nov (3 noches, Perito Moreno el 23), El Chaltén 24–28 nov, y el 28 se va directo de El Chaltén a Puerto Natales (~8 h) sin volver a dormir en El Calafate. Reemplaza a la v1. Cambios: se suman licencia de conducir, permiso de salida a Chile y mapas offline · las fechas de los treks se ajustan al nuevo itinerario · con mochila completa ya solo se camina Hotel Lago Grey ↔ Camping Grey.
 
 *Documento vivo — armado para el grupo de 4 personas, viaje del 21 nov al 8 dic 2026.*
 
@@ -9,7 +9,7 @@
 ## Contexto para armar la valija
 
 - **Clima:** inicio de verano austral. Entre 8°C y 18°C de día, pudiendo bajar cerca de 0°C de noche en los campamentos de Torres del Paine (Camping Grey está a metros del glaciar). Viento muy fuerte casi garantizado y lluvia posible cualquier día, incluso con sol previo. El sistema de capas es la única estrategia que funciona acá.
-- **Días de trekking exigente:** Laguna de los Tres/Fitz Roy (22 km, 1.200 m desnivel, El Chaltén — 23 nov, con el 25 nov como día de revancha si el clima falla), Loma del Pliegue Tumbado (19 km) o Laguna Torre (18 km) el 24 nov, Mirador Británico (22 km) o Valle Francés corto en TDP, y Laguna Esmeralda (15 km, Ushuaia). **Con mochila completa solo se camina Hotel Lago Grey ↔ Camping Grey (~1-1,5 hs cada vez, el 29 nov y el 1 dic)** — el auto elimina el sendero largo de 11 km. Ver detalle en `Patagonia_2026_v2.md`.
+- **Días de trekking exigente:** Laguna de los Tres/Fitz Roy (22 km, 1.200 m desnivel, El Chaltén — 25 nov, con el 27 nov como día de revancha si el clima falla), Loma del Pliegue Tumbado (19 km) o Laguna Torre (18 km) el 26 nov, Mirador Británico (22 km) o Valle Francés corto en TDP, y Laguna Esmeralda (15 km, Ushuaia). **Con mochila completa solo se camina Hotel Lago Grey ↔ Camping Grey (~1-1,5 hs cada vez, el 29 nov y el 1 dic)** — el auto elimina el sendero largo de 11 km. Ver detalle en `Patagonia_2026_v2.md`.
 - **Torres del Paine es la única parte de acampe del viaje:** carpa (2x, 4 estaciones) y colchoneta (4x, espuma alta densidad) **ya contratadas** con Vértice Patagonia. **Los sacos de dormir se alquilan en destino, no hace falta traer el propio** — confirmar con Vértice o con una casa de alquiler de equipo en Puerto Natales antes de entrar a TDP.
 - **Fuera de TDP:** todo el resto del viaje es en alojamiento con cama (Airbnb, cabaña, hostal) — no hace falta equipo de acampe para esos tramos. **Las 17 noches son en cama: no hay ninguna noche de bus.**
 
