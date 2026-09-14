@@ -67,7 +67,7 @@
       ],
       "owner": "Sebastian",
       "deadline": null,
-      "resolution": "Asignadas en v2 (calendario día por día). Quedan abiertas: trek del 24 nov y distribución en Ushuaia (D-08, D-09)"
+      "resolution": "Asignadas en v2 (calendario día por día). Quedan abiertas: trek del 26 nov y distribución en Ushuaia (D-08, D-09)"
     },
     {
       "id": "D-06",
@@ -99,9 +99,9 @@
     },
     {
       "id": "D-08",
-      "title": "Trek del 24 nov en Chaltén",
+      "title": "Trek del 26 nov en Chaltén",
       "status": "pending",
-      "context": "Segundo día de trek después de Fitz Roy. Pliegue Tumbado (19 km · 1.100 m · 7-8 h) es la recomendación del doc v2; Laguna Torre (18 km · casi plano · 6 h) es la opción suave.",
+      "context": "Segundo día de trek después de Fitz Roy (26 nov, tras el Fitz Roy del 25). Pliegue Tumbado (19 km · 1.100 m · 7-8 h) es la recomendación del doc v2; Laguna Torre (18 km · casi plano · 6 h) es la opción suave.",
       "options": [
         "Loma del Pliegue Tumbado",
         "Laguna Torre"

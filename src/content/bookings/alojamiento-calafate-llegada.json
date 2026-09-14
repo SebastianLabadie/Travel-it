@@ -1,7 +1,7 @@
 {
   "id": "alojamiento-calafate-llegada",
   "category": "accommodation",
-  "title": "Alojamiento El Calafate · llegada (21–22 nov · 1 noche)",
+  "title": "Alojamiento El Calafate · llegada + Perito Moreno (21–24 nov · 3 noches)",
   "urgency": "alta-ya",
   "status": "pendiente",
   "deadline": "2026-09-30",
@@ -11,6 +11,6 @@
     "perPerson": true
   },
   "destination": "calafate",
-  "notes": "Con estacionamiento. Evaluar el mismo lugar para las tres estadías.",
+  "notes": "Airbnb con cocina y estacionamiento cerca de Av. del Libertador. Check-in tardío el 21 (llegada 18:35). Evaluar el mismo lugar para la escala del 3 dic.",
   "owner": "batman"
 }

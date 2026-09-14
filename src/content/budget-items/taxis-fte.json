@@ -1,7 +1,7 @@
 {
   "id": "taxis-fte",
   "cat": "transfer",
-  "label": "Taxis FTE ⇄ pueblo (21 nov, 3 dic, 4 dic)",
+  "label": "Taxis FTE ⇄ pueblo (21 nov, 22 nov, 3 dic, 4 dic)",
   "perPerson": false,
   "range": [
     40,

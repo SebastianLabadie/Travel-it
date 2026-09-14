@@ -5,18 +5,13 @@
   "items": [
     {
       "id": "a10",
-      "label": "Calafate · llegada 21 nov (1 noche)",
-      "note": "Con estacionamiento"
+      "label": "Calafate · 21–24 nov (3 noches)",
+      "note": "Con cocina y estacionamiento · check-in tardío el 21"
     },
     {
       "id": "a11",
-      "label": "Chaltén · 22–26 nov (4 noches)",
+      "label": "Chaltén · 24–28 nov (4 noches)",
       "note": "Con estacionamiento · lo más difícil de conseguir"
-    },
-    {
-      "id": "a12",
-      "label": "Calafate · 26–28 nov (2 noches)",
-      "note": "Con cocina y estacionamiento"
     },
     {
       "id": "a13",
