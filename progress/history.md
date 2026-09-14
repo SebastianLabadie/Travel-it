@@ -169,3 +169,32 @@ Bitácora append-only. Cada sesión cerrada se vuelca acá con fecha, feature, r
 
 **Próximos pasos:**
 - Elegir siguiente feature pendiente (F-03 PWA offline tiene prioridad high).
+
+---
+
+## 2026-09-12 — F-12 Sync itinerario v2 + timeline horaria + responsables por zona
+
+**Feature:** F-12 — Sync itinerario v2 + timeline horaria + responsables por zona
+**SDD change:** —
+**Resultado:** Implementación completa en dos work units (WU-1 data sync, WU-2 `/timeline` + `/equipo`). Mergeada.
+**PR:** #17
+**Reportes:** `progress/impl_f-12-data.md`, `progress/impl_f-12-ui.md`
+
+**Hecho:**
+- WU-1: content collections (destinations, days, routes, bookings, budget-items, checklist-items), hard-codes de UI (nav, home, itinerario, mapa, presupuesto) y harness (feature_list, decisions, AGENTS, README) sincronizados con `docs/Patagonia_2026_v2.md` + Compras_v2 + Equipaje_v2.
+- WU-2: página `/timeline` (colección `schedule`, 18 días, 81 slots) y página `/equipo` (colección `team`, 4 responsables); `bookings.owner` opcional; tabs 06/07 en TopNav y TabBar.
+
+**Decisiones tomadas:**
+- Punta Arenas eliminado (destination, imagen, rutas, bookings, budget). Ushuaia pasa a `06-ushuaia.json` con `order: 5`.
+- Día crítico pasa del 4 dic al 3 dic (catamarán + 7 h de auto). Home, itinerario y mapa derivan el slug crítico de `days[].critical`.
+- Rutas con prefijo numérico (1..6); `getRoutes` ordena por id; el mapa animado avanza un cursor de rutas (El Calafate tiene dos salidas).
+- Checklist con ids nuevos (t10+, a10+, ac10+) para no arrastrar checks de localStorage; categoría nueva `camping`.
+- Presupuesto: pax default 4, toggle 4/5. Lodging = `stay.range × nights`.
+- Stats del timeline calculadas, no hard-codeadas (días de auto, horas al volante, vuelos, catamaranes, tramos con mochila).
+- Sin hex inline en componentes nuevos (`color-mix()` sobre tokens). `/equipo` estático, sin `client:*`.
+- Nav con 7 tabs: labels mobile `TRAZA` / `LISTA`; TopNav oculta prefijo `NN ·` hasta 1600px y el meta hasta 1440px.
+
+**Pendiente heredado:**
+- Precio real de vuelos internacionales en `budget-items/vuelos-ida-vuelta.json`.
+- `PaxToggle.tsx` conserva `borderRadius: 4` (preexistente).
+- Reconsiderar labels mobile `TRAZA` / `LISTA` si al grupo no le cierran.
