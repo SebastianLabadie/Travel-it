@@ -18,6 +18,16 @@ npm run build    # build estático a ./dist/
 npm run preview  # preview del build antes de deployar
 ```
 
+### Variables de entorno
+
+El mapa usa tiles de CARTO, que requieren API key ([carto.com/basemaps/apikey](https://carto.com/basemaps/apikey)). Crear un `.env` en la raíz:
+
+```bash
+PUBLIC_CARTO_API_KEY=your_key
+```
+
+La key se inyecta en el bundle al compilar, así que en el hosting debe configurarse como variable de **build**. Restringirla por dominio en el panel de CARTO.
+
 ### Verificación de tipos
 
 ```bash
@@ -120,6 +130,6 @@ npm run build   # genera dist/
 - [Astro](https://astro.build) — framework SSG
 - [Preact](https://preactjs.com) — islands de interactividad
 - [Leaflet](https://leafletjs.com) — mapa interactivo
-- [CARTO Voyager](https://carto.com/basemaps/) — tiles del mapa (sin token)
+- [CARTO Voyager](https://carto.com/basemaps/) — tiles del mapa (requiere `PUBLIC_CARTO_API_KEY`)
 - [Zustand](https://zustand-demo.pmnd.rs) — estado del checklist
 - [Zod](https://zod.dev) — validación de schemas en build
