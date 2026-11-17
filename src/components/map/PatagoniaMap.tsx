@@ -3,7 +3,7 @@
  * Preact island — Leaflet 1.9.4 map of the Patagonia 2026 route.
  *
  * Hydration: client:only="preact" (Leaflet is DOM-imperative; no SSR)
- * Tile provider: CARTO Voyager (no token)
+ * Tile provider: CARTO Voyager (API key via PUBLIC_CARTO_API_KEY)
  * Fallback tile: https://tile.openstreetmap.org/{z}/{x}/{y}.png (swap single line)
  *
  * Props:
@@ -84,9 +84,10 @@ export default function PatagoniaMap({
         { padding: [12, 12] }
       );
 
-      // CARTO Voyager tiles — AC-F1-01
+      // CARTO Voyager tiles — AC-F1-01 (requires PUBLIC_CARTO_API_KEY)
+      const cartoKey = import.meta.env.PUBLIC_CARTO_API_KEY ?? '';
       L.tileLayer(
-        'https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png',
+        `https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png?key=${encodeURIComponent(cartoKey)}`,
         { subdomains: 'abcd', maxZoom: 12, minZoom: 4 }
       ).addTo(map);
 
